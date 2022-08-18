@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>727538122615-87mq82167s0gq4ro3nsaf4rgk6hr0nbq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.727538122615-87mq82167s0gq4ro3nsaf4rgk6hr0nbq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCowbuzBBiW7y-UGrC6_DX5fTrEfuniaF4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>727538122615</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lott.SceneApp3</string>
+	<key>PROJECT_ID</key>
+	<string>sceneapp-48eb8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sceneapp-48eb8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:727538122615:ios:6d47ca3275b24705642b72</string>
+</dict>
+</plist>

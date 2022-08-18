@@ -11,7 +11,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="e2d-Ih-TAW">
             <objects>
-                <viewController id="FhP-V3-AVr" customClass="SignInViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FhP-V3-AVr" customClass="SignInViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bc9-ZL-g1u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,13 +33,15 @@
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-OO-E1c">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
-                                                        <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ple-DV-l8v">
                                                         <rect key="frame" x="0.0" y="46" width="354" height="34"/>
-                                                        <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
@@ -48,12 +50,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGZ-cI-2B7">
                                                 <rect key="frame" x="107.5" y="88" width="139.5" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
+                                                    <color key="baseForegroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-QI-2L8">
                                                 <rect key="frame" x="143" y="127" width="68" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Sign In">
+                                                    <color key="baseBackgroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lo-7H-n8O">
                                                 <rect key="frame" x="0.0" y="166" width="354" height="2"/>
@@ -68,7 +74,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZ9-hS-z1b">
                                                 <rect key="frame" x="115" y="176" width="124.5" height="31"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Create Account">
+                                                    <color key="baseForegroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <segue destination="BYZ-38-t0r" kind="show" id="Qag-wW-vhz"/>
                                                 </connections>
@@ -108,7 +116,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CreateAccountViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CreateAccountViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +154,9 @@
                                                 </segments>
                                                 <color key="tintColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="selectedSegmentTintColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <connections>
+                                                    <action selector="typeSelectorAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Yro-hT-FMK"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <constraints>
@@ -155,19 +166,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kt3-a1-MFg">
                                         <rect key="frame" x="0.0" y="312.5" width="354" height="235"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-PG-Rfm">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-PG-Rfm">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
-                                                <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="g38-1P-Q7k"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="given-name"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pPF-Qz-dWs">
                                                 <rect key="frame" x="0.0" y="50" width="354" height="35"/>
-                                                <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="odS-Pi-Vop"/>
                                                 </constraints>
@@ -177,7 +188,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjA-tF-7XO">
                                                 <rect key="frame" x="0.0" y="100" width="354" height="35"/>
-                                                <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="hTl-jx-gc3"/>
                                                 </constraints>
@@ -187,7 +198,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-T5-Ecx">
                                                 <rect key="frame" x="0.0" y="150" width="354" height="35"/>
-                                                <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Ahr-Cq-rg1"/>
                                                 </constraints>
@@ -195,9 +206,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUJ-OJ-B2m">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUJ-OJ-B2m">
                                                 <rect key="frame" x="0.0" y="200" width="354" height="35"/>
-                                                <color key="backgroundColor" red="0.70318597559999996" green="0.71473842860000003" blue="0.8392315507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="zDg-hb-zo9"/>
                                                 </constraints>
@@ -216,6 +227,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Create Account">
                                             <color key="baseBackgroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="CreateAccountAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bI5-D6-y0h"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -234,6 +248,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LWA-A2-lh9"/>
+                    <connections>
+                        <outlet property="cityField" destination="XUJ-OJ-B2m" id="h9P-Ml-aug"/>
+                        <outlet property="emailField" destination="gjA-tF-7XO" id="6Nc-Qy-v8B"/>
+                        <outlet property="firstNameField" destination="8nj-PG-Rfm" id="FMD-RS-E3b"/>
+                        <outlet property="passwordField" destination="TfA-T5-Ecx" id="VAL-6M-cRL"/>
+                        <outlet property="typeSelector" destination="qDu-Jq-LrF" id="hQc-dd-ZSW"/>
+                        <outlet property="usernameField" destination="pPF-Qz-dWs" id="fBW-kw-5UQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

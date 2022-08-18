@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController {
     @IBOutlet weak var typeSelector: UISegmentedControl!
@@ -14,6 +16,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +39,34 @@ class CreateAccountViewController: UIViewController {
             cityField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
         }
-        //check if password is 
         return nil
     }
     @IBAction func CreateAccountAction(_ sender: Any) {
         //validate fields
-        
+        let error = validateFields()
+        if error != nil {
+            showError(error!)
+        } else {
         //create the user
-        
+            Auth.auth().createUser(withEmail: "", password: "") { result, err in
+                
+                //check for errors
+                if err != nil {
+                    //there was an error
+                    self.showError("Error creating account.")
+                } else {
+                    //user created sucessfully. store information
+                    let db = Firestore.firestore()
+                }
+            }
+            
         //transition to the home screen
+            
+        }
+    }
+    func showError(_ message:String) {
+        errorLabel.text = message
+        errorLabel.isHidden = false
     }
     
 

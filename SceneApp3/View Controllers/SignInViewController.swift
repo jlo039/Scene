@@ -36,18 +36,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         let errMsg = validateFields()
         if errMsg != nil {
             showError(errMsg!)
-        }
-        
-        //clean inputs
-        let email = EmailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = PasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        //sign in the user
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                self.showError((error?.localizedDescription)!)
-            } else {
-                self.transitionToHome()
+        } else {
+            
+            //clean inputs
+            let email = EmailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = PasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            //sign in the user
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if error != nil {
+                    self.showError((error?.localizedDescription)!)
+                } else {
+                    self.transitionToHome()
+                }
             }
         }
     }
@@ -61,7 +62,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     func showError(_ message:String) {
         errorLabel.text = message
-        errorLabel.isHidden = false
+        errorLabel.alpha = 1
     }
     
     func transitionToHome() {

@@ -92,7 +92,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     func showError(_ message:String) {
         errorLabel.text = message
-        errorLabel.isHidden = false
+        errorLabel.alpha = 1
     }
     
     func transitionToHome() {

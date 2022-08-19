@@ -39,15 +39,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             print("venue")
         }
     }
-    //check to make sure the fields are correct. Returns nil if everything is correct and the error message if not.
-    private func validateFields() -> String? {
-        //check that all fields are filled
-        if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            cityField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            return "Please fill in all fields."
-        }
-        return nil
-    }
+    
     @IBAction func CreateAccountAction(_ sender: Any) {
         //validate fields
         let error = validateFields()
@@ -67,7 +59,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 //check for errors
                 if err != nil {
                     //there was an error
-                    self.showError("Error creating account.")
+                    let errorMsg = err?.localizedDescription
+                    self.showError(errorMsg!)
                 } else {
                     //user created sucessfully. store information
                     let db = Firestore.firestore()
@@ -86,10 +79,22 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+    
+    //check to make sure the fields are correct. Returns nil if everything is correct and the error message if not.
+    func validateFields() -> String? {
+        //check that all fields are filled
+        if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || usernameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            cityField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Please fill in all fields."
+        }
+        return nil
+    }
+    
     func showError(_ message:String) {
         errorLabel.text = message
         errorLabel.isHidden = false
     }
+    
     func transitionToHome() {
         let homeScreenViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.homeScreenViewController) as? HomeScreenViewController
         

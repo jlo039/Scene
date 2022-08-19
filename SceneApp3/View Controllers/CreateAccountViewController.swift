@@ -32,11 +32,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func typeSelectorAction(_ sender: Any) {
         if typeSelector.selectedSegmentIndex == 0 {
-            print("user")
+            
         } else if typeSelector.selectedSegmentIndex == 1 {
-            print("artist")
+            
         } else {
-            print("venue")
+            
         }
     }
     

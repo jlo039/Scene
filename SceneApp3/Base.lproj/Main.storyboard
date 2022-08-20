@@ -127,7 +127,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lmj-LT-0qy"/>
-                        <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ZxJ-U6-oTG" firstAttribute="centerY" secondItem="Bc9-ZL-g1u" secondAttribute="centerY" id="ehD-B4-WEV"/>
                             <constraint firstItem="ZxJ-U6-oTG" firstAttribute="leading" secondItem="Bc9-ZL-g1u" secondAttribute="leading" id="jHK-rg-u4h"/>
@@ -154,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-e0-zyk" userLabel="Create Account Stack">
-                                <rect key="frame" x="0.0" y="167.5" width="414" height="561"/>
+                                <rect key="frame" x="0.0" y="165" width="414" height="566"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Scene" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeB-2M-UBU">
                                         <rect key="frame" x="30" y="0.0" width="354" height="100"/>
@@ -165,11 +165,11 @@
                                         <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yae-Uv-8La" userLabel="Create Account Interactive Stack">
-                                        <rect key="frame" x="30" y="100" width="354" height="461"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yae-Uv-8La" userLabel="Create Account Interactive Stack">
+                                        <rect key="frame" x="30" y="100" width="354" height="466"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-B7-Sjl" userLabel="Account Type Stack">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="71.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-B7-Sjl" userLabel="Account Type Stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="61.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ou-7R-mVV">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
@@ -178,7 +178,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-Jq-LrF">
-                                                        <rect key="frame" x="0.0" y="40.5" width="354" height="32"/>
+                                                        <rect key="frame" x="0.0" y="30.5" width="354" height="32"/>
                                                         <segments>
                                                             <segment title="User"/>
                                                             <segment title="Artist"/>
@@ -197,7 +197,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kt3-a1-MFg" userLabel="Text Field Stack View">
-                                                <rect key="frame" x="0.0" y="91.5" width="354" height="215"/>
+                                                <rect key="frame" x="0.0" y="86.5" width="354" height="215"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-PG-Rfm">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
@@ -265,7 +265,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHl-0X-mhN">
-                                                <rect key="frame" x="158.5" y="381" width="37" height="80"/>
+                                                <rect key="frame" x="158.5" y="386" width="37" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="cgc-jc-2jB"/>
                                                 </constraints>
@@ -291,7 +291,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.81205159429999996" green="0.81098765129999995" blue="0.84706372019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9z-e0-zyk" secondAttribute="trailing" id="Rfr-nN-gnt"/>
                             <constraint firstItem="h9z-e0-zyk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="txl-Ic-WHz"/>
@@ -456,7 +456,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SceneLogo_Full" width="4614" height="1800"/>
+        <image name="SceneLogo_Full" width="1538" height="600"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

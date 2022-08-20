@@ -22,8 +22,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        EmailTextField.resignFirstResponder()
-        return PasswordTextField.resignFirstResponder()
+        //EmailTextField.resignFirstResponder()
+        //return PasswordTextField.resignFirstResponder()
+        switch textField {
+        case self.EmailTextField:
+            self.PasswordTextField.becomeFirstResponder()
+        default:
+            self.PasswordTextField.resignFirstResponder()
+        }
+        return false
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

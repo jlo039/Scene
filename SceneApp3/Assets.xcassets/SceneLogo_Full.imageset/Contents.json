@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Scene_FullLogo.jpg",
+      "filename" : "full-logo_1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "full-logo_2.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "full-logo_3.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

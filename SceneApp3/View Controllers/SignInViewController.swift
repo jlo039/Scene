@@ -22,15 +22,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //EmailTextField.resignFirstResponder()
-        //return PasswordTextField.resignFirstResponder()
         switch textField {
         case self.EmailTextField:
-            self.PasswordTextField.becomeFirstResponder()
+            return self.PasswordTextField.becomeFirstResponder()
         default:
-            self.PasswordTextField.resignFirstResponder()
+            SignInAction(self)
+            return self.PasswordTextField.resignFirstResponder()
         }
-        return false
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -54,7 +52,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 if error != nil {
                     self.showError((error?.localizedDescription)!)
                 } else {
-                    self.transitionToHome()
+                    //self.transitionToHome()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
             }
         }

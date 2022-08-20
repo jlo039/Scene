@@ -11,7 +11,7 @@ class HomeScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBarController?.selectedIndex = 0
         // Do any additional setup after loading the view.
     }
     

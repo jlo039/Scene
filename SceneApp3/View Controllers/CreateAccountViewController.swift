@@ -27,6 +27,21 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         self.cityField.delegate = self
         // Do any additional setup after loading the view.
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.firstNameField:
+            return self.usernameField.becomeFirstResponder()
+        case self.usernameField:
+            return self.emailField.becomeFirstResponder()
+        case self.emailField:
+            return self.passwordField.becomeFirstResponder()
+        case self.passwordField:
+            return self.cityField.becomeFirstResponder()
+        default:
+            CreateAccountAction(self)
+            return self.cityField.resignFirstResponder()
+        }
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -39,6 +54,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+    
     
     @IBAction func CreateAccountAction(_ sender: Any) {
         //validate fields
@@ -72,7 +88,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                         }
                     }
                     //transition to the home screen
-                    self.transitionToHome()
+                    //self.transitionToHome()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
             }
             
@@ -96,10 +115,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
     
     func transitionToHome() {
-        let homeScreenViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.homeScreenViewController) as? HomeScreenViewController
+        /*let homeScreenViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.homeScreenViewController) as? HomeScreenViewController
         
         view.window?.rootViewController = homeScreenViewController
-        view.window?.makeKeyAndVisible()
+        view.window?.makeKeyAndVisible()*/
+        //self.performSegue(withIdentifier: "enterHomeScreen", sender: self)
     }
     
 

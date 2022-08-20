@@ -15,6 +15,7 @@
 		8855B0B928AD7AD10069795F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */; };
 		8855B0C128AD85270069795F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0C028AD85270069795F /* SignInViewController.swift */; };
 		8855B0C328AD853A0069795F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0C228AD853A0069795F /* CreateAccountViewController.swift */; };
+		889CFB3028B097EA000FF028 /* AccountTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CFB2F28B097EA000FF028 /* AccountTabViewController.swift */; };
 		88B1EF4328ADD211006C3B57 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 88B1EF4228ADD210006C3B57 /* FirebaseFirestore */; };
 		88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */; };
 		88E2E1C728ADDDF10009985D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2E1C628ADDDF10009985D /* Constants.swift */; };
@@ -34,6 +35,7 @@
 		8855B0BA28AD7AD10069795F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8855B0C028AD85270069795F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8855B0C228AD853A0069795F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		889CFB2F28B097EA000FF028 /* AccountTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewController.swift; sourceTree = "<group>"; };
 		88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		88E2E1C628ADDDF10009985D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				8855B0C228AD853A0069795F /* CreateAccountViewController.swift */,
+				889CFB2F28B097EA000FF028 /* AccountTabViewController.swift */,
 				8855B0C028AD85270069795F /* SignInViewController.swift */,
 				88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */,
 			);
@@ -181,6 +184,7 @@
 				8855B0C128AD85270069795F /* SignInViewController.swift in Sources */,
 				8855B0B128AD7AD00069795F /* ViewController.swift in Sources */,
 				8855B0AD28AD7AD00069795F /* AppDelegate.swift in Sources */,
+				889CFB3028B097EA000FF028 /* AccountTabViewController.swift in Sources */,
 				88E2E1C728ADDDF10009985D /* Constants.swift in Sources */,
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,

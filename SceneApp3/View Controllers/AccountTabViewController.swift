@@ -1,27 +1,22 @@
 //
-//  HomeScreenViewController.swift
+//  AccountTabViewController.swift
 //  SceneApp3
 //
-//  Created by Jason Lott on 8/17/22.
+//  Created by Jason Lott on 8/20/22.
 //
 
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class HomeScreenViewController: UIViewController {
+class AccountTabViewController: UIViewController {
+
+    @IBOutlet weak var displayNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.selectedIndex = 0
-        let currentUserDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
-        //let currentUserInfo = Task.detached {
-            //return try await currentUserDoc.getDocument().data()!
-
-        //}
-        print(Auth.auth().currentUser!.uid)
         
-        
+        displayNameLabel.text = Auth.auth().currentUser?.email
         // Do any additional setup after loading the view.
     }
     

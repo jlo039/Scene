@@ -361,7 +361,7 @@
         <!--Account-->
         <scene sceneID="nfu-Wp-Wmu">
             <objects>
-                <viewController id="Hl5-2p-gU7" sceneMemberID="viewController">
+                <viewController id="Hl5-2p-gU7" customClass="AccountTabViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kNe-Ap-s28">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,6 +381,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="kJU-Gp-iKb"/>
+                    <connections>
+                        <outlet property="displayNameLabel" destination="Mpb-LQ-1AR" id="muO-Ge-vKt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

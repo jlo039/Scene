@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseCore
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -53,6 +54,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     self.showError((error?.localizedDescription)!)
                 } else {
                     //self.transitionToHome()
+                    let db = Firestore.firestore()
+                    /*try {
+                        let userID: String? = Auth.auth().currentUser?.getIDToken()
+                        let userDoc = db.collection("users/" + userID!).document() .getDocument()
+                        let currentFirstName = userDoc.get("firstName")
+                        print("currentFirstName")
+                    }*/
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)

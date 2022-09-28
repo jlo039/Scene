@@ -14,13 +14,11 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.selectedIndex = 0
-        let currentUserDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+//        let currentUserDoc = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
         //let currentUserInfo = Task.detached {
             //return try await currentUserDoc.getDocument().data()!
 
         //}
-        print(Auth.auth().currentUser!.uid)
-        
         
         // Do any additional setup after loading the view.
     }

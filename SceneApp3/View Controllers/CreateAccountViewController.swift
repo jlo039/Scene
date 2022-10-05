@@ -84,7 +84,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     db.collection("users").addDocument(data: ["firstName" : firstName, "username" : username, "location" : city, "type" : type, "uid" : result!.user.uid]) { error in
                         if error != nil {
                             //show error messsage
-                            self.showError("Error saving user data.")
+                            let errorMsg = error?.localizedDescription
+                            self.showError(errorMsg!)
                         }
                     }
                     //transition to the home screen

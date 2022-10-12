@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ZV-qt-dDc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ZV-qt-dDc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,6 +63,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                                     <color key="baseForegroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="awx-5g-04t" kind="show" id="5KY-xf-sSf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-QI-2L8">
                                                 <rect key="frame" x="139" y="155" width="76" height="35"/>
@@ -318,7 +321,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="958"/>
+            <point key="canvasLocation" x="368" y="582"/>
+        </scene>
+        <!--Forgot Password-->
+        <scene sceneID="8Ve-XJ-jZF">
+            <objects>
+                <viewController id="awx-5g-04t" customClass="ForgotPassword" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lyO-FK-Afm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="fV0-uY-uHf">
+                                <rect key="frame" x="30" y="136" width="354" height="201"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter email adress to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6r-m4-8B0">
+                                        <rect key="frame" x="37" y="0.0" width="280" height="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.30523914099999999" green="0.38811838630000001" blue="0.69949585199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2X-Bm-bDg">
+                                        <rect key="frame" x="0.0" y="46" width="354" height="34"/>
+                                        <color key="backgroundColor" red="0.85065573449999998" green="0.85361224410000003" blue="0.92421764139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.30523914099999999" green="0.38811838630000001" blue="0.69949585199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCI-b5-p1r">
+                                        <rect key="frame" x="138" y="113" width="78" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                            <color key="baseForegroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseBackgroundColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="submitB:" destination="awx-5g-04t" eventType="touchUpInside" id="Ds4-Ts-UiK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If5-SZ-PX8">
+                                        <rect key="frame" x="156.5" y="180.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="W6r-m4-8B0" firstAttribute="centerX" secondItem="fV0-uY-uHf" secondAttribute="centerX" id="9hd-sQ-mDw"/>
+                                    <constraint firstItem="Z2X-Bm-bDg" firstAttribute="leading" secondItem="fV0-uY-uHf" secondAttribute="leading" id="J6U-QO-gyZ"/>
+                                    <constraint firstItem="Z2X-Bm-bDg" firstAttribute="centerX" secondItem="fV0-uY-uHf" secondAttribute="centerX" id="aD3-lW-Psv"/>
+                                    <constraint firstItem="If5-SZ-PX8" firstAttribute="centerX" secondItem="fV0-uY-uHf" secondAttribute="centerX" id="dcb-IK-9ZC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z2X-Bm-bDg" secondAttribute="trailing" id="fE9-fX-PQD"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fqy-TS-Q0y"/>
+                        <color key="backgroundColor" red="0.85065573449999998" green="0.85361224410000003" blue="0.92421764139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fV0-uY-uHf" firstAttribute="centerX" secondItem="lyO-FK-Afm" secondAttribute="centerX" id="4Ia-mi-YCt"/>
+                            <constraint firstItem="fV0-uY-uHf" firstAttribute="leading" secondItem="fqy-TS-Q0y" secondAttribute="leading" constant="30" id="Fjq-7M-tjN"/>
+                            <constraint firstItem="fqy-TS-Q0y" firstAttribute="trailing" secondItem="fV0-uY-uHf" secondAttribute="trailing" constant="30" id="n9l-FO-9zD"/>
+                            <constraint firstItem="fqy-TS-Q0y" firstAttribute="bottom" secondItem="fV0-uY-uHf" secondAttribute="bottom" constant="525" id="wFT-P7-1vH"/>
+                            <constraint firstItem="fV0-uY-uHf" firstAttribute="top" secondItem="fqy-TS-Q0y" secondAttribute="top" constant="44" id="wjO-SF-lLf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zlA-z0-1lt"/>
+                    <connections>
+                        <outlet property="emailTF" destination="Z2X-Bm-bDg" id="K8l-xi-1Rb"/>
+                        <outlet property="errorL" destination="If5-SZ-PX8" id="Orc-gi-CzJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5v-oS-B4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="1311"/>
         </scene>
         <!--Post-->
         <scene sceneID="Evw-sX-nt6">
@@ -436,10 +510,10 @@
             </objects>
             <point key="canvasLocation" x="3338" y="958"/>
         </scene>
-        <!--Home Screen View Controller.swift-->
+        <!--Tab Bar Controller-->
         <scene sceneID="DcW-Ho-dvJ">
             <objects>
-                <tabBarController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ql-ZQ-MTC" customClass="HomeScreenViewController.swift" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ql-ZQ-MTC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="eFd-F9-i3g"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -490,6 +564,9 @@
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

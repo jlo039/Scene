@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class ForgotPassword: UIViewController{
+class ForgotPassword: UIViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +17,24 @@ class ForgotPassword: UIViewController{
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var errorL: UILabel!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        submitB(self)
+        return self.emailTF.resignFirstResponder()
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     @IBAction func submitB(_ sender: Any) {
+        print("worked")
         let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if (error != nil) {
                 let errorMsg = error?.localizedDescription
                 self.showError(errorMsg!)
+            } else {
+                self.errorL.textColor = UIColor.black
+                self.showError("Password reset email was sent!")
             }
         }
     }

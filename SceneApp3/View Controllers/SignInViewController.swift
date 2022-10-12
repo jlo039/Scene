@@ -37,7 +37,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func SignInAction(_ sender: Any) {
-        
         //validate text fields
         let errMsg = validateFields()
         if errMsg != nil {
@@ -53,14 +52,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 if error != nil {
                     self.showError((error?.localizedDescription)!)
                 } else {
-                    //self.transitionToHome()
-                    let db = Firestore.firestore()
-                    /*try {
-                        let userID: String? = Auth.auth().currentUser?.getIDToken()
-                        let userDoc = db.collection("users/" + userID!).document() .getDocument()
-                        let currentFirstName = userDoc.get("firstName")
-                        print("currentFirstName")
-                    }*/
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
@@ -87,7 +78,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         view.window?.rootViewController = homeScreenViewController
         view.window?.makeKeyAndVisible()
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -95,6 +86,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

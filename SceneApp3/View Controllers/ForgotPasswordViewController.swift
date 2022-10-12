@@ -1,14 +1,13 @@
 //
-//  ForgotPassord.swift
+//  ForgotPasswordViewController.swift
 //  SceneApp3
 //
-//  Created by Jason Samuel Lott on 10/5/22.
+//  Created by Jason Lott on 10/12/22.
 //
-
 import UIKit
 import FirebaseAuth
 
-class ForgotPassword: UIViewController, UITextFieldDelegate{
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,6 @@ class ForgotPassword: UIViewController, UITextFieldDelegate{
     }
 
     @IBAction func submitB(_ sender: Any) {
-        print("worked")
         let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if (error != nil) {
@@ -39,12 +37,13 @@ class ForgotPassword: UIViewController, UITextFieldDelegate{
         }
     }
     
+    
     func showError(_ message:String) {
         errorL.text = message
         errorL.alpha = 1
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -52,6 +51,7 @@ class ForgotPassword: UIViewController, UITextFieldDelegate{
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
+

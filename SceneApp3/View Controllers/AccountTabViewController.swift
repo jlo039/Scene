@@ -11,12 +11,20 @@ import FirebaseFirestore
 
 class AccountTabViewController: UIViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var accountTypeLabel: UILabel!
+    
+    @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        basicInfoStack
+        
+        profileImageView.image = UIImage(named:"AppIcon")
         displayNameLabel.text = Auth.auth().currentUser?.email
+        accountTypeLabel.text = "";
         // Do any additional setup after loading the view.
     }
     

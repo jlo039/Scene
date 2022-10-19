@@ -100,7 +100,7 @@
                                                     <color key="baseForegroundColor" red="0.85098040100000005" green="0.85490196939999996" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="E20-HK-AYX" kind="show" id="WhP-pg-nLT"/>
+                                                    <segue destination="E20-HK-AYX" kind="show" id="2Sa-Fx-oln"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAF-DG-Crc">
@@ -572,8 +572,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="72" translatesAutoresizingMaskIntoConstraints="NO" id="sQ2-9k-fqm">
-                                <rect key="frame" x="30" y="83" width="354" height="441.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="sQ2-9k-fqm">
+                                <rect key="frame" x="30" y="128" width="354" height="205.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIa-8g-sdu">
                                         <rect key="frame" x="117.5" y="0.0" width="119.5" height="20.5"/>
@@ -582,22 +582,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Zm-Ltw" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92.5" width="354" height="34"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dhz-x0-4ZJ" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="198.5" width="354" height="34"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTu-t6-WaD" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="304.5" width="354" height="34"/>
+                                        <rect key="frame" x="0.0" y="127.5" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-Ey-xLH" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="410.5" width="354" height="31"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                         <connections>
@@ -623,6 +623,7 @@
                             <constraint firstItem="Phe-ud-Ifl" firstAttribute="trailing" secondItem="sQ2-9k-fqm" secondAttribute="trailing" constant="30" id="9GM-yu-N15"/>
                             <constraint firstItem="sQ2-9k-fqm" firstAttribute="leading" secondItem="Phe-ud-Ifl" secondAttribute="leading" constant="30" id="qoi-zM-rlV"/>
                             <constraint firstItem="sQ2-9k-fqm" firstAttribute="centerX" secondItem="NbG-f2-VEu" secondAttribute="centerX" id="uOA-aQ-Nh8"/>
+                            <constraint firstItem="sQ2-9k-fqm" firstAttribute="top" secondItem="Phe-ud-Ifl" secondAttribute="top" constant="40" id="yFG-Tm-klb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pVd-Av-DrG"/>
@@ -639,8 +640,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="WyJ-4G-m1t">
-                                <rect key="frame" x="29.5" y="92" width="355.5" height="218.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WyJ-4G-m1t">
+                                <rect key="frame" x="29.5" y="128" width="355.5" height="143.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What type of account would you like to create?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-F6-qot">
                                         <rect key="frame" x="0.0" y="0.0" width="355.5" height="20.5"/>
@@ -649,7 +650,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2d-UR-Rzf" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="355.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="355.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Member"/>
                                         <connections>
@@ -657,7 +658,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utj-RV-d9B" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="121.5" width="355.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="71.5" width="355.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Artist"/>
                                         <connections>
@@ -665,7 +666,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-0d-nac" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="187.5" width="355.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="112.5" width="355.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Venue"/>
                                         <connections>
@@ -688,6 +689,7 @@
                         <constraints>
                             <constraint firstItem="WyJ-4G-m1t" firstAttribute="leading" secondItem="4FX-U5-zOc" secondAttribute="leading" constant="29.25" id="3p7-FF-HLC"/>
                             <constraint firstItem="WyJ-4G-m1t" firstAttribute="centerX" secondItem="2zW-me-Fs0" secondAttribute="centerX" id="ADe-Sr-YYe"/>
+                            <constraint firstItem="WyJ-4G-m1t" firstAttribute="top" secondItem="4FX-U5-zOc" secondAttribute="top" constant="40" id="MmS-V7-90R"/>
                             <constraint firstItem="4FX-U5-zOc" firstAttribute="trailing" secondItem="WyJ-4G-m1t" secondAttribute="trailing" constant="29.25" id="WLh-B3-RvA"/>
                         </constraints>
                     </view>

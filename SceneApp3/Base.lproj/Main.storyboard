@@ -442,8 +442,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Za4-Hd-Hh4">
                                 <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-fX-DYN" userLabel="Top Info Stack">
-                                        <rect key="frame" x="10" y="0.0" width="374" height="174"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-fX-DYN" userLabel="Top Info Stack">
+                                        <rect key="frame" x="10" y="0.0" width="374" height="655"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="174"/>
@@ -452,7 +452,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-wd-MtY" userLabel="Basic Info Stack">
-                                                <rect key="frame" x="194" y="51" width="180" height="72"/>
+                                                <rect key="frame" x="194" y="0.0" width="180" height="72"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="150-ha-B4N">
                                                         <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
@@ -480,7 +480,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-1N-Enk">
-                                        <rect key="frame" x="0.0" y="174" width="394" height="531"/>
+                                        <rect key="frame" x="172" y="655" width="50" height="50"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -500,6 +500,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="kJU-Gp-iKb"/>
                     <connections>
+                        <outlet property="SafeArea" destination="Za4-Hd-Hh4" id="fqA-Mf-0H8"/>
+                        <outlet property="TopInfo" destination="GP9-fX-DYN" id="vBc-85-1W1"/>
                         <outlet property="accountTypeLabel" destination="sKG-ov-W6a" id="SO8-p6-QJT"/>
                         <outlet property="basicInfoStack" destination="UMw-wd-MtY" id="ydR-X5-BAh"/>
                         <outlet property="displayNameLabel" destination="150-ha-B4N" id="8NM-bh-BTk"/>

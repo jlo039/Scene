@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884A051C28F7809A00775C99 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884A051B28F7809A00775C99 /* ForgotPasswordViewController.swift */; };
 		8855B0AD28AD7AD00069795F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0AC28AD7AD00069795F /* AppDelegate.swift */; };
 		8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0AE28AD7AD00069795F /* SceneDelegate.swift */; };
 		8855B0B128AD7AD00069795F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0B028AD7AD00069795F /* ViewController.swift */; };
@@ -22,13 +23,15 @@
 		88EA8E1428ADA61200CBDD60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */; };
 		88EA8E1728ADA6D300CBDD60 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1628ADA6D300CBDD60 /* FirebaseAnalytics */; };
 		88EA8E1928ADA6D300CBDD60 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1828ADA6D300CBDD60 /* FirebaseAuth */; };
-		DE8B225628EE143600E8BF2F /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8B225528EE143600E8BF2F /* ForgotPassword.swift */; };
+		DE2B93D829008AD600875591 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B93D729008AD600875591 /* Button.swift */; };
 		DEC08EBC28E4E0C2001368F6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBB28E4E0C2001368F6 /* FirebaseAnalytics */; };
 		DEC08EBE28E4E0C2001368F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */; };
 		DEC08EC028E4E0C2001368F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBF28E4E0C2001368F6 /* FirebaseFirestore */; };
+		DEDACF2D2900824D00F33354 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDACF2C2900824D00F33354 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		884A051B28F7809A00775C99 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8855B0A928AD7AD00069795F /* SceneApp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SceneApp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8855B0AC28AD7AD00069795F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8855B0AE28AD7AD00069795F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +46,8 @@
 		88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		88E2E1C628ADDDF10009985D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DE8B225528EE143600E8BF2F /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		DEDACF2C2900824D00F33354 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +86,12 @@
 		8855B0AB28AD7AD00069795F /* SceneApp3 */ = {
 			isa = PBXGroup;
 			children = (
+				DEDACF2B2900816600F33354 /* Visual Classes */,
 				88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */,
 				8855B0AC28AD7AD00069795F /* AppDelegate.swift */,
 				8855B0AE28AD7AD00069795F /* SceneDelegate.swift */,
-				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
+				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
 				8855B0B528AD7AD10069795F /* Assets.xcassets */,
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
@@ -103,9 +108,18 @@
 				889CFB2F28B097EA000FF028 /* AccountTabViewController.swift */,
 				8855B0C028AD85270069795F /* SignInViewController.swift */,
 				88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */,
-				DE8B225528EE143600E8BF2F /* ForgotPassword.swift */,
+				884A051B28F7809A00775C99 /* ForgotPasswordViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DEDACF2B2900816600F33354 /* Visual Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DEDACF2C2900824D00F33354 /* TextField.swift */,
+				DE2B93D729008AD600875591 /* Button.swift */,
+			);
+			path = "Visual Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +209,15 @@
 			files = (
 				8855B0C328AD853A0069795F /* CreateAccountViewController.swift in Sources */,
 				8855B0C128AD85270069795F /* SignInViewController.swift in Sources */,
-				DE8B225628EE143600E8BF2F /* ForgotPassword.swift in Sources */,
 				8855B0B128AD7AD00069795F /* ViewController.swift in Sources */,
+				DEDACF2D2900824D00F33354 /* TextField.swift in Sources */,
 				8855B0AD28AD7AD00069795F /* AppDelegate.swift in Sources */,
 				889CFB3028B097EA000FF028 /* AccountTabViewController.swift in Sources */,
+				884A051C28F7809A00775C99 /* ForgotPasswordViewController.swift in Sources */,
 				88E2E1C728ADDDF10009985D /* Constants.swift in Sources */,
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
+				DE2B93D829008AD600875591 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

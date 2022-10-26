@@ -10,16 +10,16 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var firstNameField: TextField!
+    @IBOutlet weak var emailField: TextField!
+    @IBOutlet weak var usernameField: TextField!
+    @IBOutlet weak var passwordField: TextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var stageNameTF: TextField!
     @IBOutlet weak var venueNameTF: TextField!
     @IBOutlet weak var addressTF: TextField!
     
-    var type: Int = 0, firstName: String = "", email: String = "", password: String = ""
+    var type: Int = 0, firstName: String = "", email: String = "", password: String = "", username: String = "", stageName: String = "", venueName: String = "" ,address: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,9 +112,16 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         if error != nil {
             showError(error!)
         } else {
-            //clean data            //create the user
-            Auth.auth().createUser(withEmail: email, password: password) { result, err in
-
+            if usernameField != nil {
+                username = usernameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            } else if stageNameTF != nil {
+                stageName = stageNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            } else {
+                venueName = venueNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                address = addressTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            //create the user
+            Auth.auth().createUser(withEmail: email, password: password) { [self] result, err in
                 //check for errors
                 if err != nil {
                     //there was an error
@@ -123,14 +130,38 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     //user created sucessfully. store information
                     let db = Firestore.firestore()
-
-                    db.collection("users").addDocument(data: ["firstName" : firstName, "username" : username, "location" : city, "type" : type, "uid" : result!.user.uid]) { error in
-                        if error != nil {
-                            //show error messsage
-                            let errorMsg = error?.localizedDescription
-                            self.showError(errorMsg!)
+                    switch self.type {
+                    case 0:
+                        db.collection("users").addDocument(data: ["firstName" : self.firstName, "username" : self.username, "uid" : result!.user.uid]) { error in
+                            if error != nil {
+                                //show error messsage
+                                let errorMsg = error?.localizedDescription
+                                self.showError(errorMsg!)
+                            }
                         }
+                        break
+                    case 1:
+                        db.collection("artist").addDocument(data: ["firstName" : firstName, "stageName" : stageName, "uid" : result!.user.uid]) { error in
+                            if error != nil {
+                                //show error messsage
+                                let errorMsg = error?.localizedDescription
+                                self.showError(errorMsg!)
+                            }
+                        }
+                        break
+                    case 2:
+                        db.collection("venue").addDocument(data: ["firstName" : firstName, "venueName" : venueName, "address" : address,"uid" : result!.user.uid]) { error in
+                            if error != nil {
+                                //show error messsage
+                                let errorMsg = error?.localizedDescription
+                                self.showError(errorMsg!)
+                            }
+                        }
+                        break
+                    default :
+                        showError("Invalid account type.")
                     }
+
                     //transition to the home screen
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")

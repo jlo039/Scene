@@ -100,7 +100,7 @@
                                                     <color key="baseForegroundColor" red="0.85098040100000005" green="0.85490196939999996" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="7rg-0G-Bcv"/>
+                                                    <segue destination="E20-HK-AYX" kind="show" id="KUm-lj-rEN"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAF-DG-Crc">
@@ -156,165 +156,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tio-o6-rKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-394" y="958"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-e0-zyk" userLabel="Create Account Stack">
-                                <rect key="frame" x="0.0" y="167" width="414" height="562.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Scene" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeB-2M-UBU">
-                                        <rect key="frame" x="30" y="0.0" width="354" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="VnJ-9P-4ku"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <color key="textColor" red="0.32156863810000003" green="0.38431376220000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yae-Uv-8La" userLabel="Create Account Interactive Stack">
-                                        <rect key="frame" x="30" y="100" width="354" height="462.5"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-B7-Sjl" userLabel="Account Type Stack">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="61.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ou-7R-mVV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-Jq-LrF">
-                                                        <rect key="frame" x="0.0" y="30.5" width="354" height="32"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <segments>
-                                                            <segment title="User"/>
-                                                            <segment title="Artist"/>
-                                                            <segment title="Venue"/>
-                                                        </segments>
-                                                        <color key="tintColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <color key="selectedSegmentTintColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </segmentedControl>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="3Ou-7R-mVV" firstAttribute="trailing" secondItem="lVS-B7-Sjl" secondAttribute="trailing" id="3Yc-fv-ENM"/>
-                                                    <constraint firstItem="qDu-Jq-LrF" firstAttribute="leading" secondItem="lVS-B7-Sjl" secondAttribute="leadingMargin" id="QaI-L3-ZnY"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kt3-a1-MFg" userLabel="Text Field Stack View">
-                                                <rect key="frame" x="0.0" y="86.5" width="354" height="215"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-PG-Rfm" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="hyE-Wf-exF"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="given-name"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pPF-Qz-dWs" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="45" width="354" height="35"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="fxy-eG-hN8"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjA-tF-7XO" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="90" width="354" height="35"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="HCU-Tq-xzv"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-T5-Ecx" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="135" width="354" height="35"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="xxz-Dk-Tju"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUJ-OJ-B2m" customClass="TextField" customModule="SceneApp3" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="180" width="354" height="35"/>
-                                                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="Lta-Uh-ujv"/>
-                                                        </constraints>
-                                                        <color key="textColor" red="0.3226097524" green="0.38702508810000003" blue="0.67846184970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="address-level2"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-4e-Zr5" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="326.5" width="354" height="31"/>
-                                                <color key="backgroundColor" red="0.32156863810000003" green="0.38431376220000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Create Account">
-                                                    <color key="baseForegroundColor" red="0.85098040100000005" green="0.85490196939999996" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHl-0X-mhN">
-                                                <rect key="frame" x="158.5" y="382.5" width="37" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="cgc-jc-2jB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.036709969362763384" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Kt3-a1-MFg" firstAttribute="leading" secondItem="yae-Uv-8La" secondAttribute="leading" id="1VQ-oB-zba"/>
-                                            <constraint firstAttribute="trailing" secondItem="PyD-4e-Zr5" secondAttribute="trailing" id="6JZ-VF-9oy"/>
-                                            <constraint firstItem="lVS-B7-Sjl" firstAttribute="leading" secondItem="yae-Uv-8La" secondAttribute="leading" id="JKZ-am-3W1"/>
-                                            <constraint firstAttribute="trailing" secondItem="Kt3-a1-MFg" secondAttribute="trailing" id="RwF-5N-ALQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="lVS-B7-Sjl" secondAttribute="trailing" id="aRv-F5-BFR"/>
-                                            <constraint firstItem="PyD-4e-Zr5" firstAttribute="leading" secondItem="yae-Uv-8La" secondAttribute="leading" id="skC-8G-zL5"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="AeB-2M-UBU" secondAttribute="trailing" constant="30" id="BQ8-xi-UOB"/>
-                                    <constraint firstItem="AeB-2M-UBU" firstAttribute="leading" secondItem="h9z-e0-zyk" secondAttribute="leading" constant="30" id="Lbi-HF-zeH"/>
-                                    <constraint firstAttribute="trailing" secondItem="yae-Uv-8La" secondAttribute="trailing" constant="30" id="Sju-xZ-FpU"/>
-                                    <constraint firstItem="yae-Uv-8La" firstAttribute="leading" secondItem="h9z-e0-zyk" secondAttribute="leading" constant="30" id="dV7-tF-uUd"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h9z-e0-zyk" secondAttribute="trailing" id="Rfr-nN-gnt"/>
-                            <constraint firstItem="h9z-e0-zyk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="txl-Ic-WHz"/>
-                            <constraint firstItem="h9z-e0-zyk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wke-Fh-5lL"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="LWA-A2-lh9"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="typeSelector" destination="qDu-Jq-LrF" id="hQc-dd-ZSW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="368" y="582"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="SZr-pE-VwR">
@@ -389,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HP6-IU-3xq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="1288"/>
+            <point key="canvasLocation" x="-394" y="1720"/>
         </scene>
         <!--Post-->
         <scene sceneID="Evw-sX-nt6">
@@ -427,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4d-X3-T7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4051" y="958"/>
+            <point key="canvasLocation" x="4828" y="958"/>
         </scene>
         <!--Account-->
         <scene sceneID="nfu-Wp-Wmu">
@@ -506,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="958"/>
+            <point key="canvasLocation" x="2681" y="958"/>
         </scene>
         <!--Feed-->
         <scene sceneID="0J6-tN-JVy">
@@ -522,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-1N-WWo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="958"/>
+            <point key="canvasLocation" x="3397" y="958"/>
         </scene>
         <!--Explore-->
         <scene sceneID="5z8-yZ-oz3">
@@ -553,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZZ-UP-sjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3338" y="958"/>
+            <point key="canvasLocation" x="4114" y="958"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DcW-Ho-dvJ">
@@ -576,7 +417,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndN-pm-dJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="165"/>
+            <point key="canvasLocation" x="2681" y="165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ftI-mE-Dmv">
@@ -679,14 +520,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpl-8p-O1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-916" y="-1385"/>
+            <point key="canvasLocation" x="384" y="958"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="uFg-vy-TIc">
             <objects>
                 <viewController id="ckV-NI-gg2" customClass="CreateAccountViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2zW-me-Fs0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="WyJ-4G-m1t">
@@ -749,14 +590,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUd-fi-UhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="-1385"/>
+            <point key="canvasLocation" x="1074" y="958"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="rZL-sG-5BB">
             <objects>
                 <viewController id="aXt-Oe-EVb" customClass="CreateAccountViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVy-FT-Cj7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="Ab2-w6-oQz">
@@ -813,14 +654,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJO-Jf-aaW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434.78260869565219" y="-1385.4910714285713"/>
+            <point key="canvasLocation" x="1074" y="1720"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="94f-Ig-03i">
             <objects>
                 <viewController id="Wk5-2m-FiD" customClass="CreateAccountViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gFF-SI-36P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-lG-bjF">
@@ -877,14 +718,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eg-yx-yLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="-2052"/>
+            <point key="canvasLocation" x="439" y="1720"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="9jK-Rq-Kih">
             <objects>
                 <viewController id="2bm-fR-Skg" customClass="CreateAccountViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3r-Ua-Gm9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="BLu-e7-wWd">
@@ -949,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrX-Ha-J4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434.78260869565219" y="-721.20535714285711"/>
+            <point key="canvasLocation" x="1710" y="1720"/>
         </scene>
     </scenes>
     <resources>

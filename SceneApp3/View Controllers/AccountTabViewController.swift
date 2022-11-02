@@ -16,67 +16,40 @@ class AccountTabViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
+    @IBOutlet weak var realNameLabel: UILabel!
     
     @IBOutlet weak var InfoTest: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        //var safeX = SafeArea.frame.width
-        //var safeY = SafeArea.frame.height
         
+        // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profileImageView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
-        
+        // Apply constraint
         TopInfo.addConstraint(proPicConstraint)
         
-        profileImageView.image = UIImage(named:"AppIcon")
-        displayNameLabel.text = Auth.auth().currentUser?.uid
-        accountTypeLabel.text = "";
-        // Do any additional setup after loading the view.
-        
-        struct UserDocument {
-            var docID = ""
-            var uid = ""
-            var firstName = ""
-            var username = ""
-            var location = ""
-            var type = 0
-        }
-        
+        // Access Firestore database and current user
         let db = Firestore.firestore()
         let signedInUid = Auth.auth().currentUser?.uid
         
-        let docRef = db.collection("users").document(_: signedInUid!)
-        
-        
-        docRef.getDocument { (document, err) in
+        // Locate the current user's account
+        let docRef = db.collection("users").document(signedInUid!)
+        // Grab info from their account
+        docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print(dataDescription)
+                self.realNameLabel.text = document.get("firstName") as? String
+                self.displayNameLabel.text = document.get("username") as? String
             } else {
-                print("Does not exist")
+                print("Document does not exist")
             }
         }
         
-        /*
-        db.collection("users").getDocuments { (snapshot, err) in
-            if let err = err {
-                print("Error getting documents")
-            }
-            else {
-                var users: [UserDocument] = []
-                for document in snapshot!.documents {
-                    let docID = document.documentID
-                    let firstName = document.get("firstName")
-                    let location = document.get("location")
-                    let type = document.get("type")
-                    let uid = document.get("uid")
-                    let username = document.get("username")
-                    users.append(UserDocument(docID: docID, uid: uid, firstName: firstName, username: username, location: location, type: type))
-                }
-            }
-        }
-        */
+        accountTypeLabel.text = "Artist"
+        
+        profileImageView.image = UIImage(named:"AppIcon")
+        
     }
     
 

@@ -456,28 +456,28 @@
                                         <rect key="frame" x="10" y="0.0" width="374" height="655"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
-                                                <rect key="frame" x="0.0" y="0.0" width="174" height="174"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="233" height="233"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xDt-Pd-zbV" secondAttribute="height" multiplier="1:1" id="Xm6-Zy-d1P"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-wd-MtY" userLabel="Basic Info Stack">
-                                                <rect key="frame" x="194" y="0.0" width="180" height="72"/>
+                                                <rect key="frame" x="253" y="0.0" width="121" height="72"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="150-ha-B4N">
-                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKG-ov-W6a">
-                                                        <rect key="frame" x="0.0" y="24" width="180" height="24"/>
+                                                        <rect key="frame" x="0.0" y="24" width="121" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzb-s7-RmS">
-                                                        <rect key="frame" x="0.0" y="48" width="180" height="24"/>
+                                                        <rect key="frame" x="0.0" y="48" width="121" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -485,9 +485,6 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="xDt-Pd-zbV" secondAttribute="trailing" constant="200" id="O8q-L0-T6n"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-1N-Enk">
                                         <rect key="frame" x="172" y="655" width="50" height="50"/>
@@ -516,6 +513,7 @@
                         <outlet property="basicInfoStack" destination="UMw-wd-MtY" id="ydR-X5-BAh"/>
                         <outlet property="displayNameLabel" destination="150-ha-B4N" id="8NM-bh-BTk"/>
                         <outlet property="profileImageView" destination="xDt-Pd-zbV" id="Tfy-0q-uXm"/>
+                        <outlet property="realNameLabel" destination="lzb-s7-RmS" id="wKU-vm-CEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

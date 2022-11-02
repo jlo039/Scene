@@ -31,6 +31,9 @@
 		DEC08EBE28E4E0C2001368F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */; };
 		DEC08EC028E4E0C2001368F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBF28E4E0C2001368F6 /* FirebaseFirestore */; };
 		DEDACF2D2900824D00F33354 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDACF2C2900824D00F33354 /* TextField.swift */; };
+		DEFFF1432909C1BA005E540D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEFFF1422909C1BA005E540D /* FirebaseAuth */; };
+		DEFFF1452909C1BA005E540D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = DEFFF1442909C1BA005E540D /* FirebaseDatabase */; };
+		DEFFF1472909C1BA005E540D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DEFFF1462909C1BA005E540D /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 				DEC08EBC28E4E0C2001368F6 /* FirebaseAnalytics in Frameworks */,
 				D3C563BA2909C3FF00B1F647 /* FirebaseFirestore in Frameworks */,
 				88B1EF4328ADD211006C3B57 /* FirebaseFirestore in Frameworks */,
+				DEFFF1472909C1BA005E540D /* FirebaseFirestore in Frameworks */,
+				DEFFF1432909C1BA005E540D /* FirebaseAuth in Frameworks */,
+				DEFFF1452909C1BA005E540D /* FirebaseDatabase in Frameworks */,
 				DEC08EC028E4E0C2001368F6 /* FirebaseFirestore in Frameworks */,
 				D3C563B82909C3FF00B1F647 /* FirebaseAuth in Frameworks */,
 			);
@@ -151,9 +157,11 @@
 				DEC08EBB28E4E0C2001368F6 /* FirebaseAnalytics */,
 				DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */,
 				DEC08EBF28E4E0C2001368F6 /* FirebaseFirestore */,
-				D3C563B52909C3FF00B1F647 /* FirebaseAnalytics */,
-				D3C563B72909C3FF00B1F647 /* FirebaseAuth */,
-				D3C563B92909C3FF00B1F647 /* FirebaseFirestore */,
+
+				DEFFF1422909C1BA005E540D /* FirebaseAuth */,
+				DEFFF1442909C1BA005E540D /* FirebaseDatabase */,
+				DEFFF1462909C1BA005E540D /* FirebaseFirestore */,
+
 			);
 			productName = SceneApp3;
 			productReference = 8855B0A928AD7AD00069795F /* SceneApp3.app */;
@@ -187,7 +195,9 @@
 				88EA8E1528ADA6D300CBDD60 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				88B1EF4128ADD210006C3B57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DEC08EBA28E4E0C2001368F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				D3C563B42909C3FF00B1F647 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+
+				DEFFF1412909C1BA005E540D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+
 			);
 			productRefGroup = 8855B0AA28AD7AD00069795F /* Products */;
 			projectDirPath = "";
@@ -485,6 +495,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DEFFF1412909C1BA005E540D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -529,6 +547,21 @@
 			productName = FirebaseAuth;
 		};
 		DEC08EBF28E4E0C2001368F6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC08EBA28E4E0C2001368F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DEFFF1422909C1BA005E540D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC08EBA28E4E0C2001368F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		DEFFF1442909C1BA005E540D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEC08EBA28E4E0C2001368F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		DEFFF1462909C1BA005E540D /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DEC08EBA28E4E0C2001368F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;

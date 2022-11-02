@@ -101,6 +101,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     let errorMsg = err?.localizedDescription
                     self.showError(errorMsg!)
                 } else {
+
                     CreateAccountViewController.newUser = result!
                     // change views
                     self.performSegue(withIdentifier: "nextSegue", sender: nil)
@@ -148,6 +149,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                         //show error messsage
                         let errorMsg = error?.localizedDescription
                         self.showError(errorMsg!)
+
                     }
                 }
                 break

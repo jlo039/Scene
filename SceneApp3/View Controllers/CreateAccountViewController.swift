@@ -19,7 +19,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var venueNameTF: TextField!
     @IBOutlet weak var addressTF: TextField!
     
-    var type: Int = 0, firstName: String = "", email: String = "", password: String = "", username: String = "", stageName: String = "", venueName: String = "" ,address: String = ""
+    var email: String = "", password: String = "", username: String = "", stageName: String = "", venueName: String = "" ,address: String = ""
+    static var newUser: AuthDataResult? = nil, firstName: String = "", type: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +52,15 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func memberSelected(_ sender: Any) {
-        type = 0
+        CreateAccountViewController.type = 0
     }
     
     @IBAction func artistSelected(_ sender: Any) {
-        type = 1
+        CreateAccountViewController.type = 1
     }
     
     @IBAction func venueSelected(_ sender: Any) {
-        type = 2
+        CreateAccountViewController.type = 2
     }
     
     
@@ -90,16 +91,25 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             showError(err!)
         } else {
             // get data from text fields and clean
-            firstName = firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            CreateAccountViewController.firstName = firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            // change views
-            performSegue(withIdentifier: "nextSegue", sender: nil)
+            Auth.auth().createUser(withEmail: email, password: password) { result, err in
+                //check for errors
+                if err != nil {
+                    //there was an error
+                    let errorMsg = err?.localizedDescription
+                    self.showError(errorMsg!)
+                } else {
+                    CreateAccountViewController.newUser = result!
+                    // change views
+                    self.performSegue(withIdentifier: "nextSegue", sender: nil)
+                }
+            }
         }
     }
     
     @IBAction func CreateAccountAction(_ sender: Any) {
-        print("account created")
         //validate fields
         var error: String? = ""
         if usernameField != nil {
@@ -120,56 +130,44 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 venueName = venueNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 address = addressTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             }
-            //create the user
-            Auth.auth().createUser(withEmail: email, password: password) { [self] result, err in
-                //check for errors
-                if err != nil {
-                    //there was an error
-                    let errorMsg = err?.localizedDescription
-                    self.showError(errorMsg!)
-                } else {
-                    //user created sucessfully. store information
-                    let db = Firestore.firestore()
-                    switch self.type {
-                    case 0:
-                        db.collection("users").addDocument(data: ["firstName" : self.firstName, "username" : self.username, "uid" : result!.user.uid]) { error in
-                            if error != nil {
-                                //show error messsage
-                                let errorMsg = error?.localizedDescription
-                                self.showError(errorMsg!)
-                            }
-                        }
-                        break
-                    case 1:
-                        db.collection("artist").addDocument(data: ["firstName" : firstName, "stageName" : stageName, "uid" : result!.user.uid]) { error in
-                            if error != nil {
-                                //show error messsage
-                                let errorMsg = error?.localizedDescription
-                                self.showError(errorMsg!)
-                            }
-                        }
-                        break
-                    case 2:
-                        db.collection("venue").addDocument(data: ["firstName" : firstName, "venueName" : venueName, "address" : address,"uid" : result!.user.uid]) { error in
-                            if error != nil {
-                                //show error messsage
-                                let errorMsg = error?.localizedDescription
-                                self.showError(errorMsg!)
-                            }
-                        }
-                        break
-                    default :
-                        showError("Invalid account type.")
+            //user created sucessfully. store information
+            let db = Firestore.firestore()
+            switch CreateAccountViewController.type {
+            case 0:
+                db.collection("users").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "username" : self.username, "uid" : CreateAccountViewController.newUser!.user.uid]) { error in
+                    if error != nil {
+                        //show error messsage
+                        let errorMsg = error?.localizedDescription
+                        self.showError(errorMsg!)
                     }
-
-                    //transition to the home screen
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
+                break
+            case 1:
+                db.collection("artist").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "stageName" : self.stageName, "uid" : CreateAccountViewController.newUser!.user.uid]) { error in
+                    if error != nil {
+                        //show error messsage
+                        let errorMsg = error?.localizedDescription
+                        self.showError(errorMsg!)
+                    }
+                }
+                break
+            case 2:
+                db.collection("venue").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "venueName" : self.venueName, "address" : address,"uid" : CreateAccountViewController.newUser!.user.uid]) { error in
+                    if error != nil {
+                        //show error messsage
+                        let errorMsg = error?.localizedDescription
+                        self.showError(errorMsg!)
+                    }
+                }
+                break
+            default :
+                showError("Invalid account type.")
             }
-            
-            
+
+            //transition to the home screen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
         }
     }
     

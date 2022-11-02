@@ -637,7 +637,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-Ey-xLH" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="262.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
                                         <connections>
                                             <action selector="nextB:" destination="E20-HK-AYX" eventType="touchUpInside" id="MhP-yp-EdA"/>
                                         </connections>
@@ -778,7 +778,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2N-gC-u58" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="146.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Finish"/>
                                         <connections>
                                             <action selector="CreateAccountAction:" destination="aXt-Oe-EVb" eventType="touchUpInside" id="HE0-LZ-2C0"/>
                                         </connections>
@@ -842,7 +842,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osC-yW-7d2" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Finish"/>
                                         <connections>
                                             <action selector="CreateAccountAction:" destination="Wk5-2m-FiD" eventType="touchUpInside" id="SAZ-Pc-L8F"/>
                                         </connections>
@@ -911,7 +911,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJq-9Y-v8x" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="217.5" width="354" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Finish"/>
                                         <connections>
                                             <action selector="CreateAccountAction:" destination="2bm-fR-Skg" eventType="touchUpInside" id="yi5-5C-KAL"/>
                                         </connections>

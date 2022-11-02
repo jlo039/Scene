@@ -16,23 +16,39 @@ class AccountTabViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
+    @IBOutlet weak var realNameLabel: UILabel!
     
     @IBOutlet weak var InfoTest: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        //var safeX = SafeArea.frame.width
-        //var safeY = SafeArea.frame.height
         
+        // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profileImageView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
-        
+        // Apply constraint
         TopInfo.addConstraint(proPicConstraint)
         
+        // Access Firestore database and current user
+        let db = Firestore.firestore()
+        let signedInUid = Auth.auth().currentUser?.uid
+        
+        // Locate the current user's account
+        let docRef = db.collection("users").document(signedInUid!)
+        // Grab info from their account
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.realNameLabel.text = document.get("firstName") as? String
+                self.displayNameLabel.text = document.get("username") as? String
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        accountTypeLabel.text = "Artist"
+        
         profileImageView.image = UIImage(named:"AppIcon")
-        displayNameLabel.text = Auth.auth().currentUser?.email
-        accountTypeLabel.text = "";
-        // Do any additional setup after loading the view.
         
     }
     

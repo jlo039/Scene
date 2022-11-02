@@ -80,8 +80,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     //user created sucessfully. store information
                     let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(data: ["firstName" : firstName, "username" : username, "location" : city, "type" : type, "uid" : result!.user.uid]) { error in
+                    let uid = result!.user.uid
+                    print(uid)
+                    db.collection("users").document(uid).setData(["firstName" : firstName, "username" : username, "location" : city, "type" : type, "uid" : uid]) { error in
                         if error != nil {
                             //show error messsage
                             let errorMsg = error?.localizedDescription

@@ -16,14 +16,12 @@ class AccountTabViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
-    @IBOutlet weak var realNameLabel: UILabel!
     
     @IBOutlet weak var InfoTest: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {
         
-        super.viewDidLoad()
         
         // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profileImageView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
@@ -34,21 +32,36 @@ class AccountTabViewController: UIViewController {
         let db = Firestore.firestore()
         let signedInUid = Auth.auth().currentUser?.uid
         
-        // Locate the current user's account
-        let docRef = db.collection("users").document(signedInUid!)
-        // Grab info from their account
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.realNameLabel.text = document.get("firstName") as? String
+        // Locate the current user's account info
+        db.collection("users").document(signedInUid!).getDocument { (result, error) in
+            if let document = result, document.exists {
                 self.displayNameLabel.text = document.get("username") as? String
+                self.accountTypeLabel.text = "User"
             } else {
-                print("Document does not exist")
+                db.collection("artist").document(signedInUid!).getDocument { (result, error) in
+                    if let document = result, document.exists {
+                        self.displayNameLabel.text = document.get("stageName") as? String
+                        self.accountTypeLabel.text = "Artist"
+                    } else {
+                        db.collection("venue").document(signedInUid!).getDocument { (result, error) in
+                            if let document = result, document.exists {
+                                self.displayNameLabel.text = document.get("venueName") as? String
+                                self.accountTypeLabel.text = "Venue"
+                            } else {
+                                print("Document does not exist.")
+                            }
+                        }
+                    }
+                }
             }
+            self.displayNameLabel.alpha = 1
+            self.accountTypeLabel.alpha = 1
         }
         
-        accountTypeLabel.text = "Artist"
-        
+        // Show user's profile picture
         profileImageView.image = UIImage(named:"AppIcon")
+        
+        super.viewDidLoad()
         
     }
     
@@ -60,6 +73,10 @@ class AccountTabViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }
+    
+    func getUserDocument(accountType: String) {
+        
     }
     
 

@@ -357,18 +357,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-Lg-MQ1">
-                                <rect key="frame" x="87" y="342" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-Lg-MQ1">
+                                <rect key="frame" x="96" y="288.5" width="222" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="BZQ-Fl-S8K"/>
+                                    <constraint firstAttribute="height" constant="236" id="JxH-ZB-rkT"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-vh-ZcZ">
-                                <rect key="frame" x="87" y="342" width="240" height="128"/>
+                                <rect key="frame" x="96" y="298" width="222" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chooseProfilePic"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="chooseProfilePicB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="kGx-G9-Ws6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-SP-XVx" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
+                                <rect key="frame" x="168" y="653" width="80" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="OwN-Vv-QS2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-Zg-zSy">
+                                <rect key="frame" x="189" y="692" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WRM-qY-Grq"/>
                         <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -381,6 +401,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="megaphone.fill" catalog="system" selectedImage="megaphone.fill" id="GCl-5Q-QT2"/>
                     <connections>
+                        <outlet property="errorL" destination="KvZ-Zg-zSy" id="8OG-mI-05g"/>
                         <outlet property="profilePicIV" destination="Vog-Lg-MQ1" id="nrv-kp-6Nh"/>
                     </connections>
                 </viewController>
@@ -818,7 +839,7 @@
     </scenes>
     <resources>
         <image name="SceneLogo_Full" width="1538" height="600"/>
-        <image name="chooseProfilePic" width="225" height="225"/>
+        <image name="chooseProfilePic" width="612" height="612"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="megaphone.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

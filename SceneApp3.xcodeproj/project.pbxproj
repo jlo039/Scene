@@ -28,6 +28,7 @@
 		DE2B93D829008AD600875591 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B93D729008AD600875591 /* Button.swift */; };
 		DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46D9B329130D5F00836C7A /* FeedViewController.swift */; };
 		DE46D9B729130FDB00836C7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DE46D9B629130FDB00836C7A /* FirebaseStorage */; };
+		DEBA7AD2291C4F1B00344163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBA7AD1291C4F1B00344163 /* Assets.xcassets */; };
 		DEC08EBC28E4E0C2001368F6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBB28E4E0C2001368F6 /* FirebaseAnalytics */; };
 		DEC08EBE28E4E0C2001368F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */; };
 		DEC08EC028E4E0C2001368F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBF28E4E0C2001368F6 /* FirebaseFirestore */; };
@@ -54,6 +55,7 @@
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DE46D9B329130D5F00836C7A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		DEBA7AD1291C4F1B00344163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDACF2C2900824D00F33354 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		8855B0AB28AD7AD00069795F /* SceneApp3 */ = {
 			isa = PBXGroup;
 			children = (
+				DEBA7AD1291C4F1B00344163 /* Assets.xcassets */,
 				DEDACF2B2900816600F33354 /* Visual Classes */,
 				88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */,
 				8855B0AC28AD7AD00069795F /* AppDelegate.swift */,
@@ -215,6 +218,7 @@
 			files = (
 				88EA8E1428ADA61200CBDD60 /* GoogleService-Info.plist in Resources */,
 				8855B0B928AD7AD10069795F /* LaunchScreen.storyboard in Resources */,
+				DEBA7AD2291C4F1B00344163 /* Assets.xcassets in Resources */,
 				8855B0B428AD7AD00069795F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

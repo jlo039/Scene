@@ -11,22 +11,20 @@ import FirebaseFirestore
 
 class AccountTabViewController: UIViewController {
 
-    @IBOutlet weak var SafeArea: UIStackView!
     @IBOutlet weak var TopInfo: UIStackView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
-    
-    @IBOutlet weak var InfoTest: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {
         
+        super.viewDidLoad()
         
-        // Define constraint for size of profile picture
+        // Show user's profile picture
         let proPicConstraint = NSLayoutConstraint(item: profileImageView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
-        // Apply constraint
         TopInfo.addConstraint(proPicConstraint)
+        profileImageView.image = UIImage(named:"AppIcon")
         
         // Access Firestore database and current user
         let db = Firestore.firestore()
@@ -58,11 +56,6 @@ class AccountTabViewController: UIViewController {
             self.accountTypeLabel.alpha = 1
         }
         
-        // Show user's profile picture
-        profileImageView.image = UIImage(named:"AppIcon")
-        
-        super.viewDidLoad()
-        
     }
     
 
@@ -74,10 +67,7 @@ class AccountTabViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    
-    func getUserDocument(accountType: String) {
-        
-    }
-    
+
+
 
 }

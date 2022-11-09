@@ -20,9 +20,7 @@ class FeedViewController: UIViewController {
     
 
     @IBAction func chooseProfilePicB(_ sender: Any) {
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        
+
     
     }
     /*

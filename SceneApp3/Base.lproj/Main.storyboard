@@ -168,8 +168,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="MdK-bt-Ql7">
                                 <rect key="frame" x="20" y="132" width="374" height="205"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter email adress to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqS-W9-QlX">
-                                        <rect key="frame" x="47" y="0.0" width="280" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter email address to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqS-W9-QlX">
+                                        <rect key="frame" x="42" y="0.0" width="290" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.30523914099999999" green="0.38811838630000001" blue="0.69949585199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -364,7 +364,7 @@
                                 <rect key="frame" x="87" y="342" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chooseProfilePic"/>
                                 <connections>
                                     <action selector="chooseProfilePicB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="kGx-G9-Ws6"/>
                                 </connections>
@@ -374,7 +374,9 @@
                         <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="AbE-V2-OLw"/>
+                            <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="HwT-sw-Sm7"/>
                             <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerY" secondItem="EQf-Nr-Fyb" secondAttribute="centerY" id="hvg-6l-Jh5"/>
+                            <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerY" secondItem="EQf-Nr-Fyb" secondAttribute="centerY" id="q0g-nf-MEp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="megaphone.fill" catalog="system" selectedImage="megaphone.fill" id="GCl-5Q-QT2"/>
@@ -816,6 +818,7 @@
     </scenes>
     <resources>
         <image name="SceneLogo_Full" width="1538" height="600"/>
+        <image name="chooseProfilePic" width="225" height="225"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="megaphone.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

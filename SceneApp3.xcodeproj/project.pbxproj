@@ -12,7 +12,6 @@
 		8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0AE28AD7AD00069795F /* SceneDelegate.swift */; };
 		8855B0B128AD7AD00069795F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0B028AD7AD00069795F /* ViewController.swift */; };
 		8855B0B428AD7AD00069795F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8855B0B228AD7AD00069795F /* Main.storyboard */; };
-		8855B0B628AD7AD10069795F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8855B0B528AD7AD10069795F /* Assets.xcassets */; };
 		8855B0B928AD7AD10069795F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */; };
 		8855B0C128AD85270069795F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0C028AD85270069795F /* SignInViewController.swift */; };
 		8855B0C328AD853A0069795F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855B0C228AD853A0069795F /* CreateAccountViewController.swift */; };
@@ -45,7 +44,6 @@
 		8855B0AE28AD7AD00069795F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8855B0B028AD7AD00069795F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8855B0B328AD7AD00069795F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8855B0B528AD7AD10069795F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8855B0B828AD7AD10069795F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8855B0BA28AD7AD10069795F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8855B0C028AD85270069795F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
 				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
-				8855B0B528AD7AD10069795F /* Assets.xcassets */,
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				8855B0BA28AD7AD10069795F /* Info.plist */,
 				88E2E1C628ADDDF10009985D /* Constants.swift */,
@@ -218,7 +215,6 @@
 			files = (
 				88EA8E1428ADA61200CBDD60 /* GoogleService-Info.plist in Resources */,
 				8855B0B928AD7AD10069795F /* LaunchScreen.storyboard in Resources */,
-				8855B0B628AD7AD10069795F /* Assets.xcassets in Resources */,
 				8855B0B428AD7AD00069795F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -371,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -13,12 +13,24 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        Auth.auth().addStateDidChangeListener {
+            auth, user in
+            if user != nil {
+                // User is signed in.
+                print("Automatic Sign In: \(String(describing: user?.email))")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(withIdentifier: HomeScreenViewController)
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            } else {
+                // No user is signed in.
+            }
+        }
         return true
     }
 

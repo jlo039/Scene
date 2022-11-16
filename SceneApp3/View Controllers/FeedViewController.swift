@@ -8,38 +8,23 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
-import PhotosUI
 
-class FeedViewController: UIViewController, PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        dismiss(animated: true, completion: nil)
-        for item in results {
-            item.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                if let image = image as? UIImage {
-                    DispatchQueue.main.async {
-                        self.profilePicIV.image = image
-                    }
-                }
-            }
-        }
-    }
+class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var profilePicIV: UIImageView!
     @IBOutlet weak var errorL: UILabel!
+    private let storage = Storage.storage().reference()
     
     @IBAction func chooseProfilePicB(_ sender: Any) {
-        var configuration = PHPickerConfiguration(photoLibrary: .shared())
-        configuration.selectionLimit = 1
-        configuration.filter = PHPickerFilter.images
-        
-        let picker = PHPickerViewController(configuration: configuration)
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
         picker.delegate = self
+        picker.allowsEditing = true
         present(picker, animated: true)
     
     }
@@ -54,6 +39,37 @@ class FeedViewController: UIViewController, PHPickerViewControllerDelegate {
             showError(signOutError as! String)
         }
         
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+        
+        storage.child("images/file.png").putData(imageData, metadata: nil, completion: {_, error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            self.storage.child("images/file.png").downloadURL(completion: {url, error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                print("Downlaod url: \(urlString)")
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+        })
+        // upload image data
+        
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     

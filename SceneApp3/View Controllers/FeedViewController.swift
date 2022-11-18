@@ -71,13 +71,14 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
         guard let imageData = image.pngData() else {
             return
         }
+        let signedInUid = Auth.auth().currentUser?.uid
         // upload image data
-        storage.child("images/file.png").putData(imageData, metadata: nil, completion: {_, error in
+        storage.child("profileImages/\(signedInUid ?? "file").png").putData(imageData, metadata: nil, completion: {_, error in
             guard error == nil else {
                 print("Failed to upload")
                 return
             }
-            self.storage.child("images/file.png").downloadURL(completion: {url, error in
+            self.storage.child("profileImages/\(signedInUid ?? "file").png").downloadURL(completion: {url, error in
                 guard let url = url, error == nil else {
                     return
                 }

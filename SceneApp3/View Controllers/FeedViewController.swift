@@ -14,6 +14,26 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        profilePicIV.layer.borderWidth = 1.0
+        profilePicIV.layer.masksToBounds = false
+        profilePicIV.layer.borderColor = UIColor.white.cgColor
+        profilePicIV.layer.cornerRadius = profilePicIV.frame.size.width / 2
+        profilePicIV.clipsToBounds = true
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+            let url = URL(string: urlString) else {
+                    return
+            }
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.profilePicIV.image = image
+            }
+        })
+        task.resume()
+        
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var profilePicIV: UIImageView!
@@ -46,10 +66,12 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
+        
+        profilePicIV.image = image
         guard let imageData = image.pngData() else {
             return
         }
-        
+        // upload image data
         storage.child("images/file.png").putData(imageData, metadata: nil, completion: {_, error in
             guard error == nil else {
                 print("Failed to upload")
@@ -64,7 +86,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
                 UserDefaults.standard.set(urlString, forKey: "url")
             })
         })
-        // upload image data
+
         
     }
 

@@ -30,6 +30,7 @@
 		D3C563B62909C3FF00B1F647 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B52909C3FF00B1F647 /* FirebaseAnalytics */; };
 		D3C563B82909C3FF00B1F647 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B72909C3FF00B1F647 /* FirebaseAuth */; };
 		D3C563BA2909C3FF00B1F647 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B92909C3FF00B1F647 /* FirebaseFirestore */; };
+		D3D21E8429281D590099D7A3 /* ExploreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D21E8329281D590099D7A3 /* ExploreTabViewController.swift */; };
 		DE2B93D829008AD600875591 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B93D729008AD600875591 /* Button.swift */; };
 		DEC08EBC28E4E0C2001368F6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBB28E4E0C2001368F6 /* FirebaseAnalytics */; };
 		DEC08EBE28E4E0C2001368F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */; };
@@ -57,6 +58,7 @@
 		88E2E1C628ADDDF10009985D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D35335CF291C43B7005A3059 /* JustLoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustLoggedInViewController.swift; sourceTree = "<group>"; };
+		D3D21E8329281D590099D7A3 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DEDACF2C2900824D00F33354 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				D35335CF291C43B7005A3059 /* JustLoggedInViewController.swift */,
 				88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */,
 				884A051B28F7809A00775C99 /* ForgotPasswordViewController.swift */,
+				D3D21E8329281D590099D7A3 /* ExploreTabViewController.swift */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
 				8855B0B528AD7AD10069795F /* Assets.xcassets */,
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
@@ -232,6 +235,7 @@
 				8855B0C128AD85270069795F /* SignInViewController.swift in Sources */,
 				D35335D0291C43B7005A3059 /* JustLoggedInViewController.swift in Sources */,
 				8855B0B128AD7AD00069795F /* ViewController.swift in Sources */,
+				D3D21E8429281D590099D7A3 /* ExploreTabViewController.swift in Sources */,
 				DEDACF2D2900824D00F33354 /* TextField.swift in Sources */,
 				8855B0AD28AD7AD00069795F /* AppDelegate.swift in Sources */,
 				889CFB3028B097EA000FF028 /* AccountTabViewController.swift in Sources */,

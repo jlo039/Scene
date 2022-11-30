@@ -18,7 +18,6 @@ class AccountTabViewController: UIViewController {
     @IBOutlet weak var accountTypeLabel: UILabel!
     @IBOutlet weak var realNameLabel: UILabel!
     
-    @IBOutlet weak var InfoTest: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {

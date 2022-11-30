@@ -15,6 +15,11 @@ class AccountTabViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
+<<<<<<< HEAD:SceneApp3/AccountTabViewController.swift
+=======
+    @IBOutlet weak var realNameLabel: UILabel!
+    
+>>>>>>> main:SceneApp3/View Controllers/AccountTabViewController.swift
     @IBOutlet weak var basicInfoStack: UIStackView!
     
     override func viewDidLoad() {

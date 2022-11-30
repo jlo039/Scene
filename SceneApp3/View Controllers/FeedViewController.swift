@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseFirestore
 
 class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -19,11 +20,12 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
         profilePicIV.layer.borderColor = UIColor.white.cgColor
         profilePicIV.layer.cornerRadius = profilePicIV.frame.size.width / 2
         profilePicIV.clipsToBounds = true
-        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
-            let url = URL(string: urlString) else {
-                    return
-            }
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+//        guard let urlString = Auth.auth().currentUser?.photoURL as? String,
+//            let url = URL(string: urlString) else {
+//                    return
+//            }
+// https://firebasestorage.googleapis.com:443/v0/b/sceneapp-48eb8.appspot.com/o/profileImages%2FUFQqi00ZRrbwLtkVZ2M2751P0783.png?alt=media&token=c2aa784a-8750-4b69-aeb1-06b3bb44e622
+        let task = URLSession.shared.dataTask(with: (Auth.auth().currentUser?.photoURL ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/UFQqi00ZRrbwLtkVZ2M2751P0783.png"))!, completionHandler: { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
@@ -84,7 +86,11 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate & UI
                 }
                 let urlString = url.absoluteString
                 print("Downlaod url: \(urlString)")
-                UserDefaults.standard.set(urlString, forKey: "url")
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.photoURL = url
+                changeRequest?.commitChanges { error in
+                  // ...
+                }
             })
         })
 

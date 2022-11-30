@@ -365,25 +365,21 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-SP-XVx" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                <rect key="frame" x="20" y="597.5" width="374" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="2z0-te-32O"/>
-                                </constraints>
+                                <rect key="frame" x="167" y="597.5" width="80" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="OwN-Vv-QS2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-Zg-zSy">
-                                <rect key="frame" x="189" y="636.5" width="38" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-Zg-zSy">
+                                <rect key="frame" x="129.5" y="636.5" width="37.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-vh-ZcZ">
-                                <rect key="frame" x="136" y="338" width="145" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-vh-ZcZ">
+                                <rect key="frame" x="136" y="338" width="24" height="137"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -394,12 +390,18 @@
                         <viewLayoutGuide key="safeArea" id="WRM-qY-Grq"/>
                         <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="WRM-qY-Grq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KvZ-Zg-zSy" secondAttribute="trailing" id="G2v-Yb-TCi"/>
                             <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="HwT-sw-Sm7"/>
                             <constraint firstItem="KvZ-Zg-zSy" firstAttribute="top" secondItem="2P0-SP-XVx" secondAttribute="bottom" constant="8" symbolic="YES" id="ThT-vH-cBj"/>
+                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="leading" secondItem="WRM-qY-Grq" secondAttribute="leading" constant="136" id="Uid-cX-Psw"/>
+                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="centerY" secondItem="Vog-Lg-MQ1" secondAttribute="centerY" id="dcu-6R-cVm"/>
                             <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerY" secondItem="EQf-Nr-Fyb" secondAttribute="centerY" id="hvg-6l-Jh5"/>
+                            <constraint firstItem="KvZ-Zg-zSy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WRM-qY-Grq" secondAttribute="leading" id="lXm-4g-MWs"/>
                             <constraint firstItem="2P0-SP-XVx" firstAttribute="top" secondItem="Vog-Lg-MQ1" secondAttribute="bottom" constant="128.5" id="pu4-2f-XIv"/>
                             <constraint firstItem="2P0-SP-XVx" firstAttribute="top" secondItem="Vog-Lg-MQ1" secondAttribute="bottom" constant="128.5" id="vil-aY-fiB"/>
+                            <constraint firstItem="KvZ-Zg-zSy" firstAttribute="centerX" secondItem="bAt-vh-ZcZ" secondAttribute="centerX" id="wq8-4r-A5w"/>
                             <constraint firstItem="2P0-SP-XVx" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="zMM-Op-E3I"/>
+                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="top" secondItem="WRM-qY-Grq" secondAttribute="top" constant="250" id="zi5-7w-w6a"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="megaphone.fill" catalog="system" selectedImage="megaphone.fill" id="GCl-5Q-QT2"/>

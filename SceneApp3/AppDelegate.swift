@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth, user in
             if user != nil {
                 // User is signed in.
-                print("Automatic Sign In: \(String(describing: user?.email))")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)

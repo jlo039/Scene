@@ -282,31 +282,39 @@
                                 <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-fX-DYN" userLabel="Top Info Stack">
-                                        <rect key="frame" x="10" y="0.0" width="374" height="655"/>
+                                        <rect key="frame" x="10" y="0.0" width="374" height="576.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
-                                                <rect key="frame" x="0.0" y="0.0" width="233" height="233"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
+                                                <rect key="frame" x="0.0" y="0.0" width="252" height="252"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xDt-Pd-zbV" secondAttribute="height" multiplier="1:1" id="Xm6-Zy-d1P"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Up-vt-br7">
+                                                <rect key="frame" x="272" y="0.0" width="0.0" height="14"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="chooseProfilePicB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="MRt-Fx-FrY"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-wd-MtY" userLabel="Basic Info Stack">
-                                                <rect key="frame" x="253" y="0.0" width="121" height="72"/>
+                                                <rect key="frame" x="292" y="0.0" width="82" height="72"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="150-ha-B4N">
-                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="82" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKG-ov-W6a">
-                                                        <rect key="frame" x="0.0" y="24" width="121" height="24"/>
+                                                        <rect key="frame" x="0.0" y="24" width="82" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzb-s7-RmS">
-                                                        <rect key="frame" x="0.0" y="48" width="121" height="24"/>
+                                                        <rect key="frame" x="0.0" y="48" width="82" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -315,8 +323,25 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-1N-Enk">
-                                        <rect key="frame" x="172" y="655" width="50" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-1N-Enk">
+                                        <rect key="frame" x="157" y="576.5" width="80" height="128.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iH-fV-PjQ" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
+                                                <connections>
+                                                    <action selector="signOutB:" destination="Hl5-2p-gU7" eventType="touchUpInside" id="PBy-jj-w9i"/>
+                                                    <action selector="signOutB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="dzK-7P-UPa"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-dw-vYZ">
+                                                <rect key="frame" x="0.0" y="108" width="80" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -341,13 +366,14 @@
                         <outlet property="accountTypeLabel" destination="sKG-ov-W6a" id="SO8-p6-QJT"/>
                         <outlet property="basicInfoStack" destination="UMw-wd-MtY" id="ydR-X5-BAh"/>
                         <outlet property="displayNameLabel" destination="150-ha-B4N" id="8NM-bh-BTk"/>
-                        <outlet property="profileImageView" destination="xDt-Pd-zbV" id="Tfy-0q-uXm"/>
+                        <outlet property="errorL" destination="DXN-dw-vYZ" id="6nP-Sd-UAT"/>
+                        <outlet property="profilePicIV" destination="xDt-Pd-zbV" id="mPZ-0K-wWe"/>
                         <outlet property="realNameLabel" destination="lzb-s7-RmS" id="wKU-vm-CEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680" y="958"/>
+            <point key="canvasLocation" x="2679.7101449275365" y="957.58928571428567"/>
         </scene>
         <!--Feed-->
         <scene sceneID="0J6-tN-JVy">
@@ -356,59 +382,10 @@
                     <view key="view" contentMode="scaleToFill" id="EQf-Nr-Fyb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-Lg-MQ1">
-                                <rect key="frame" x="144.5" y="344" width="125" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="9f3-In-HsI"/>
-                                    <constraint firstAttribute="width" constant="125" id="uEg-gU-SmN"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-SP-XVx" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
-                                <rect key="frame" x="167" y="597.5" width="80" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
-                                <connections>
-                                    <action selector="signOutB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="OwN-Vv-QS2"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvZ-Zg-zSy">
-                                <rect key="frame" x="129.5" y="636.5" width="37.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAt-vh-ZcZ">
-                                <rect key="frame" x="136" y="338" width="24" height="137"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="chooseProfilePicB:" destination="7cb-c8-mmQ" eventType="touchUpInside" id="kGx-G9-Ws6"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WRM-qY-Grq"/>
                         <color key="backgroundColor" red="0.85153478380000003" green="0.85349076989999995" blue="0.9176556468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="WRM-qY-Grq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KvZ-Zg-zSy" secondAttribute="trailing" id="G2v-Yb-TCi"/>
-                            <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="HwT-sw-Sm7"/>
-                            <constraint firstItem="KvZ-Zg-zSy" firstAttribute="top" secondItem="2P0-SP-XVx" secondAttribute="bottom" constant="8" symbolic="YES" id="ThT-vH-cBj"/>
-                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="leading" secondItem="WRM-qY-Grq" secondAttribute="leading" constant="136" id="Uid-cX-Psw"/>
-                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="centerY" secondItem="Vog-Lg-MQ1" secondAttribute="centerY" id="dcu-6R-cVm"/>
-                            <constraint firstItem="Vog-Lg-MQ1" firstAttribute="centerY" secondItem="EQf-Nr-Fyb" secondAttribute="centerY" id="hvg-6l-Jh5"/>
-                            <constraint firstItem="KvZ-Zg-zSy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WRM-qY-Grq" secondAttribute="leading" id="lXm-4g-MWs"/>
-                            <constraint firstItem="2P0-SP-XVx" firstAttribute="top" secondItem="Vog-Lg-MQ1" secondAttribute="bottom" constant="128.5" id="pu4-2f-XIv"/>
-                            <constraint firstItem="2P0-SP-XVx" firstAttribute="top" secondItem="Vog-Lg-MQ1" secondAttribute="bottom" constant="128.5" id="vil-aY-fiB"/>
-                            <constraint firstItem="KvZ-Zg-zSy" firstAttribute="centerX" secondItem="bAt-vh-ZcZ" secondAttribute="centerX" id="wq8-4r-A5w"/>
-                            <constraint firstItem="2P0-SP-XVx" firstAttribute="centerX" secondItem="EQf-Nr-Fyb" secondAttribute="centerX" id="zMM-Op-E3I"/>
-                            <constraint firstItem="bAt-vh-ZcZ" firstAttribute="top" secondItem="WRM-qY-Grq" secondAttribute="top" constant="250" id="zi5-7w-w6a"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="megaphone.fill" catalog="system" selectedImage="megaphone.fill" id="GCl-5Q-QT2"/>
-                    <connections>
-                        <outlet property="errorL" destination="KvZ-Zg-zSy" id="8OG-mI-05g"/>
-                        <outlet property="profilePicIV" destination="Vog-Lg-MQ1" id="nrv-kp-6Nh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-1N-WWo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

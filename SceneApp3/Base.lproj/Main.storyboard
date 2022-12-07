@@ -271,6 +271,40 @@
             <point key="canvasLocation" x="4568" y="958"/>
         </scene>
         <!--Account-->
+        <scene sceneID="i81-gj-Uqy">
+            <objects>
+                <navigationController id="KKR-FX-dKJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="QiM-yu-x2E"/>
+                    <navigationItem key="navigationItem" id="ONI-RY-7Bw"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uq9-Bo-kOS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hl5-2p-gU7" kind="relationship" relationship="rootViewController" id="Jwu-PE-2Ai"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="401-2m-ciR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2680" y="958"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Msk-EN-nSm">
+            <objects>
+                <viewController id="WGG-Rp-1s2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K5N-3h-YbF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aEX-3L-Mmg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OPe-8t-GA9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRH-v6-ChH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045" y="2321"/>
+        </scene>
+        <!--Account-->
         <scene sceneID="nfu-Wp-Wmu">
             <objects>
                 <viewController id="Hl5-2p-gU7" customClass="AccountTabViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
@@ -282,9 +316,9 @@
                                 <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GP9-fX-DYN" userLabel="Top Info Stack">
-                                        <rect key="frame" x="10" y="0.0" width="374" height="576.5"/>
+                                        <rect key="frame" x="10" y="0.0" width="374" height="360.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-Pd-zbV">
                                                 <rect key="frame" x="0.0" y="0.0" width="252" height="252"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xDt-Pd-zbV" secondAttribute="height" multiplier="1:1" id="Xm6-Zy-d1P"/>
@@ -324,10 +358,29 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-1N-Enk">
-                                        <rect key="frame" x="157" y="576.5" width="80" height="128.5"/>
+
+                                        <rect key="frame" x="157" y="360.5" width="80" height="344.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iH-fV-PjQ" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFi-Tg-m2K" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="left"/>
+                                                <connections>
+                                                    <segue destination="WGG-Rp-1s2" kind="show" id="cde-ZD-yGd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2L3-wN-dwS" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="108" width="80" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="right"/>
+                                                <connections>
+                                                    <segue destination="fW2-W3-lrT" kind="show" id="uch-Rm-HUc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iH-fV-PjQ" customClass="Button" customModule="SceneApp3" customModuleProvider="target">
+
+                                                <rect key="frame" x="0.0" y="216" width="80" height="31"/>
+
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
                                                 <connections>
@@ -336,7 +389,9 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-dw-vYZ">
-                                                <rect key="frame" x="0.0" y="108" width="80" height="20.5"/>
+
+                                                <rect key="frame" x="0.0" y="324" width="80" height="20.5"/>
+
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -360,6 +415,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="kJU-Gp-iKb"/>
+                    <navigationItem key="navigationItem" id="EQO-MI-mDU"/>
                     <connections>
                         <outlet property="SafeArea" destination="Za4-Hd-Hh4" id="fqA-Mf-0H8"/>
                         <outlet property="TopInfo" destination="GP9-fX-DYN" id="vBc-85-1W1"/>
@@ -373,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679.7101449275365" y="957.58928571428567"/>
+            <point key="canvasLocation" x="2680" y="1637"/>
         </scene>
         <!--Feed-->
         <scene sceneID="0J6-tN-JVy">
@@ -518,9 +574,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="q5k-PE-bL1" kind="relationship" relationship="viewControllers" id="Pc8-tk-J8b"/>
-                        <segue destination="Hl5-2p-gU7" kind="relationship" relationship="viewControllers" id="ps5-xQ-Rma"/>
                         <segue destination="7cb-c8-mmQ" kind="relationship" relationship="viewControllers" id="prH-Xx-WEg"/>
                         <segue destination="OOi-6o-ISA" kind="relationship" relationship="viewControllers" id="fSd-Fn-NM1"/>
+                        <segue destination="KKR-FX-dKJ" kind="relationship" relationship="viewControllers" id="6kC-xB-3IV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndN-pm-dJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1097,6 +1153,7 @@
         <image name="SceneLogo_Full" width="1538" height="600"/>
         <image name="chooseProfilePic" width="612" height="612"/>
         <image name="glass" width="128" height="128"/>
+
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="megaphone.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

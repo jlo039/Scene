@@ -22,6 +22,8 @@
 		88EA8E1428ADA61200CBDD60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */; };
 		88EA8E1728ADA6D300CBDD60 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1628ADA6D300CBDD60 /* FirebaseAnalytics */; };
 		88EA8E1928ADA6D300CBDD60 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1828ADA6D300CBDD60 /* FirebaseAuth */; };
+		D38F9D432941342000A8317D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D422941342000A8317D /* TabBarController.swift */; };
+		D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */; };
 		D3A4536E2939347A0039E640 /* ExploreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */; };
 		D3C563B62909C3FF00B1F647 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B52909C3FF00B1F647 /* FirebaseAnalytics */; };
 		D3C563B82909C3FF00B1F647 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B72909C3FF00B1F647 /* FirebaseAuth */; };
@@ -55,6 +57,8 @@
 		88E2E1C428ADDCFB0009985D /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		88E2E1C628ADDDF10009985D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D38F9D422941342000A8317D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTabBar.swift; sourceTree = "<group>"; };
 		D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DE46D9B329130D5F00836C7A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
 				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
+				D38F9D422941342000A8317D /* TabBarController.swift */,
+				D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */,
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				8855B0BA28AD7AD10069795F /* Info.plist */,
 				88E2E1C628ADDDF10009985D /* Constants.swift */,
@@ -237,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8855B0C328AD853A0069795F /* CreateAccountViewController.swift in Sources */,
+				D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */,
 				8855B0C128AD85270069795F /* SignInViewController.swift in Sources */,
 				8855B0B128AD7AD00069795F /* ViewController.swift in Sources */,
 				DEDACF2D2900824D00F33354 /* TextField.swift in Sources */,
@@ -247,6 +254,7 @@
 				88E2E1C728ADDDF10009985D /* Constants.swift in Sources */,
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
+				D38F9D432941342000A8317D /* TabBarController.swift in Sources */,
 				DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */,
 				DE99525629413E7D00C96F96 /* UserInfo.swift in Sources */,
 				DE2B93D829008AD600875591 /* Button.swift in Sources */,

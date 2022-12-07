@@ -29,6 +29,7 @@
 		DE2B93D829008AD600875591 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B93D729008AD600875591 /* Button.swift */; };
 		DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46D9B329130D5F00836C7A /* FeedViewController.swift */; };
 		DE46D9B729130FDB00836C7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DE46D9B629130FDB00836C7A /* FirebaseStorage */; };
+		DE99525629413E7D00C96F96 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99525529413E7D00C96F96 /* UserInfo.swift */; };
 		DEBA7AD2291C4F1B00344163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBA7AD1291C4F1B00344163 /* Assets.xcassets */; };
 		DEC08EBC28E4E0C2001368F6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBB28E4E0C2001368F6 /* FirebaseAnalytics */; };
 		DEC08EBE28E4E0C2001368F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEC08EBD28E4E0C2001368F6 /* FirebaseAuth */; };
@@ -57,6 +58,7 @@
 		D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DE46D9B329130D5F00836C7A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		DE99525529413E7D00C96F96 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		DEBA7AD1291C4F1B00344163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDACF2C2900824D00F33354 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				8855B0BA28AD7AD10069795F /* Info.plist */,
 				88E2E1C628ADDDF10009985D /* Constants.swift */,
+				DE99525529413E7D00C96F96 /* UserInfo.swift */,
 			);
 			path = SceneApp3;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
 				DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */,
+				DE99525629413E7D00C96F96 /* UserInfo.swift in Sources */,
 				DE2B93D829008AD600875591 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if UserDefaults.standard.string(forKey: "username") != nil {
-            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
             window?.rootViewController = mainTabBarController
         } else {
             let loginNavController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")

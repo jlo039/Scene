@@ -16,6 +16,7 @@ class CustomTabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         tabBar.tintColor = #colorLiteral(red: 0.3479217589, green: 0.4500026107, blue: 0.7300929427, alpha: 1)
+        tabBar.barTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         delegate = self
         
@@ -71,7 +72,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
         
         // Your middle tab bar item index.
         // In my case it's 1.
-        if selectedIndex == 1 {
+        if selectedIndex == 2 {
             return false
         }
         

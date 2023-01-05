@@ -53,7 +53,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     self.showError((error?.localizedDescription)!)
                 } else {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
             }

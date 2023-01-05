@@ -20,7 +20,6 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var realNameLabel: UILabel!
     @IBOutlet weak var errorL: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
-    var app:AppDelegate = AppDelegate()
     
     override func viewDidLoad() {
         
@@ -44,10 +43,10 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         profilePicIV.layer.borderColor = UIColor.white.cgColor
         profilePicIV.layer.cornerRadius = 44
         profilePicIV.clipsToBounds = true
+
+        let user = Auth.auth().currentUser
         
-        let userInfo: UserInfo = self.app.userInfo
-        showError(userInfo.profPicURL.absoluteString)
-        let task = URLSession.shared.dataTask(with: userInfo.profPicURL, completionHandler: { data, _, error in
+        let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
             guard let data = data, error == nil else {
                 self.showError("failed to get data")
                 return

@@ -21,10 +21,61 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var errorL: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         
+
+        // Define constraint for size of profile picture
+        let proPicConstraint = NSLayoutConstraint(item: profilePicIV!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
+        // Apply constraint
+        TopInfo.addConstraint(proPicConstraint)
+        
+        // create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(gesture:)))
+
+        // add it to the image view;
+        profilePicIV.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        profilePicIV.isUserInteractionEnabled = true
+        
+        profilePicIV.layer.borderWidth = 1.0
+        profilePicIV.layer.masksToBounds = false
+        profilePicIV.layer.borderColor = UIColor.white.cgColor
+        profilePicIV.layer.cornerRadius = 44
+        profilePicIV.clipsToBounds = true
+        
+        let user = Auth.auth().currentUser
+        let task = URLSession.shared.dataTask(with: ((user?.photoURL) ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                self.showError("failed to get data")
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.profilePicIV.image = image
+            }
+        })
+        task.resume()
+        
+        // Access Firestore database and current user
+        let db = Firestore.firestore()
+        let signedInUid = Auth.auth().currentUser?.uid
+        
+        // Locate the current user's account
+        let docRef = db.collection("users").document(signedInUid!)
+        // Grab info from their account
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.realNameLabel.text = document.get("firstName") as? String
+                self.displayNameLabel.text = document.get("username") as? String
+            } else {
+                print("Document does not exist")
+            }
+        }
+        accountTypeLabel.text = "Artist"
         super.viewDidLoad()
-        
+    }
+    
+    public func setup() {
         // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profilePicIV!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
         // Apply constraint
@@ -46,7 +97,10 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
 
         let user = Auth.auth().currentUser
         
-        let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
+
+        let user = Auth.auth().currentUser
+        let task = URLSession.shared.dataTask(with: ((user?.photoURL) ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+
             guard let data = data, error == nil else {
                 self.showError("failed to get data")
                 return

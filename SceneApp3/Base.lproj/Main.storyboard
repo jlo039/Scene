@@ -269,7 +269,7 @@
         <!--Account-->
         <scene sceneID="nfu-Wp-Wmu">
             <objects>
-                <viewController id="Hl5-2p-gU7" customClass="AccountTabViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountTab" id="Hl5-2p-gU7" customClass="AccountTabViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kNe-Ap-s28">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,9 +382,10 @@
             <point key="canvasLocation" x="2680" y="1637"/>
         </scene>
         <!--Tab Bar Controller-->
+
         <scene sceneID="DcW-Ho-dvJ">
             <objects>
-                <tabBarController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ql-ZQ-MTC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ql-ZQ-MTC" customClass="tabBar" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="eFd-F9-i3g"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>

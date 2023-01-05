@@ -21,10 +21,6 @@ class ExploreTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var explorePosts : [UIImage]
-        
-        
-        
         let image1:UIImage = UIImage(imageLiteralResourceName: "img-1")
         let image2:UIImage = UIImage(imageLiteralResourceName: "img-2")
         let image3:UIImage = UIImage(imageLiteralResourceName: "img-3")

@@ -19,9 +19,9 @@ import UIKit
         
         let image = UIImage(systemName: "plus")!
         middleButton.setImage(image, for: .normal)
-        middleButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        //middleButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         middleButton.backgroundColor = #colorLiteral(red: 0.2546401024, green: 0.3155391216, blue: 0.6859858632, alpha: 1)
-        middleButton.tintColor = .white
+        middleButton.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         middleButton.layer.cornerRadius = 8
         
         middleButton.addTarget(self, action: #selector(self.middleButtonAction), for: .touchUpInside)
@@ -46,7 +46,7 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        middleButton.center = CGPoint(x: frame.width / 2, y: -5)
+        middleButton.center = CGPoint(x: frame.width / 2, y: 5)
     }
     
     // MARK: - Actions

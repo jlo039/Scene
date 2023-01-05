@@ -14,6 +14,7 @@ import FirebaseStorage
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -21,8 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth, user in
             if user != nil {
                 // User is signed in.
+
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+                let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             } else {
                 // No user is signed in.

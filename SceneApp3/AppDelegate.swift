@@ -14,8 +14,6 @@ import FirebaseStorage
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var userInfo: UserInfo = UserInfo(newProfPicURL: URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg")!, newUser: nil, newSignedInUid: nil)
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -23,9 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth, user in
             if user != nil {
                 // User is signed in.
-                self.userInfo.profPicURL = user!.photoURL ?? self.userInfo.profPicURL
-                self.userInfo.user = user
-                self.userInfo.signedInUid = user!.uid
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)

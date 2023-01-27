@@ -30,7 +30,6 @@
 		D3C563B82909C3FF00B1F647 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B72909C3FF00B1F647 /* FirebaseAuth */; };
 		D3C563BA2909C3FF00B1F647 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B92909C3FF00B1F647 /* FirebaseFirestore */; };
 		DE2B93D829008AD600875591 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B93D729008AD600875591 /* Button.swift */; };
-		DE3853F129678011004736D1 /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3853F029678011004736D1 /* tabBar.swift */; };
 		DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46D9B329130D5F00836C7A /* FeedViewController.swift */; };
 		DE46D9B729130FDB00836C7A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DE46D9B629130FDB00836C7A /* FirebaseStorage */; };
 		DEBA7AD2291C4F1B00344163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEBA7AD1291C4F1B00344163 /* Assets.xcassets */; };
@@ -63,7 +62,6 @@
 		D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTabBar.swift; sourceTree = "<group>"; };
 		D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		DE3853F029678011004736D1 /* tabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBar.swift; path = "View Controllers/tabBar.swift"; sourceTree = "<group>"; };
 		DE46D9B329130D5F00836C7A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DEBA7AD1291C4F1B00344163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDACF2C2900824D00F33354 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -98,6 +96,7 @@
 			children = (
 				8855B0AB28AD7AD00069795F /* SceneApp3 */,
 				8855B0AA28AD7AD00069795F /* Products */,
+				DE5DCEE929845CC40077EDA1 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,12 +119,9 @@
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
 				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
-
 				D321A58129677AFD00AF5E0F /* NewPostViewController.swift */,
-
 				D38F9D422941342000A8317D /* TabBarController.swift */,
 				D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */,
-
 				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				8855B0BA28AD7AD10069795F /* Info.plist */,
 				88E2E1C628ADDDF10009985D /* Constants.swift */,
@@ -145,6 +141,13 @@
 				DE46D9B329130D5F00836C7A /* FeedViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		DE5DCEE929845CC40077EDA1 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		DEDACF2B2900816600F33354 /* Visual Classes */ = {
@@ -257,7 +260,6 @@
 				889CFB3028B097EA000FF028 /* AccountTabViewController.swift in Sources */,
 				884A051C28F7809A00775C99 /* ForgotPasswordViewController.swift in Sources */,
 				88E2E1C728ADDDF10009985D /* Constants.swift in Sources */,
-				DE3853F129678011004736D1 /* tabBar.swift in Sources */,
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
 				D38F9D432941342000A8317D /* TabBarController.swift in Sources */,

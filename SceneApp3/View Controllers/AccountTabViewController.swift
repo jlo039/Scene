@@ -96,9 +96,6 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         profilePicIV.clipsToBounds = true
 
         let user = Auth.auth().currentUser
-        
-
-        let user = Auth.auth().currentUser
         let task = URLSession.shared.dataTask(with: ((user?.photoURL) ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
 
             guard let data = data, error == nil else {

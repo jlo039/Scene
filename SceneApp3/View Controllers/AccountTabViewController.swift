@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
@@ -15,15 +16,31 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var SafeArea: UIStackView!
     @IBOutlet weak var TopInfo: UIStackView!
     @IBOutlet weak var profilePicIV: UIImageView!
-    @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var accountTypeLabel: UILabel!
     @IBOutlet weak var realNameLabel: UILabel!
     @IBOutlet weak var errorL: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
+    @IBOutlet weak var filterB: UIButton!
     
     public override func viewDidLoad() {
         
+        filterB.menu = UIMenu(title: "Filter", children: [
+            UIAction(title: "All") {_ in
+                self.showError("all")
+            },
+            UIAction(title: "Promotions") {_ in
+                self.showError("promotions")
+            },
+            UIAction(title: "Checkins") {_ in
+                self.showError("checkins")
+            },
+            UIAction(title: "Recaps") {_ in
+                self.showError("recaps")
+            },
+        ])
 
+        
+        
         // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profilePicIV!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
         // Apply constraint
@@ -66,7 +83,7 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.realNameLabel.text = document.get("firstName") as? String
-                self.displayNameLabel.text = document.get("username") as? String
+                self.navigationItem.title = document.get("username") as? String
             } else {
                 print("Document does not exist")
             }
@@ -74,6 +91,7 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         accountTypeLabel.text = "Artist"
         super.viewDidLoad()
     }
+    
     
     public func setup() {
         // Define constraint for size of profile picture
@@ -119,12 +137,13 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.realNameLabel.text = document.get("firstName") as? String
-                self.displayNameLabel.text = document.get("username") as? String
+                self.navigationItem.title = document.get("username") as? String
             } else {
                 print("Document does not exist")
             }
         }
         accountTypeLabel.text = "Artist"
+
     }
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
@@ -181,6 +200,8 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
 
 
     }
+    
+    
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)

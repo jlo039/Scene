@@ -23,6 +23,7 @@
 		88EA8E1728ADA6D300CBDD60 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1628ADA6D300CBDD60 /* FirebaseAnalytics */; };
 		88EA8E1928ADA6D300CBDD60 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1828ADA6D300CBDD60 /* FirebaseAuth */; };
 		D321A58229677AFD00AF5E0F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D321A58129677AFD00AF5E0F /* NewPostViewController.swift */; };
+		D38BE8E02984666900790729 /* PromotePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BE8DF2984666900790729 /* PromotePostViewController.swift */; };
 		D38F9D432941342000A8317D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D422941342000A8317D /* TabBarController.swift */; };
 		D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */; };
 		D3A4536E2939347A0039E640 /* ExploreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */; };
@@ -58,6 +59,7 @@
 		88E2E1C628ADDDF10009985D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D321A58129677AFD00AF5E0F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		D38BE8DF2984666900790729 /* PromotePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotePostViewController.swift; sourceTree = "<group>"; };
 		D38F9D422941342000A8317D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTabBar.swift; sourceTree = "<group>"; };
 		D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
 				8855B0C428AD854D0069795F /* View Controllers */,
 				8855B0B228AD7AD00069795F /* Main.storyboard */,
+				D38BE8DF2984666900790729 /* PromotePostViewController.swift */,
 				D321A58129677AFD00AF5E0F /* NewPostViewController.swift */,
 				D38F9D422941342000A8317D /* TabBarController.swift */,
 				D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */,
@@ -264,6 +267,7 @@
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
 				D38F9D432941342000A8317D /* TabBarController.swift in Sources */,
 				DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */,
+				D38BE8E02984666900790729 /* PromotePostViewController.swift in Sources */,
 				DE2B93D829008AD600875591 /* Button.swift in Sources */,
 				D321A58229677AFD00AF5E0F /* NewPostViewController.swift in Sources */,
 			);

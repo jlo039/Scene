@@ -4,6 +4,7 @@
 //
 //  Created by Jason Lott on 8/17/22.
 //
+// Jason Token: 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
 
 import UIKit
 import FirebaseCore
@@ -13,23 +14,59 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
+    var profilePic: UIImage?, firstName: String?, username: String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         FirebaseApp.configure()
-        Auth.auth().addStateDidChangeListener {
+        let changeListener = Auth.auth().addStateDidChangeListener {
             auth, user in
             if user != nil {
                 // User is signed in.
-
+                let group = DispatchGroup()
+                group.enter()
+                    let db = Firestore.firestore()
+                    let signedInUid = user!.uid
+                    
+                    // Locate the current user's account
+                    let docRef = db.collection("users").document(signedInUid)
+                    // Grab info from their account
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            
+                            DispatchQueue.main.async {
+                                self.firstName = document.get("firstName") as? String
+                                self.username = document.get("username") as? String
+                            }
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                    let task = URLSession.shared.dataTask(with: ((user?.photoURL) ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+                        guard let data = data, error == nil else {
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            let image = UIImage(data: data)
+                            DispatchQueue.main.async {
+                                self.profilePic = image
+                                group.leave()
+                            }
+                        }
+                    })
+                    task.resume()
+            
+                group.notify(queue: .main) {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                }
             } else {
                 // No user is signed in.
             }
         }
+        Auth.auth().removeStateDidChangeListener(changeListener)
         return true
     }
 

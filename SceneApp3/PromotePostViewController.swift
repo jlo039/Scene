@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class PromotePostViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class PromotePostViewController: UIViewController {
     @IBOutlet weak var EventNameEntry: UITextField!
     @IBOutlet weak var VenueEntry: UITextField!
     @IBOutlet weak var ArtistEntry: UITextField!
+    @IBOutlet weak var EventList: UILabel!
     @IBOutlet weak var EventDescriptionEntry: UITextField!
     
     override func viewDidLoad() {
@@ -27,9 +29,36 @@ class PromotePostViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func LocateExistingEvent(_ sender: Any) {
+        if (PromotionType.selectedSegmentIndex == 1) {
+            EventList.text = "Possible Events:"
+            var possibleEvents:[String] = Array.init()
+            let eventName = EventNameEntry.text!;
+            Firestore.firestore().collection("events").whereField("name", isEqualTo: eventName).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        possibleEvents.append(document.get("name") as! String)
+                    }
+                }
+                for possibleName in possibleEvents {
+                    self.EventList.text! += "\n" + possibleName
+                }
+            }
+        }
+    }
+    
     @IBAction func SumbitPromotion(_ sender: Any) {
+        let db = Firestore.firestore()
+        let eventName = EventNameEntry.text!
         if (PromotionType.selectedSegmentIndex == 0) {
             // Create new event on server
+            let eventTime = Timestamp.init(date: EventDateEntry.date)
+            let eventDescription = EventDescriptionEntry.text!
+            db.collection("events").document("000000002").setData(["name": eventName, "date-time": eventTime, "description": eventDescription])
         }
         // Post promotion
         self.dismiss(animated: true)

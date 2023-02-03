@@ -491,6 +491,9 @@
                                 <rect key="frame" x="25" y="172.5" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="LocateExistingEvent:" destination="Le7-ZQ-qyS" eventType="editingChanged" id="DbP-F0-GQH"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-03-iyn">
                                 <rect key="frame" x="25" y="101.5" width="364" height="32"/>
@@ -542,6 +545,13 @@
                                     <action selector="SumbitPromotion:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="WOo-d4-v98"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Possible Events:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBk-4D-YBd">
+                                <rect key="frame" x="55" y="624" width="269" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4QV-ED-nZa"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -581,6 +591,7 @@
                         <outlet property="ArtistEntry" destination="BVN-lT-1Ew" id="WNd-Fc-nVd"/>
                         <outlet property="EventDateEntry" destination="v5M-vb-hIr" id="0rg-mJ-lA8"/>
                         <outlet property="EventDescriptionEntry" destination="hvs-ZY-4Ol" id="UZv-86-RJt"/>
+                        <outlet property="EventList" destination="WBk-4D-YBd" id="3pX-Gb-Vl8"/>
                         <outlet property="EventNameEntry" destination="3hf-iR-vpx" id="coH-Hh-lcj"/>
                         <outlet property="PromotionType" destination="pVI-03-iyn" id="CDe-R6-aAQ"/>
                         <outlet property="VenueEntry" destination="vIU-va-kbu" id="lce-26-nbz"/>

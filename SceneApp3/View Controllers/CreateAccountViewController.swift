@@ -168,7 +168,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
             //transition to the home screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
         }
     }

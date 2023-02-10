@@ -14,7 +14,7 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var profilePic: UIImage?, firstName: String?, username: String?
+    var profilePic: UIImage?, firstName: String?, displayName: String?, type: Int?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,22 +37,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
                             DispatchQueue.main.async {
                                 self.firstName = document.get("firstName") as? String
-                                self.username = document.get("username") as? String
                             }
                         } else {
                             print("Document does not exist")
                         }
                     }
-                    let task = URLSession.shared.dataTask(with: ((user?.photoURL) ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+                    let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
                         guard let data = data, error == nil else {
                             return
                         }
                         DispatchQueue.main.async {
                             let image = UIImage(data: data)
-                            DispatchQueue.main.async {
-                                self.profilePic = image
-                                group.leave()
-                            }
+                            self.profilePic = image
+                            self.displayName = user?.displayName
+                            group.leave()
                         }
                     })
                     task.resume()

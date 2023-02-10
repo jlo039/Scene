@@ -64,8 +64,30 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         
         self.profilePicIV.image = appDelegate.profilePic
         self.realNameLabel.text = appDelegate.firstName
-        self.navigationItem.title = appDelegate.username
-        accountTypeLabel.text = "Artist"
+        self.navigationItem.title = appDelegate.displayName
+        // Locate the current user's account
+        let user = Auth.auth().currentUser
+        let db = Firestore.firestore()
+        let signedInUid = user!.uid
+        let docRef = db.collection("users").document(signedInUid)
+        // Grab info from their account
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                switch appDelegate.type {
+                case 2:
+                    self.accountTypeLabel.text = "Venue"
+                    break
+                case 1:
+                    self.accountTypeLabel.text = "Artist"
+                    break
+                default:
+                    self.accountTypeLabel.text = "Member"
+                }
+            } else {
+                self.showError("Document does not exist.")
+            }
+        }
+
         super.viewDidLoad()
     }
     

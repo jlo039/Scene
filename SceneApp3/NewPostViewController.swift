@@ -18,6 +18,7 @@ class NewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.isModalInPresentation = true
         
         PromoteButton.tintColor = #colorLiteral(red: 0.3479217589, green: 0.4500026107, blue: 0.7300929427, alpha: 1)
         PromoteButton.setImage(UIImage(systemName: "megaphone.fill"), for: UIControl.State.normal)

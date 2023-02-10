@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class PromotePostViewController: UIViewController {
 
@@ -58,7 +59,7 @@ class PromotePostViewController: UIViewController {
             // Create new event on server
             let eventTime = Timestamp.init(date: EventDateEntry.date)
             let eventDescription = EventDescriptionEntry.text!
-            db.collection("events").document("000000002").setData(["name": eventName, "date-time": eventTime, "description": eventDescription])
+            db.collection("events").document("000").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
         }
         // Post promotion
         self.dismiss(animated: true)
@@ -73,6 +74,9 @@ class PromotePostViewController: UIViewController {
             VenueEntry.isUserInteractionEnabled = true
             ArtistEntry.isUserInteractionEnabled = true
             EventDescriptionEntry.isUserInteractionEnabled = true
+            VenueEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            ArtistEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            EventDescriptionEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
         // If promoting existing event
         else {
@@ -81,6 +85,9 @@ class PromotePostViewController: UIViewController {
             VenueEntry.isUserInteractionEnabled = false
             ArtistEntry.isUserInteractionEnabled = false
             EventDescriptionEntry.isUserInteractionEnabled = false
+            VenueEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
+            ArtistEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
+            EventDescriptionEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
         }
     }
     

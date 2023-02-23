@@ -19,6 +19,8 @@ class PromotePostViewController: UIViewController {
     @IBOutlet weak var EventList: UILabel!
     @IBOutlet weak var EventDescriptionEntry: UITextField!
     
+    var data: [String]! = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,26 +32,29 @@ class PromotePostViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    @IBAction func LocateExistingEvent(_ sender: Any) {
-        if (PromotionType.selectedSegmentIndex == 1) {
-            EventList.text = "Possible Events:"
-            var possibleEvents:[String] = Array.init()
-            let eventName = EventNameEntry.text!;
-            Firestore.firestore().collection("events").whereField("name", isEqualTo: eventName).getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        possibleEvents.append(document.get("name") as! String)
-                    }
+    @IBAction func ExistingEvent(_ sender: Any) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    print(document.get("name")!)
+                    self.data.append(document.get("name") as! String)
                 }
-                for possibleName in possibleEvents {
-                    self.EventList.text! += "\n" + possibleName
-                }
+                
+                appDelegate.eventNames = self.data
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let existingEvents = storyboard.instantiateViewController(withIdentifier: "ExistingEvents")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(existingEvents)
             }
         }
+        
+
+        
     }
     
     @IBAction func SumbitPromotion(_ sender: Any) {

@@ -538,7 +538,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Existing"/>
                                 <connections>
-                                    <segue destination="oqu-Cc-44n" kind="show" id="bWW-Mh-7pL"/>
+                                    <action selector="ExistingEvent:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="RTb-si-XnE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Possible Events:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBk-4D-YBd">
@@ -600,9 +600,9 @@
         <!--Search Events-->
         <scene sceneID="oou-sa-seb">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="oqu-Cc-44n" customClass="SearchEventViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExistingEvents" modalTransitionStyle="flipHorizontal" id="oqu-Cc-44n" customClass="SearchEventViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ryq-Y0-nqa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMB-Te-U1X">

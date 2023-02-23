@@ -42,19 +42,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("Document does not exist")
                         }
                     }
-                let task = URLSession.shared.dataTask(with: user!.photoURL!, completionHandler: { data, _, error in
-                        guard let data = data, error == nil else {
-                            return
-                        }
+                // get profile photo from firebase storage
+                let profPhotoRef = Storage.storage().reference(forURL: user!.photoURL?.absoluteString ?? "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
+                profPhotoRef.getData(maxSize: 2048*2048) { data, error in
+                    if let error = error {
+                        print(error)
+                    } else {
                         DispatchQueue.main.async {
-                            let image = UIImage(data: data)
-                            self.profilePic = image
+                            self.profilePic =  UIImage(data: data!)
                             self.displayName = user?.displayName
                             group.leave()
                         }
-                    })
-                    task.resume()
-            
+                    }
+                }
+//                let task = URLSession.shared.dataTask(with: (user!.photoURL ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+//                        guard let data = data, error == nil else {
+//                            return
+//                        }
+//                        DispatchQueue.main.async {
+//                            let image = UIImage(data: data)
+//                            self.profilePic = image
+//                            self.displayName = user?.displayName
+//                            group.leave()
+//                        }
+//                    })
+//                    task.resume()
+//
                 group.notify(queue: .main) {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")

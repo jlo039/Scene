@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstNameField: TextField!
@@ -161,18 +162,27 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.displayName = self.displayName
             appDelegate.type = CreateAccountViewController.type
-            appDelegate.firstName = CreateAccountViewController.firstName
-            let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
-                guard let data = data, error == nil else {
-                    print("whack")
-                    return
+            // get profile photo from firebase storage
+            let profPhotoRef = Storage.storage().reference(forURL: user!.photoURL?.absoluteString ?? "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
+            profPhotoRef.getData(maxSize: 2048*2048) { data, error in
+                if let error = error {
+                    print(error)
+                } else {
+                    appDelegate.profilePic =  UIImage(data: data!)
                 }
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    appDelegate.profilePic = image
-                }
-            })
-            task.resume()
+            }
+//            appDelegate.firstName = CreateAccountViewController.firstName
+//            let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
+//                guard let data = data, error == nil else {
+//                    print("whack")
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    let image = UIImage(data: data)
+//                    appDelegate.profilePic = image
+//                }
+//            })
+//            task.resume()
             
             //transition to the home screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

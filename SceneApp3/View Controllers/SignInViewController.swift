@@ -52,6 +52,37 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 if error != nil {
                     self.showError((error?.localizedDescription)!)
                 } else {
+                    //update user's info in app delegate
+                    let user = Auth.auth().currentUser
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.displayName = user?.displayName
+                    let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
+                        guard let data = data, error == nil else {
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            let image = UIImage(data: data)
+                            appDelegate.profilePic = image
+                        }
+                    })
+                    task.resume()
+                    let db = Firestore.firestore()
+                    let signedInUid = user!.uid
+                    
+                    // Locate the current user's account
+                    let docRef = db.collection("users").document(signedInUid)
+                    // Grab info from their account
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            appDelegate.type = document.get("type") as? Int
+                            appDelegate.firstName = document.get("firstName") as? String
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                    
+                    
+                    //transition views
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)

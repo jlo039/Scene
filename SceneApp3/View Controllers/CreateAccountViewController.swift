@@ -19,8 +19,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var venueNameTF: TextField!
     @IBOutlet weak var addressTF: TextField!
     
-    var email: String = "", password: String = "", username: String = "", stageName: String = "", venueName: String = "" ,address: String = ""
-    static var newUser: AuthDataResult? = nil, firstName: String = "", type: Int = 0
+    var email: String = "", password: String = "", displayName:String = "" ,address: String = ""
+    static var firstName: String = "", type: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,10 +101,20 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     let errorMsg = err?.localizedDescription
                     self.showError(errorMsg!)
                 } else {
-
-                    CreateAccountViewController.newUser = result!
                     // change views
-                    self.performSegue(withIdentifier: "nextSegue", sender: nil)
+                    Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
+                        if error != nil {
+                            self.showError((error?.localizedDescription)!)
+                        } else {
+                            let user = Auth.auth().currentUser
+                            let changeRequest = user!.createProfileChangeRequest()
+                            changeRequest.photoURL = URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg")
+                            changeRequest.commitChanges { error in
+                              // ...
+                            }
+                            self.performSegue(withIdentifier: "nextSegue", sender: nil)
+                        }
+                    }
                 }
             }
         }
@@ -124,48 +134,46 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             showError(error!)
         } else {
             if usernameField != nil {
-                username = usernameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                displayName = usernameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             } else if stageNameTF != nil {
-                stageName = stageNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                displayName = stageNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             } else {
-                venueName = venueNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                displayName = venueNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 address = addressTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             }
             //user created sucessfully. store information
             let db = Firestore.firestore()
-            switch CreateAccountViewController.type {
-            case 0:
-                db.collection("users").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "username" : self.username, "uid" : CreateAccountViewController.newUser!.user.uid]) { error in
-                    if error != nil {
-                        //show error messsage
-                        let errorMsg = error?.localizedDescription
-                        self.showError(errorMsg!)
-                    }
-                }
-                break
-            case 1:
-                db.collection("artist").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "stageName" : self.stageName, "uid" : CreateAccountViewController.newUser!.user.uid]) { error in
-                    if error != nil {
-                        //show error messsage
-                        let errorMsg = error?.localizedDescription
-                        self.showError(errorMsg!)
-
-                    }
-                }
-                break
-            case 2:
-                db.collection("venue").document(CreateAccountViewController.newUser!.user.uid).setData(["firstName" : CreateAccountViewController.firstName, "venueName" : self.venueName, "address" : address,"uid" : CreateAccountViewController.newUser!.user.uid]) { error in
-                    if error != nil {
-                        //show error messsage
-                        let errorMsg = error?.localizedDescription
-                        self.showError(errorMsg!)
-                    }
-                }
-                break
-            default :
-                showError("Invalid account type.")
+            let user = Auth.auth().currentUser
+            let changeRequest = user!.createProfileChangeRequest()
+            changeRequest.displayName = self.displayName
+            changeRequest.commitChanges { error in
+              // ...
             }
-
+            db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]	) { error in
+                if error != nil {
+                    //show error messsage
+                    let errorMsg = error?.localizedDescription
+                    self.showError(errorMsg!)
+                }
+            }
+            
+            //update user info for app delegate
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.displayName = self.displayName
+            appDelegate.type = CreateAccountViewController.type
+            appDelegate.firstName = CreateAccountViewController.firstName
+            let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
+                guard let data = data, error == nil else {
+                    print("whack")
+                    return
+                }
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    appDelegate.profilePic = image
+                }
+            })
+            task.resume()
+            
             //transition to the home screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseCore
+import FirebaseStorage
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -56,16 +57,25 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     let user = Auth.auth().currentUser
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.displayName = user?.displayName
-                    let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
-                        guard let data = data, error == nil else {
-                            return
+                    // get profile photo from firebase storage
+                    let profPhotoRef = Storage.storage().reference(forURL: user!.photoURL?.absoluteString ?? "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
+                    profPhotoRef.getData(maxSize: 2048*2048) { data, error in
+                        if let error = error {
+                            print(error)
+                        } else {
+                            appDelegate.profilePic =  UIImage(data: data!)
                         }
-                        DispatchQueue.main.async {
-                            let image = UIImage(data: data)
-                            appDelegate.profilePic = image
-                        }
-                    })
-                    task.resume()
+                    }
+//                    let task = URLSession.shared.dataTask(with: (user!.photoURL ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
+//                        guard let data = data, error == nil else {
+//                            return
+//                        }
+//                        DispatchQueue.main.async {
+//                            let image = UIImage(data: data)
+//                            appDelegate.profilePic = image
+//                        }
+//                    })
+//                    task.resume()
                     let db = Firestore.firestore()
                     let signedInUid = user!.uid
                     
@@ -80,7 +90,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                             print("Document does not exist")
                         }
                     }
-                    
                     
                     //transition views
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)

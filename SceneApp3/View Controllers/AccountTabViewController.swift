@@ -133,8 +133,6 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
                 guard let url = url, error == nil else {
                     return
                 }
-                let urlString = url.absoluteString
-                print("Downlaod url: \(urlString)")
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.photoURL = url
                 changeRequest?.commitChanges { error in

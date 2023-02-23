@@ -20,7 +20,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addressTF: TextField!
     
     var email: String = "", password: String = "", displayName:String = "" ,address: String = ""
-    static var newUser: AuthDataResult? = nil, firstName: String = "", type: Int = 0
+    static var firstName: String = "", type: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,17 +101,17 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     let errorMsg = err?.localizedDescription
                     self.showError(errorMsg!)
                 } else {
-                    CreateAccountViewController.newUser = result!
-                    let changeRequest = CreateAccountViewController.newUser!.user.createProfileChangeRequest()
-                    changeRequest.photoURL = URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg")
-                    changeRequest.commitChanges { error in
-                      // ...
-                    }
                     // change views
                     Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
                         if error != nil {
                             self.showError((error?.localizedDescription)!)
                         } else {
+                            let user = Auth.auth().currentUser
+                            let changeRequest = user!.createProfileChangeRequest()
+                            changeRequest.photoURL = URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg")
+                            changeRequest.commitChanges { error in
+                              // ...
+                            }
                             self.performSegue(withIdentifier: "nextSegue", sender: nil)
                         }
                     }
@@ -143,12 +143,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             }
             //user created sucessfully. store information
             let db = Firestore.firestore()
-            let changeRequest = CreateAccountViewController.newUser!.user.createProfileChangeRequest()
+            let user = Auth.auth().currentUser
+            let changeRequest = user!.createProfileChangeRequest()
             changeRequest.displayName = self.displayName
             changeRequest.commitChanges { error in
               // ...
             }
-            db.collection("users").document(CreateAccountViewController.newUser!.user.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]	) { error in
+            db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]	) { error in
                 if error != nil {
                     //show error messsage
                     let errorMsg = error?.localizedDescription
@@ -157,7 +158,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             }
             
             //update user info for app delegate
-            let user = Auth.auth().currentUser
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.displayName = self.displayName
             appDelegate.type = CreateAccountViewController.type

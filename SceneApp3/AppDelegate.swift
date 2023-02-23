@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
+        
         let changeListener = Auth.auth().addStateDidChangeListener {
             auth, user in
             if user != nil {
@@ -34,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // Grab info from their account
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
-                            
                             DispatchQueue.main.async {
                                 self.firstName = document.get("firstName") as? String
                             }
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("Document does not exist")
                         }
                     }
-                    let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
+                let task = URLSession.shared.dataTask(with: user!.photoURL!, completionHandler: { data, _, error in
                         guard let data = data, error == nil else {
                             return
                         }

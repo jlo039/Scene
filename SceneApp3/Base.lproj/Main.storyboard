@@ -542,30 +542,27 @@
         <!--Promote Event-->
         <scene sceneID="64o-Ej-c7C">
             <objects>
-                <viewController id="Le7-ZQ-qyS" customClass="PromotePostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromoteEvent" id="Le7-ZQ-qyS" customClass="PromotePostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXI-c2-2EV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hf-iR-vpx">
-                                <rect key="frame" x="25" y="116" width="264" height="34"/>
+                                <rect key="frame" x="25" y="116" width="269" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="LocateExistingEvent:" destination="Le7-ZQ-qyS" eventType="editingChanged" id="DbP-F0-GQH"/>
-                                </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-k5-6VQ" userLabel="Date Selection">
-                                <rect key="frame" x="25" y="160" width="364" height="40"/>
+                                <rect key="frame" x="30" y="160" width="359" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azl-cL-xpm">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="v5M-vb-hIr">
-                                        <rect key="frame" x="182" y="0.0" width="182" height="40"/>
+                                        <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                     </datePicker>
                                 </subviews>
                                 <constraints>
@@ -573,12 +570,12 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Venue name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-va-kbu">
-                                <rect key="frame" x="25" y="210" width="364" height="34"/>
+                                <rect key="frame" x="25" y="210" width="269" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-lT-1Ew">
-                                <rect key="frame" x="25" y="254" width="364" height="34"/>
+                                <rect key="frame" x="25" y="254" width="269" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -590,10 +587,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-m9-wlx">
-                                <rect key="frame" x="167.5" y="418" width="79" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Promote"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-m9-wlx">
+                                <rect key="frame" x="161" y="403" width="92.5" height="35"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Promote">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="SumbitPromotion:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="WOo-d4-v98"/>
                                 </connections>
@@ -606,39 +610,60 @@
                                     <action selector="ExistingEvent:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="RTb-si-XnE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Possible Events:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBk-4D-YBd">
-                                <rect key="frame" x="25" y="381" width="123.5" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abI-uT-g3q">
+                                <rect key="frame" x="330" y="213" width="59" height="27"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Search">
+                                            <attributes>
+                                                <font key="NSFont" size="11" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qag-Fy-Iv7">
+                                <rect key="frame" x="330" y="257" width="59" height="27"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Search">
+                                            <attributes>
+                                                <font key="NSFont" size="11" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4QV-ED-nZa"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vIU-va-kbu" firstAttribute="centerX" secondItem="UXI-c2-2EV" secondAttribute="centerX" id="2a9-4c-i1x"/>
                             <constraint firstItem="BVN-lT-1Ew" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="7fH-R9-Y8o"/>
                             <constraint firstItem="BUC-k5-6VQ" firstAttribute="top" secondItem="3hf-iR-vpx" secondAttribute="bottom" constant="10" id="9O2-mb-307"/>
-                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="3hf-iR-vpx" secondAttribute="trailing" constant="125" id="DuK-5U-Xot"/>
-                            <constraint firstItem="BUC-k5-6VQ" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="G83-1q-q78"/>
+                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="qag-Fy-Iv7" secondAttribute="trailing" constant="25" id="BER-JH-tSl"/>
+                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="3hf-iR-vpx" secondAttribute="trailing" constant="120" id="DuK-5U-Xot"/>
+                            <constraint firstItem="BUC-k5-6VQ" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="30" id="G83-1q-q78"/>
                             <constraint firstItem="vIU-va-kbu" firstAttribute="top" secondItem="BUC-k5-6VQ" secondAttribute="bottom" constant="10" id="IZS-7V-M7E"/>
-                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="vIU-va-kbu" secondAttribute="trailing" constant="25" id="PiC-ol-1e2"/>
                             <constraint firstItem="hvs-ZY-4Ol" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="PrX-1m-h2p"/>
+                            <constraint firstItem="qag-Fy-Iv7" firstAttribute="top" secondItem="abI-uT-g3q" secondAttribute="bottom" constant="17" id="UOo-9t-5KF"/>
                             <constraint firstItem="hvs-ZY-4Ol" firstAttribute="top" secondItem="BVN-lT-1Ew" secondAttribute="bottom" constant="10" id="VY4-ff-SaJ"/>
                             <constraint firstItem="hvs-ZY-4Ol" firstAttribute="centerX" secondItem="UXI-c2-2EV" secondAttribute="centerX" id="Zcp-Ui-sMz"/>
-                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="BVN-lT-1Ew" secondAttribute="trailing" constant="25" id="b6O-k0-UyB"/>
+                            <constraint firstItem="lxX-m9-wlx" firstAttribute="centerX" secondItem="UXI-c2-2EV" secondAttribute="centerX" id="bWE-NV-z2B"/>
                             <constraint firstItem="3hf-iR-vpx" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="baa-eu-0oT"/>
                             <constraint firstItem="3hf-iR-vpx" firstAttribute="top" secondItem="4QV-ED-nZa" secondAttribute="top" constant="60" id="bek-Hg-Chv"/>
-                            <constraint firstItem="BVN-lT-1Ew" firstAttribute="centerX" secondItem="UXI-c2-2EV" secondAttribute="centerX" id="ble-Xh-LK6"/>
+                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="abI-uT-g3q" secondAttribute="trailing" constant="25" id="fFJ-Wc-fqt"/>
                             <constraint firstItem="BVN-lT-1Ew" firstAttribute="top" secondItem="vIU-va-kbu" secondAttribute="bottom" constant="10" id="gBw-Vb-CVK"/>
                             <constraint firstAttribute="trailing" secondItem="BUC-k5-6VQ" secondAttribute="trailing" constant="25" id="ifb-cf-he2"/>
+                            <constraint firstItem="BVN-lT-1Ew" firstAttribute="trailing" secondItem="vIU-va-kbu" secondAttribute="trailing" id="jkO-4u-7VS"/>
                             <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="4Ly-va-HL6" secondAttribute="trailing" constant="25" id="l1m-RF-4i1"/>
-                            <constraint firstItem="lxX-m9-wlx" firstAttribute="centerX" secondItem="UXI-c2-2EV" secondAttribute="centerX" id="mmP-kf-kDa"/>
+                            <constraint firstItem="vIU-va-kbu" firstAttribute="trailing" secondItem="3hf-iR-vpx" secondAttribute="trailing" id="ouC-hm-edU"/>
+                            <constraint firstItem="abI-uT-g3q" firstAttribute="top" secondItem="BUC-k5-6VQ" secondAttribute="bottom" constant="13" id="qsQ-bT-yQ6"/>
                             <constraint firstItem="4Ly-va-HL6" firstAttribute="top" secondItem="4QV-ED-nZa" secondAttribute="top" constant="60" id="rec-yb-cNi"/>
                             <constraint firstItem="vIU-va-kbu" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="sdu-7U-opi"/>
                             <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="hvs-ZY-4Ol" secondAttribute="trailing" constant="25" id="tRV-23-u1y"/>
-                            <constraint firstItem="lxX-m9-wlx" firstAttribute="top" secondItem="hvs-ZY-4Ol" secondAttribute="bottom" constant="60" id="z3b-tM-fXX"/>
+                            <constraint firstItem="lxX-m9-wlx" firstAttribute="top" secondItem="hvs-ZY-4Ol" secondAttribute="bottom" constant="45" id="z3b-tM-fXX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Promote Event" id="CH8-vn-nHK">
@@ -653,7 +678,6 @@
                         <outlet property="ArtistEntry" destination="BVN-lT-1Ew" id="WNd-Fc-nVd"/>
                         <outlet property="EventDateEntry" destination="v5M-vb-hIr" id="0rg-mJ-lA8"/>
                         <outlet property="EventDescriptionEntry" destination="hvs-ZY-4Ol" id="UZv-86-RJt"/>
-                        <outlet property="EventList" destination="WBk-4D-YBd" id="3pX-Gb-Vl8"/>
                         <outlet property="EventNameEntry" destination="3hf-iR-vpx" id="coH-Hh-lcj"/>
                         <outlet property="VenueEntry" destination="vIU-va-kbu" id="lce-26-nbz"/>
                     </connections>

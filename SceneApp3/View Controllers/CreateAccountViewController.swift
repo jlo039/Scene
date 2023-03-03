@@ -109,7 +109,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                         } else {
                             let user = Auth.auth().currentUser
                             let changeRequest = user!.createProfileChangeRequest()
-                            changeRequest.photoURL = URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg")
+                            changeRequest.photoURL = URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
                             changeRequest.commitChanges { error in
                               // ...
                             }
@@ -142,52 +142,64 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 displayName = venueNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 address = addressTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             }
+            
             //user created sucessfully. store information
-            let db = Firestore.firestore()
+            let group = DispatchGroup()
+            group.enter()
             let user = Auth.auth().currentUser
             let changeRequest = user!.createProfileChangeRequest()
             changeRequest.displayName = self.displayName
             changeRequest.commitChanges { error in
               // ...
             }
-            db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]	) { error in
-                if error != nil {
-                    //show error messsage
-                    let errorMsg = error?.localizedDescription
-                    self.showError(errorMsg!)
+
+            //create the user's document in the database
+            let db = Firestore.firestore()
+            if (CreateAccountViewController.type == 2) {
+                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName, "address": address]    ) { error in
+                    if error != nil {
+                        //show error messsage
+                        let errorMsg = error?.localizedDescription
+                        self.showError(errorMsg!)
+                    }
+                }
+            } else {
+                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]    ) { error in
+                    if error != nil {
+                        //show error messsage
+                        let errorMsg = error?.localizedDescription
+                        self.showError(errorMsg!)
+                    }
                 }
             }
             
             //update user info for app delegate
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.displayName = self.displayName
-            appDelegate.type = CreateAccountViewController.type
+            DispatchQueue.main.async {
+                appDelegate.displayName = self.displayName
+                appDelegate.type = CreateAccountViewController.type
+                appDelegate.firstName = CreateAccountViewController.firstName
+            }
+            
             // get profile photo from firebase storage
             let profPhotoRef = Storage.storage().reference(forURL: user!.photoURL?.absoluteString ?? "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
             profPhotoRef.getData(maxSize: 2048*2048) { data, error in
                 if let error = error {
-                    print(error)
+                    self.showError(error.localizedDescription)
                 } else {
-                    appDelegate.profilePic =  UIImage(data: data!)
+                    DispatchQueue.main.async {
+                        appDelegate.profilePic =  UIImage(data: data!)
+                        group.leave()
+                    }
                 }
             }
-//            appDelegate.firstName = CreateAccountViewController.firstName
-//            let task = URLSession.shared.dataTask(with: (user?.photoURL)!, completionHandler: { data, _, error in
-//                guard let data = data, error == nil else {
-//                    print("whack")
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    let image = UIImage(data: data)
-//                    appDelegate.profilePic = image
-//                }
-//            })
-//            task.resume()
             
             //transition to the home screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            group.notify(queue: .main) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            }
         }
     }
     

@@ -21,22 +21,24 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var errorL: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     @IBOutlet weak var filterB: UIButton!
+    var posts = ["All": true, "Promotions": true, "Checkins": true, "Recaps": true]
     
     public override func viewDidLoad() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let filterMenu = UIMenu(title: "Filter", children: [
             UIAction(title: "All", state: .on) {_ in
-                self.showError("all")
+                
+                self.posts["All"]?.toggle()
             },
-            UIAction(title: "Promotions") {_ in
-                self.showError("promotions")
+            UIAction(title: "Promotions", state: .on) {_ in
+                self.posts["Promotions"]?.toggle()
             },
-            UIAction(title: "Checkins") {_ in
-                self.showError("checkins")
+            UIAction(title: "Checkins", state: .on) {_ in
+                self.posts["Promitions"]?.toggle()
             },
-            UIAction(title: "Recaps") {_ in
-                self.showError("recaps")
+            UIAction(title: "Recaps", state: .on) {_ in
+                self.posts["Promotions"]?.toggle()
             },
         ])
         filterB.menu = filterMenu
@@ -62,32 +64,20 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         profilePicIV.layer.cornerRadius = 44
         profilePicIV.clipsToBounds = true
         
+        // update view
         self.profilePicIV.image = appDelegate.profilePic
         self.realNameLabel.text = appDelegate.firstName
         self.navigationItem.title = appDelegate.displayName
-        // Locate the current user's account
-        let user = Auth.auth().currentUser
-        let db = Firestore.firestore()
-        let signedInUid = user!.uid
-        let docRef = db.collection("users").document(signedInUid)
-        // Grab info from their account
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                switch appDelegate.type {
-                case 2:
-                    self.accountTypeLabel.text = "Venue"
-                    break
-                case 1:
-                    self.accountTypeLabel.text = "Artist"
-                    break
-                default:
-                    self.accountTypeLabel.text = "Member"
-                }
-            } else {
-                self.showError("Document does not exist.")
-            }
+        switch appDelegate.type {
+        case 2:
+            self.accountTypeLabel.text = "Venue"
+            break
+        case 1:
+            self.accountTypeLabel.text = "Artist"
+            break
+        default:
+            self.accountTypeLabel.text = "Member"
         }
-
         super.viewDidLoad()
     }
     

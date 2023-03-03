@@ -54,16 +54,22 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     self.showError((error?.localizedDescription)!)
                 } else {
                     //update user's info in app delegate
+                    let group = DispatchGroup()
+                    group.enter()
                     let user = Auth.auth().currentUser
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.displayName = user?.displayName
+                    DispatchQueue.main.async {
+                        appDelegate.displayName = user?.displayName
+                    }
                     // get profile photo from firebase storage
                     let profPhotoRef = Storage.storage().reference(forURL: user!.photoURL?.absoluteString ?? "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.png")
                     profPhotoRef.getData(maxSize: 2048*2048) { data, error in
                         if let error = error {
                             print(error)
                         } else {
-                            appDelegate.profilePic =  UIImage(data: data!)
+                            DispatchQueue.main.async {
+                                appDelegate.profilePic =  UIImage(data: data!)
+                            }
                         }
                     }
 //                    let task = URLSession.shared.dataTask(with: (user!.photoURL ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
@@ -84,17 +90,22 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     // Grab info from their account
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
-                            appDelegate.type = document.get("type") as? Int
-                            appDelegate.firstName = document.get("firstName") as? String
+                            DispatchQueue.main.async {
+                                appDelegate.type = document.get("type") as? Int
+                                appDelegate.firstName = document.get("firstName") as? String
+                                group.leave()
+                            }
                         } else {
                             print("Document does not exist")
                         }
                     }
                     
                     //transition views
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                    group.notify(queue: .main) {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                    }
                 }
             }
         }

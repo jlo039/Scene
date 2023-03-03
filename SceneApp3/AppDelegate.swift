@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let document = document, document.exists {
                             DispatchQueue.main.async {
                                 self.firstName = document.get("firstName") as? String
+                                self.type = document.get("type") as? Int
                             }
                         } else {
                             print("Document does not exist")
@@ -69,12 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    task.resume()
 //
                 group.notify(queue: .main) {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
             } else {
                 // No user is signed in.
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let signInController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(signInController)
             }
         }
         Auth.auth().removeStateDidChangeListener(changeListener)
@@ -96,6 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    
 }
 

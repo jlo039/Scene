@@ -11,7 +11,6 @@ import FirebaseAuth
 
 class PromotePostViewController: UIViewController {
 
-    @IBOutlet weak var PromotionType: UISegmentedControl!
     @IBOutlet weak var EventDateEntry: UIDatePicker!
     @IBOutlet weak var EventNameEntry: UITextField!
     @IBOutlet weak var VenueEntry: UITextField!
@@ -19,12 +18,32 @@ class PromotePostViewController: UIViewController {
     @IBOutlet weak var EventList: UILabel!
     @IBOutlet weak var EventDescriptionEntry: UITextField!
     
+    var existing: Bool = false
     var data: [String]! = []
+    var dataSize: Int = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        data = []
+        dataSize = 0
+        
+        // Access event database
+        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                // Update global var of existing events.
+                for document in querySnapshot!.documents {
+                    self.data.append(document.get("name") as! String)
+                    self.dataSize += 1
+                }
+                appDelegate.eventNames = self.data
+            }
+        }
     }
     
     
@@ -33,45 +52,27 @@ class PromotePostViewController: UIViewController {
     }
     
     @IBAction func ExistingEvent(_ sender: Any) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    //print("\(document.documentID) => \(document.data())")
-                    print(document.get("name")!)
-                    self.data.append(document.get("name") as! String)
-                }
-                
-                appDelegate.eventNames = self.data
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let existingEvents = storyboard.instantiateViewController(withIdentifier: "ExistingEvents")
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(existingEvents)
-            }
-        }
-        
-
-        
+        // Open search view for existing events.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let existingEvents = storyboard.instantiateViewController(withIdentifier: "ExistingEvents")
+        self.navigationController?.pushViewController(existingEvents, animated: true)
     }
     
     @IBAction func SumbitPromotion(_ sender: Any) {
         let db = Firestore.firestore()
         let eventName = EventNameEntry.text!
-        if (PromotionType.selectedSegmentIndex == 0) {
+        if (!existing) {
             // Create new event on server
             let eventTime = Timestamp.init(date: EventDateEntry.date)
             let eventDescription = EventDescriptionEntry.text!
-            db.collection("events").document("000").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
+            db.collection("events").document("\(dataSize)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
         }
         // Post promotion
         self.dismiss(animated: true)
         // Display "Successfully promoted" message
     }
     
-    @IBAction func SwitchType(_ sender: Any) {
+    /*@IBAction func SwitchType(_ sender: Any) {
         // If creating new event
         if (PromotionType.selectedSegmentIndex == 0) {
             EventNameEntry.placeholder = "Event name"
@@ -94,7 +95,7 @@ class PromotePostViewController: UIViewController {
             ArtistEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
             EventDescriptionEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
         }
-    }
+    }*/
     
     
     /*

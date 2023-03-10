@@ -56,19 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
-//                let task = URLSession.shared.dataTask(with: (user!.photoURL ?? URL(string: "gs://sceneapp-48eb8.appspot.com/profileImages/chooseProfilePic.jpg"))!, completionHandler: { data, _, error in
-//                        guard let data = data, error == nil else {
-//                            return
-//                        }
-//                        DispatchQueue.main.async {
-//                            let image = UIImage(data: data)
-//                            self.profilePic = image
-//                            self.displayName = user?.displayName
-//                            group.leave()
-//                        }
-//                    })
-//                    task.resume()
-//
                 group.notify(queue: .main) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")

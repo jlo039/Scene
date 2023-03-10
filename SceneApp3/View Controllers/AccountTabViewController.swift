@@ -40,24 +40,29 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         ])
         accountOptionsB.menu = accountOptionsMenu
         
-        // create and add filter posts menu
-        let filterMenu = UIMenu(title: "Filter", children: [
-            UIAction(title: "All", state: .on) {_ in
+        let promotionsA = UIAction(title: "Promotions", state: self.posts["Promotions"]! ? .on : .off) {_ in
+            self.posts["Promotions"]?.toggle()
+        }
+        let checkinsA = UIAction(title: "Checkins", state: self.posts["Checkins"]! ? .on : .off) {_ in
+            self.posts["Checkins"]?.toggle()
+        }
+        let recapsA = UIAction(title: "Recaps", state: self.posts["Recaps"]! ? .on : .off) {_ in
+            self.posts["Recaps"]?.toggle()
+        }
+        let allA = UIAction(title: "All", state: self.posts["All"]! ? .on : .off) {_ in
+            self.posts["All"]?.toggle()
+            if (self.posts["All"]!) {
+                self.posts["Promotions"] = true
+                self.posts["Checkins"] = true
+                self.posts["Recaps"] = true
+            } else {
+                self.posts["Promotions"] = false
+                self.posts["Checkins"] = false
+                self.posts["Recaps"] = false
                 
-                self.posts["All"]?.toggle()
-            },
-            UIAction(title: "Promotions", state: .on) {_ in
-                self.posts["Promotions"]?.toggle()
-            },
-            UIAction(title: "Checkins", state: .on) {_ in
-                self.posts["Promitions"]?.toggle()
-            },
-            UIAction(title: "Recaps", state: .on) {_ in
-                self.posts["Promotions"]?.toggle()
-            },
-        ])
-        filterB.menu = filterMenu
-
+            }
+        }
+        filterB.menu = UIMenu(title: "Filter", children: [allA, promotionsA, checkinsA, recapsA])
         
         
         // Define constraint for size of profile picture
@@ -154,6 +159,7 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
     
     func showError(_ message:String) {
         errorL.text = message

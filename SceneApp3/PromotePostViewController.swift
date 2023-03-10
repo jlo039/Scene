@@ -25,25 +25,6 @@ class PromotePostViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        //
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        data = []
-        dataSize = 0
-        
-        // Access event database
-        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                // Update global var of existing events.
-                for document in querySnapshot!.documents {
-                    self.data.append(document.get("name") as! String)
-                    self.dataSize += 1
-                }
-                appDelegate.eventNames = self.data
-            }
-        }
     }
     
     
@@ -60,12 +41,13 @@ class PromotePostViewController: UIViewController {
     
     @IBAction func SumbitPromotion(_ sender: Any) {
         let db = Firestore.firestore()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let eventName = EventNameEntry.text!
         if (!existing) {
             // Create new event on server
             let eventTime = Timestamp.init(date: EventDateEntry.date)
             let eventDescription = EventDescriptionEntry.text!
-            db.collection("events").document("\(dataSize)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
+            db.collection("events").document("\(appDelegate.numEvents!)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
         }
         // Post promotion
         self.dismiss(animated: true)

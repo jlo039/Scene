@@ -62,7 +62,6 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
-        
         tableView.reloadData()
     }
 

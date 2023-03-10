@@ -465,32 +465,44 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYi-aw-m58">
                                 <rect key="frame" x="147" y="386" width="120" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="KGS-p3-s9g"/>
+                                    <constraint firstAttribute="width" constant="120" id="8du-F1-YUI"/>
                                     <constraint firstAttribute="height" constant="70" id="roP-BF-Xax"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray"/>
+                                <buttonConfiguration key="configuration" style="gray" image="mappin.and.ellipse" catalog="system" title="Check In">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="har-BN-HYP" kind="show" id="v7P-Dv-smY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g9-Em-sme">
-                                <rect key="frame" x="147" y="581" width="120" height="70"/>
+                                <rect key="frame" x="147" y="556" width="120" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="oMA-5K-NVE"/>
+                                    <constraint firstAttribute="width" constant="120" id="Q1Q-mv-g0f"/>
                                     <constraint firstAttribute="height" constant="70" id="vUi-jO-ET9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray"/>
+                                <buttonConfiguration key="configuration" style="gray" image="camera.fill" catalog="system" title="Recap">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="MH4-de-H9o" kind="show" id="h1F-da-1qJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-dl-vaL">
-                                <rect key="frame" x="15" y="75" width="119" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-dl-vaL" userLabel="Promote Button">
+                                <rect key="frame" x="147" y="216" width="120" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="1XW-NT-LBk"/>
+                                    <constraint firstAttribute="height" constant="70" id="iMt-aF-0O8"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Promote Event"/>
+                                <buttonConfiguration key="configuration" style="gray" image="megaphone.fill" catalog="system" title="Promote">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="oqu-Cc-44n" kind="show" id="b0e-d7-nY2"/>
                                 </connections>
@@ -499,9 +511,11 @@
                         <viewLayoutGuide key="safeArea" id="gqp-ed-hD5"/>
                         <color key="backgroundColor" red="0.92524420647634231" green="0.92644497954832172" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="2g9-Em-sme" firstAttribute="top" secondItem="WYi-aw-m58" secondAttribute="bottom" constant="125" id="OAu-nw-Ew5"/>
+                            <constraint firstItem="2g9-Em-sme" firstAttribute="top" secondItem="WYi-aw-m58" secondAttribute="bottom" constant="100" id="OAu-nw-Ew5"/>
                             <constraint firstItem="WYi-aw-m58" firstAttribute="centerY" secondItem="bFh-Of-gEs" secondAttribute="centerY" id="Q12-hs-Rsj"/>
+                            <constraint firstItem="WYi-aw-m58" firstAttribute="top" secondItem="fsu-dl-vaL" secondAttribute="bottom" constant="100" id="aaf-vk-G4M"/>
                             <constraint firstItem="WYi-aw-m58" firstAttribute="centerX" secondItem="bFh-Of-gEs" secondAttribute="centerX" id="kJG-u1-Vpo"/>
+                            <constraint firstItem="fsu-dl-vaL" firstAttribute="centerX" secondItem="bFh-Of-gEs" secondAttribute="centerX" id="paC-dK-HeG"/>
                             <constraint firstItem="2g9-Em-sme" firstAttribute="centerX" secondItem="bFh-Of-gEs" secondAttribute="centerX" id="wh0-b5-mWH"/>
                         </constraints>
                     </view>
@@ -531,8 +545,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hf-iR-vpx">
-                                <rect key="frame" x="25" y="116" width="269" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hf-iR-vpx">
+                                <rect key="frame" x="25" y="116" width="364" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
@@ -553,17 +568,18 @@
                                     <constraint firstAttribute="height" constant="40" id="vsJ-kD-E6F"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Venue name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-va-kbu">
-                                <rect key="frame" x="25" y="210" width="269" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Venue name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-va-kbu">
+                                <rect key="frame" x="25" y="210" width="364" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-lT-1Ew">
-                                <rect key="frame" x="25" y="254" width="269" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-lT-1Ew">
+                                <rect key="frame" x="25" y="254" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Event description" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="hvs-ZY-4Ol">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Event description" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="hvs-ZY-4Ol">
                                 <rect key="frame" x="25" y="298" width="364" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OUt-0d-6xu"/>
@@ -572,12 +588,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-m9-wlx">
-                                <rect key="frame" x="161" y="403" width="92.5" height="35"/>
+                                <rect key="frame" x="168" y="403" width="78.5" height="35"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Promote">
+                                        <fragment content="Create">
                                             <attributes>
                                                 <font key="NSFont" size="18" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -619,7 +636,7 @@
                             <constraint firstItem="BVN-lT-1Ew" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="7fH-R9-Y8o"/>
                             <constraint firstItem="BUC-k5-6VQ" firstAttribute="top" secondItem="3hf-iR-vpx" secondAttribute="bottom" constant="10" id="9O2-mb-307"/>
                             <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="qag-Fy-Iv7" secondAttribute="trailing" constant="25" id="BER-JH-tSl"/>
-                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="3hf-iR-vpx" secondAttribute="trailing" constant="120" id="DuK-5U-Xot"/>
+                            <constraint firstItem="4QV-ED-nZa" firstAttribute="trailing" secondItem="3hf-iR-vpx" secondAttribute="trailing" constant="25" id="DuK-5U-Xot"/>
                             <constraint firstItem="BUC-k5-6VQ" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="30" id="G83-1q-q78"/>
                             <constraint firstItem="vIU-va-kbu" firstAttribute="top" secondItem="BUC-k5-6VQ" secondAttribute="bottom" constant="10" id="IZS-7V-M7E"/>
                             <constraint firstItem="hvs-ZY-4Ol" firstAttribute="leading" secondItem="4QV-ED-nZa" secondAttribute="leading" constant="25" id="PrX-1m-h2p"/>
@@ -711,26 +728,17 @@
             </objects>
             <point key="canvasLocation" x="4841" y="2409"/>
         </scene>
-        <!--View Controller-->
+        <!--Check In-->
         <scene sceneID="HIT-3g-tMi">
             <objects>
                 <viewController id="har-BN-HYP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BeN-pu-Tiz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CHECK IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2St-bq-5Rm">
-                                <rect key="frame" x="169" y="82" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VRN-C3-QsE"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PCV-m1-Qfh">
+                    <navigationItem key="navigationItem" title="Check In" id="PCV-m1-Qfh">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="dWa-qe-4Or"/>
                     </navigationItem>
                 </viewController>
@@ -738,26 +746,17 @@
             </objects>
             <point key="canvasLocation" x="5651" y="2409"/>
         </scene>
-        <!--View Controller-->
+        <!--Recap-->
         <scene sceneID="UcF-yG-hgM">
             <objects>
                 <viewController id="MH4-de-H9o" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BYf-Yu-E3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RECAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-Yd-gkP">
-                                <rect key="frame" x="180" y="73" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZRN-f5-Cd4"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8Sn-XO-XlM">
+                    <navigationItem key="navigationItem" title="Recap" id="8Sn-XO-XlM">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="6bJ-W8-IP1"/>
                     </navigationItem>
                 </viewController>
@@ -1384,11 +1383,16 @@
     </designables>
     <resources>
         <image name="SceneLogo_Full" width="1538" height="600"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="glass" width="128" height="128"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="megaphone.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

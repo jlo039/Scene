@@ -21,11 +21,26 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var errorL: UILabel!
     @IBOutlet weak var basicInfoStack: UIStackView!
     @IBOutlet weak var filterB: UIButton!
+    @IBOutlet weak var accountOptionsB: UIButton!
     var posts = ["All": true, "Promotions": true, "Checkins": true, "Recaps": true]
     
     public override func viewDidLoad() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        // create and add account options menu
+        let accountOptionsMenu = UIMenu(title: "Account Options", children: [
+            UIAction(title: "Settings", image: UIImage(systemName: "gearshape.fill"), state: .off) {_ in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let settingsController = storyboard.instantiateViewController(withIdentifier: "settingsVC")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(settingsController)
+            },
+            UIAction(title: "Sign Out", state: .off) {_ in
+                self.signOut()
+            },
+        ])
+        accountOptionsB.menu = accountOptionsMenu
+        
+        // create and add filter posts menu
         let filterMenu = UIMenu(title: "Filter", children: [
             UIAction(title: "All", state: .on) {_ in
                 
@@ -88,8 +103,8 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         picker.allowsEditing = true
         present(picker, animated: true)
     }
-
-    @IBAction func signOutB(_ sender: Any) {
+    
+    func signOut() {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()

@@ -30,9 +30,10 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         // create and add account options menu
         let accountOptionsMenu = UIMenu(title: "Account Options", children: [
             UIAction(title: "Settings", image: UIImage(systemName: "gearshape.fill"), state: .off) {_ in
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let settingsController = storyboard.instantiateViewController(withIdentifier: "settingsVC")
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(settingsController)
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let settingsController = storyboard.instantiateViewController(withIdentifier: "settingsVC")
+//                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(settingsController)
+                self.performSegue(withIdentifier: "settingsSegue", sender: nil)
             },
             UIAction(title: "Sign Out", state: .off) {_ in
                 self.signOut()

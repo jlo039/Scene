@@ -364,6 +364,7 @@
                         <outlet property="filterB" destination="xmy-Dl-mw8" id="1Gd-w2-3KG"/>
                         <outlet property="profilePicIV" destination="xDt-Pd-zbV" id="mPZ-0K-wWe"/>
                         <outlet property="realNameLabel" destination="lzb-s7-RmS" id="wKU-vm-CEZ"/>
+                        <segue destination="iuT-YE-EpO" kind="show" identifier="settingsSegue" id="b8v-tP-wJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at6-ld-2pW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -375,7 +376,7 @@
             <objects>
                 <viewController storyboardIdentifier="settingsVC" id="iuT-YE-EpO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQm-6H-BCn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1S-gR-CDg">
@@ -387,7 +388,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nww-OY-1al"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.85098040100000005" green="0.85490196939999996" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="E2l-ba-5aK"/>
                 </viewController>
@@ -1191,7 +1192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="hEF-FF-qsF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.85098040100000005" green="0.85490196939999996" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="hsC-dp-czg"/>
                 </viewController>

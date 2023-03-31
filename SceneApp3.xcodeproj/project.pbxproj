@@ -24,9 +24,10 @@
 		88EA8E1928ADA6D300CBDD60 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88EA8E1828ADA6D300CBDD60 /* FirebaseAuth */; };
 		D321A58229677AFD00AF5E0F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D321A58129677AFD00AF5E0F /* NewPostViewController.swift */; };
 		D3220BA42996E43E00837229 /* SearchEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3220BA32996E43E00837229 /* SearchEventViewController.swift */; };
-		D38BE8E02984666900790729 /* PromotePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BE8DF2984666900790729 /* PromotePostViewController.swift */; };
+		D38BE8E02984666900790729 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BE8DF2984666900790729 /* CreateEventViewController.swift */; };
 		D38F9D432941342000A8317D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D422941342000A8317D /* TabBarController.swift */; };
 		D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */; };
+		D39F61D729D7788F001B33A2 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39F61D629D7788F001B33A2 /* PostViewController.swift */; };
 		D3A4536E2939347A0039E640 /* ExploreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */; };
 		D3C563B62909C3FF00B1F647 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B52909C3FF00B1F647 /* FirebaseAnalytics */; };
 		D3C563B82909C3FF00B1F647 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3C563B72909C3FF00B1F647 /* FirebaseAuth */; };
@@ -61,9 +62,10 @@
 		88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D321A58129677AFD00AF5E0F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D3220BA32996E43E00837229 /* SearchEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventViewController.swift; sourceTree = "<group>"; };
-		D38BE8DF2984666900790729 /* PromotePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotePostViewController.swift; sourceTree = "<group>"; };
+		D38BE8DF2984666900790729 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		D38F9D422941342000A8317D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTabBar.swift; sourceTree = "<group>"; };
+		D39F61D629D7788F001B33A2 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = "New Post/PostViewController.swift"; sourceTree = "<group>"; };
 		D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabViewController.swift; sourceTree = "<group>"; };
 		DE2B93D729008AD600875591 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DE46D9B329130D5F00836C7A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -115,20 +117,17 @@
 		8855B0AB28AD7AD00069795F /* SceneApp3 */ = {
 			isa = PBXGroup;
 			children = (
+				8855B0B228AD7AD00069795F /* Main.storyboard */,
+				D39F61D629D7788F001B33A2 /* PostViewController.swift */,
+				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				DEBA7AD1291C4F1B00344163 /* Assets.xcassets */,
 				DEDACF2B2900816600F33354 /* Visual Classes */,
 				88EA8E1328ADA61200CBDD60 /* GoogleService-Info.plist */,
 				8855B0AC28AD7AD00069795F /* AppDelegate.swift */,
 				8855B0AE28AD7AD00069795F /* SceneDelegate.swift */,
 				8855B0B028AD7AD00069795F /* ViewController.swift */,
+				D39F61D529D776DE001B33A2 /* New Post */,
 				8855B0C428AD854D0069795F /* View Controllers */,
-				8855B0B228AD7AD00069795F /* Main.storyboard */,
-				D3220BA32996E43E00837229 /* SearchEventViewController.swift */,
-				D38BE8DF2984666900790729 /* PromotePostViewController.swift */,
-				D321A58129677AFD00AF5E0F /* NewPostViewController.swift */,
-				D38F9D422941342000A8317D /* TabBarController.swift */,
-				D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */,
-				8855B0B728AD7AD10069795F /* LaunchScreen.storyboard */,
 				8855B0BA28AD7AD10069795F /* Info.plist */,
 				88E2E1C628ADDDF10009985D /* Constants.swift */,
 			);
@@ -145,8 +144,20 @@
 				D3A4536D2939347A0039E640 /* ExploreTabViewController.swift */,
 				884A051B28F7809A00775C99 /* ForgotPasswordViewController.swift */,
 				DE46D9B329130D5F00836C7A /* FeedViewController.swift */,
+				D38F9D422941342000A8317D /* TabBarController.swift */,
+				D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D39F61D529D776DE001B33A2 /* New Post */ = {
+			isa = PBXGroup;
+			children = (
+				D3220BA32996E43E00837229 /* SearchEventViewController.swift */,
+				D38BE8DF2984666900790729 /* CreateEventViewController.swift */,
+				D321A58129677AFD00AF5E0F /* NewPostViewController.swift */,
+			);
+			path = "New Post";
 			sourceTree = "<group>";
 		};
 		DE5DCEE929845CC40077EDA1 /* Recovered References */ = {
@@ -268,10 +279,11 @@
 				884A051C28F7809A00775C99 /* ForgotPasswordViewController.swift in Sources */,
 				88E2E1C728ADDDF10009985D /* Constants.swift in Sources */,
 				8855B0AF28AD7AD00069795F /* SceneDelegate.swift in Sources */,
+				D39F61D729D7788F001B33A2 /* PostViewController.swift in Sources */,
 				88E2E1C528ADDCFB0009985D /* HomeScreenViewController.swift in Sources */,
 				D38F9D432941342000A8317D /* TabBarController.swift in Sources */,
 				DE46D9B429130D5F00836C7A /* FeedViewController.swift in Sources */,
-				D38BE8E02984666900790729 /* PromotePostViewController.swift in Sources */,
+				D38BE8E02984666900790729 /* CreateEventViewController.swift in Sources */,
 				DE2B93D829008AD600875591 /* Button.swift in Sources */,
 				D321A58229677AFD00AF5E0F /* NewPostViewController.swift in Sources */,
 			);

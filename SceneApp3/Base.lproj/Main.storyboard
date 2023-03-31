@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -469,7 +470,7 @@
                                     <constraint firstAttribute="height" constant="70" id="roP-BF-Xax"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="mappin.and.ellipse" catalog="system" title="Check In">
+                                <buttonConfiguration key="configuration" style="gray" image="mappin.and.ellipse" catalog="system" imagePlacement="bottom" title="Check In" imagePadding="10">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
@@ -484,7 +485,7 @@
                                     <constraint firstAttribute="height" constant="70" id="vUi-jO-ET9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="camera.fill" catalog="system" title="Recap">
+                                <buttonConfiguration key="configuration" style="gray" image="camera.fill" catalog="system" imagePlacement="bottom" title="Recap" imagePadding="10">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
@@ -499,7 +500,8 @@
                                     <constraint firstAttribute="height" constant="70" id="iMt-aF-0O8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="megaphone.fill" catalog="system" title="Promote">
+                                <buttonConfiguration key="configuration" style="gray" imagePlacement="bottom" title="Promote" imagePadding="10">
+                                    <imageReference key="image" image="megaphone.fill" catalog="system" symbolScale="default"/>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
@@ -540,7 +542,7 @@
         <!--Create Event-->
         <scene sceneID="64o-Ej-c7C">
             <objects>
-                <viewController storyboardIdentifier="PromoteEvent" id="Le7-ZQ-qyS" customClass="PromotePostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromoteEvent" id="Le7-ZQ-qyS" customClass="CreateEventViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXI-c2-2EV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -600,7 +602,8 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="SumbitPromotion:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="WOo-d4-v98"/>
+                                    <action selector="CreateNewEvent:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="OKe-CN-I3M"/>
+                                    <segue destination="cwT-oa-FJD" kind="show" id="K9c-bk-Jsf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abI-uT-g3q">
@@ -661,7 +664,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="ylt-0w-Pyr"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="HBC-vJ-bdQ">
                             <connections>
-                                <action selector="cancelNewPost:" destination="Le7-ZQ-qyS" id="GLd-1o-EQG"/>
+                                <action selector="cancelNewEvent:" destination="Le7-ZQ-qyS" id="dh1-PD-2lH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -675,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5U1-bW-WAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="3137"/>
+            <point key="canvasLocation" x="4842" y="3137"/>
         </scene>
         <!--Search Events-->
         <scene sceneID="oou-sa-seb">
@@ -1374,6 +1377,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gi6-Ed-0MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1161" y="165"/>
+        </scene>
+        <!--Post Promotion-->
+        <scene sceneID="JsV-I4-MBA">
+            <objects>
+                <viewController storyboardIdentifier="CreatePost" id="cwT-oa-FJD" customClass="PostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EIV-5e-rxH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-Rb-fse">
+                                <rect key="frame" x="25" y="81" width="364" height="476"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOH-TN-kc9">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="286"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="event info here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-hn-yzL">
+                                                <rect key="frame" x="126" y="133" width="113" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Say something about this event (optional)." minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-It-ijJ">
+                                        <rect key="frame" x="0.0" y="326" width="364" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="0Ka-ar-uH0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f1W-It-ijJ" firstAttribute="top" secondItem="XOH-TN-kc9" secondAttribute="bottom" constant="40" id="KY0-6c-SnD"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
+                                <rect key="frame" x="158.5" y="607" width="97.5" height="35"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Promote!">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YQY-gl-yno"/>
+                        <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="PaH-Ik-0NK" firstAttribute="centerX" secondItem="EIV-5e-rxH" secondAttribute="centerX" id="6dH-PD-me3"/>
+                            <constraint firstItem="0H3-Rb-fse" firstAttribute="leading" secondItem="YQY-gl-yno" secondAttribute="leading" constant="25" id="97i-sk-HeF"/>
+                            <constraint firstItem="0H3-Rb-fse" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="top" constant="-50" id="Ig0-ni-c00"/>
+                            <constraint firstItem="YQY-gl-yno" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="bottom" constant="200" id="b9O-de-aB3"/>
+                            <constraint firstItem="0H3-Rb-fse" firstAttribute="trailing" secondItem="YQY-gl-yno" secondAttribute="trailing" constant="-25" id="iK7-VV-7Ue"/>
+                            <constraint firstItem="0H3-Rb-fse" firstAttribute="top" secondItem="YQY-gl-yno" secondAttribute="top" constant="25" id="wcz-Zg-ex7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Post Promotion" id="Oqz-eJ-JAr">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="2oJ-Mh-wP0"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="Qaf-Sz-tJH">
+                            <connections>
+                                <action selector="cancelNewPost:" destination="cwT-oa-FJD" id="r2V-fB-nUj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="EventPreview" destination="XOH-TN-kc9" id="qOH-lQ-anl"/>
+                        <outlet property="PostTextField" destination="f1W-It-ijJ" id="BQ9-iG-fOE"/>
+                        <outlet property="eventname" destination="iBe-hn-yzL" id="yqS-9E-Okp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOH-cd-BNC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5651" y="3137"/>
         </scene>
     </scenes>
     <designables>

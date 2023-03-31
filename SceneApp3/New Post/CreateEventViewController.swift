@@ -1,5 +1,5 @@
 //
-//  PromotePostViewController.swift
+//  CreateEventViewController.swift
 //  SceneApp3
 //
 //  Created by Ethan Jacob Lott on 1/27/23.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class PromotePostViewController: UIViewController {
+class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var EventDateEntry: UIDatePicker!
     @IBOutlet weak var EventNameEntry: UITextField!
@@ -28,18 +28,11 @@ class PromotePostViewController: UIViewController {
     }
     
     
-    @IBAction func cancelNewPost(_ sender: Any) {
+    @IBAction func cancelNewEvent(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
-    @IBAction func ExistingEvent(_ sender: Any) {
-        // Open search view for existing events.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let existingEvents = storyboard.instantiateViewController(withIdentifier: "ExistingEvents")
-        self.navigationController?.pushViewController(existingEvents, animated: true)
-    }
-    
-    @IBAction func SumbitPromotion(_ sender: Any) {
+    @IBAction func CreateNewEvent(_ sender: Any) {
         let db = Firestore.firestore()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let eventName = EventNameEntry.text!
@@ -49,9 +42,8 @@ class PromotePostViewController: UIViewController {
             let eventDescription = EventDescriptionEntry.text!
             db.collection("events").document("\(appDelegate.numEvents!)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
         }
-        // Post promotion
-        self.dismiss(animated: true)
-        // Display "Successfully promoted" message
+        
+        SearchEventViewController.selectedEvent = eventName
     }
     
     /*@IBAction func SwitchType(_ sender: Any) {

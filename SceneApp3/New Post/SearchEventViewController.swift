@@ -16,6 +16,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    static var selectedEvent: String = ""
     var filteredData: [String]!
 
     override func viewDidLoad() {
@@ -37,14 +38,14 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
  
     }
 
+
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEvent: String = filteredData[indexPath.row]
-        print(selectedEvent)
+        SearchEventViewController.selectedEvent = filteredData[indexPath.row]
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let promoteEvent = storyboard.instantiateViewController(withIdentifier: "PromoteEvent")
-        self.navigationController?.pushViewController(promoteEvent, animated: true)
-        
+        let createPostController = storyboard.instantiateViewController(withIdentifier: "CreatePost")
+        self.navigationController?.pushViewController(createPostController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

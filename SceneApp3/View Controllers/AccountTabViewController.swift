@@ -22,6 +22,9 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var basicInfoStack: UIStackView!
     @IBOutlet weak var filterB: UIButton!
     @IBOutlet weak var accountOptionsB: UIButton!
+    @IBOutlet weak var postCV: UICollectionView!
+    
+    
     var posts = ["All": true, "Promotions": true, "Checkins": true, "Recaps": true]
     
     public override func viewDidLoad() {
@@ -30,9 +33,6 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         // create and add account options menu
         let accountOptionsMenu = UIMenu(title: "Account Options", children: [
             UIAction(title: "Settings", image: UIImage(systemName: "gearshape.fill"), state: .off) {_ in
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let settingsController = storyboard.instantiateViewController(withIdentifier: "settingsVC")
-//                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(settingsController)
                 self.performSegue(withIdentifier: "settingsSegue", sender: nil)
             },
             UIAction(title: "Sign Out", state: .off) {_ in
@@ -43,25 +43,22 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         
         let promotionsA = UIAction(title: "Promotions", state: self.posts["Promotions"]! ? .on : .off) {_ in
             self.posts["Promotions"]?.toggle()
+            self.filterB.menu = self.generateMenu()
         }
         let checkinsA = UIAction(title: "Checkins", state: self.posts["Checkins"]! ? .on : .off) {_ in
             self.posts["Checkins"]?.toggle()
+            self.filterB.menu = self.generateMenu()
         }
         let recapsA = UIAction(title: "Recaps", state: self.posts["Recaps"]! ? .on : .off) {_ in
             self.posts["Recaps"]?.toggle()
+            self.filterB.menu = self.generateMenu()
         }
         let allA = UIAction(title: "All", state: self.posts["All"]! ? .on : .off) {_ in
             self.posts["All"]?.toggle()
-            if (self.posts["All"]!) {
-                self.posts["Promotions"] = true
-                self.posts["Checkins"] = true
-                self.posts["Recaps"] = true
-            } else {
-                self.posts["Promotions"] = false
-                self.posts["Checkins"] = false
-                self.posts["Recaps"] = false
-                
-            }
+            self.posts["Promotions"] = self.posts["All"]!
+            self.posts["Checkins"] = self.posts["All"]!
+            self.posts["Recaps"] = self.posts["All"]!
+            self.filterB.menu = self.generateMenu()
         }
         filterB.menu = UIMenu(title: "Filter", children: [allA, promotionsA, checkinsA, recapsA])
         
@@ -165,6 +162,29 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     func showError(_ message:String) {
         errorL.text = message
         errorL.alpha = 1
+    }
+    
+    func generateMenu() -> UIMenu {
+        let promotionsA = UIAction(title: "Promotions", state: self.posts["Promotions"]! ? .on : .off) {_ in
+            self.posts["Promotions"]?.toggle()
+            self.filterB.menu = self.generateMenu()
+        }
+        let checkinsA = UIAction(title: "Checkins", state: self.posts["Checkins"]! ? .on : .off) {_ in
+            self.posts["Checkins"]?.toggle()
+            self.filterB.menu = self.generateMenu()
+        }
+        let recapsA = UIAction(title: "Recaps", state: self.posts["Recaps"]! ? .on : .off) {_ in
+            self.posts["Recaps"]?.toggle()
+            self.filterB.menu = self.generateMenu()
+        }
+        let allA = UIAction(title: "All", state: self.posts["All"]! ? .on : .off) {_ in
+            self.posts["All"]?.toggle()
+            self.posts["Promotions"] = self.posts["All"]!
+            self.posts["Checkins"] = self.posts["All"]!
+            self.posts["Recaps"] = self.posts["All"]!
+            self.filterB.menu = self.generateMenu()
+        }
+        return UIMenu(title: "Filter", children: [allA, promotionsA, checkinsA, recapsA])
     }
     
     // MARK: - Navigation

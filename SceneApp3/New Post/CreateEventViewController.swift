@@ -40,7 +40,7 @@ class CreateEventViewController: UIViewController {
             // Create new event on server
             let eventTime = Timestamp.init(date: EventDateEntry.date)
             let eventDescription = EventDescriptionEntry.text!
-            db.collection("events").document("\(appDelegate.numEvents!)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
+            db.collection("events").document("\(appDelegate.numEvents)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creator": Auth.auth().currentUser!.uid])
         }
         
         SearchEventViewController.selectedEvent = eventName

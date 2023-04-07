@@ -34,7 +34,7 @@ class NewPostViewController: UIViewController {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
                     data.append(document.get("name") as! String)
-                    self.appDelegate.numEvents! += 1
+                    self.appDelegate.numEvents += 1
                 }
                 self.appDelegate.eventNames = data
             }

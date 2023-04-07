@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var dateSelection: UIDatePicker!
@@ -34,7 +35,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
+
         let image1:UIImage = UIImage(imageLiteralResourceName: "img-1")
         let image2:UIImage = UIImage(imageLiteralResourceName: "img-2")
         let image3:UIImage = UIImage(imageLiteralResourceName: "img-3")
@@ -43,7 +44,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         let image6:UIImage = UIImage(imageLiteralResourceName: "img-6")
         let image7:UIImage = UIImage(imageLiteralResourceName: "img-7")
         let image8:UIImage = UIImage(imageLiteralResourceName: "img-8")
-        
+
         imageView1.image = image1
         imageView2.image = image2
         imageView3.image = image3
@@ -53,7 +54,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         imageView7.image = image7
         imageView8.image = image8
         
-        
+        print(dateSelection.date)
         
         // Do any additional setup after loading the view.
     }
@@ -63,19 +64,17 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = filteredData[indexPath.row]
         return cell
- 
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEvent: String = filteredData[indexPath.row]
         print(selectedEvent)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let promoteEvent = storyboard.instantiateViewController(withIdentifier: "PromoteEvent")
-        self.navigationController?.pushViewController(promoteEvent, animated: true)
-        
+
+        performSegue(withIdentifier: "exploreEventSelect", sender: self)
+
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredData.count
     }
@@ -87,7 +86,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         // Use the filter method to iterate over all items in the data array
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
-        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames?.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }

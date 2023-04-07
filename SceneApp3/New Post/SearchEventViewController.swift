@@ -59,7 +59,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         // Use the filter method to iterate over all items in the data array
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
-        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames?.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }

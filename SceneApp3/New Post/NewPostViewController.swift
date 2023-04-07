@@ -17,6 +17,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var RecapButton: UIButton!
     
     
+    static var postType: Int = -1
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class NewPostViewController: UIViewController {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
                     data.append(document.get("name") as! String)
-                    self.appDelegate.numEvents! += 1
+                    self.appDelegate.numEvents += 1
                 }
                 self.appDelegate.eventNames = data
             }
@@ -45,6 +46,20 @@ class NewPostViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func setPostType(_ sender: UIButton) {
+        if (sender == PromoteButton) {
+            NewPostViewController.postType = 0
+        }
+        else if (sender == CheckInButton) {
+            NewPostViewController.postType = 1
+        }
+        else {
+            NewPostViewController.postType = 2
+        }
+            
+    }
+    
     
     @IBAction func cancelNewPost(_ sender: Any) {
         self.dismiss(animated: true)

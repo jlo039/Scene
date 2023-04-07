@@ -1,29 +1,26 @@
 //
-//  PostViewController.swift
+//  CheckInPostViewController.swift
 //  SceneApp3
 //
-//  Created by Ethan Jacob Lott on 3/31/23.
+//  Created by Ethan Jacob Lott on 4/7/23.
 //
 
 import UIKit
 
-class PostViewController: UIViewController {
+class CheckInPostViewController: UIViewController {
 
-    @IBOutlet weak var PostTextField: UITextField!
-    @IBOutlet weak var EventPreview: UIView!
-    
-    @IBOutlet weak var eventname: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventname.text = SearchEventViewController.selectedEvent
+        
+            navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     
+
     @IBAction func cancelNewPost(_ sender: Any) {
         self.dismiss(animated: true)
     }
-
+    
     /*
     // MARK: - Navigation
 

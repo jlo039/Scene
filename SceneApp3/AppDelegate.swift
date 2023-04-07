@@ -52,10 +52,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         DispatchQueue.main.async {
                             self.profilePic =  UIImage(data: data!)
                             self.displayName = user?.displayName
-                            group.leave()
                         }
                     }
                 }
+                Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        // Update global var of existing events.
+                        for document in querySnapshot!.documents {
+                            DispatchQueue.main.async {
+                                self.numEvents += 1
+                                self.eventNames.append(document.get("name") as! String)
+                            }
+                        }
+                    }
+                }
+                group.leave()
                 group.notify(queue: .main) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "HomeVC2")
@@ -87,6 +100,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func refreshEvents() {
+        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                // Update global var of existing events.
+                for document in querySnapshot!.documents {
+                        self.numEvents += 1
+                        self.eventNames.append(document.get("name") as! String)
+                }
+            }
+        }
+    }
     
 }
 

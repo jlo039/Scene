@@ -457,7 +457,8 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="har-BN-HYP" kind="show" id="v7P-Dv-smY"/>
+                                    <action selector="setPostType:" destination="psJ-Dg-P7n" eventType="touchUpInside" id="15P-mk-Bcz"/>
+                                    <segue destination="oqu-Cc-44n" kind="show" id="RIG-Ku-dok"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g9-Em-sme">
@@ -472,7 +473,8 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="MH4-de-H9o" kind="show" id="h1F-da-1qJ"/>
+                                    <action selector="setPostType:" destination="psJ-Dg-P7n" eventType="touchUpInside" id="Niq-az-nOi"/>
+                                    <segue destination="oqu-Cc-44n" kind="show" id="eWU-I4-9iN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-dl-vaL" userLabel="Promote Button">
@@ -488,6 +490,7 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="setPostType:" destination="psJ-Dg-P7n" eventType="touchUpInside" id="i7f-LH-sYE"/>
                                     <segue destination="oqu-Cc-44n" kind="show" id="b0e-d7-nY2"/>
                                 </connections>
                             </button>
@@ -514,6 +517,7 @@
                     <connections>
                         <outlet property="CancelPostButton" destination="Ifc-ar-NUD" id="uGO-R5-0ZW"/>
                         <outlet property="CheckInButton" destination="WYi-aw-m58" id="wPn-6Y-DLZ"/>
+                        <outlet property="PromoteButton" destination="fsu-dl-vaL" id="s2R-A2-UAn"/>
                         <outlet property="RecapButton" destination="2g9-Em-sme" id="axh-U2-VVP"/>
                     </connections>
                 </viewController>
@@ -585,7 +589,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="CreateNewEvent:" destination="Le7-ZQ-qyS" eventType="touchUpInside" id="OKe-CN-I3M"/>
-                                    <segue destination="cwT-oa-FJD" kind="show" id="K9c-bk-Jsf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abI-uT-g3q">
@@ -643,7 +646,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Event" id="CH8-vn-nHK">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="ylt-0w-Pyr"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="HBC-vJ-bdQ">
                             <connections>
                                 <action selector="cancelNewEvent:" destination="Le7-ZQ-qyS" id="dh1-PD-2lH"/>
@@ -660,9 +662,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5U1-bW-WAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="4842" y="3121"/>
+
         </scene>
-        <!--Search Events-->
+        <!--Select Event-->
         <scene sceneID="oou-sa-seb">
             <objects>
                 <viewController storyboardIdentifier="ExistingEvents" modalTransitionStyle="flipHorizontal" id="oqu-Cc-44n" customClass="SearchEventViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
@@ -696,7 +700,7 @@
                         <viewLayoutGuide key="safeArea" id="DsO-F5-h7L"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Events" id="AsV-KQ-sUO">
+                    <navigationItem key="navigationItem" title="Select Event" id="AsV-KQ-sUO">
                         <barButtonItem key="backBarButtonItem" title="Search" id="Uwy-aQ-Z1h"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="7yl-7E-kJA">
                             <connections>
@@ -711,43 +715,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2C-4W-tqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="2409"/>
+            <point key="canvasLocation" x="5651" y="2409"/>
         </scene>
         <!--Check In-->
         <scene sceneID="HIT-3g-tMi">
             <objects>
-                <viewController id="har-BN-HYP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostCheckIn" id="har-BN-HYP" customClass="CheckInPostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BeN-pu-Tiz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="VRN-C3-QsE"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Check In" id="PCV-m1-Qfh">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="dWa-qe-4Or"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="dWa-qe-4Or">
+                            <connections>
+                                <action selector="cancelNewPost:" destination="har-BN-HYP" id="amO-o9-ANu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLi-xd-crF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5651" y="2409"/>
+            <point key="canvasLocation" x="5651" y="3856"/>
         </scene>
         <!--Recap-->
         <scene sceneID="UcF-yG-hgM">
             <objects>
-                <viewController id="MH4-de-H9o" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostRecap" id="MH4-de-H9o" customClass="RecapPostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BYf-Yu-E3v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ZRN-f5-Cd4"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recap" id="8Sn-XO-XlM">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="6bJ-W8-IP1"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="6bJ-W8-IP1">
+                            <connections>
+                                <action selector="cancelNewPost:" destination="MH4-de-H9o" id="rmJ-P0-SoM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0b-to-SeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6464" y="2409"/>
+            <point key="canvasLocation" x="6464" y="3856"/>
         </scene>
         <!--Item-->
         <scene sceneID="RfS-dI-rvm">
@@ -1388,13 +1400,13 @@
         <!--Post Promotion-->
         <scene sceneID="JsV-I4-MBA">
             <objects>
-                <viewController storyboardIdentifier="CreatePost" id="cwT-oa-FJD" customClass="PostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostPromotion" id="cwT-oa-FJD" customClass="PromotionPostViewController" customModule="SceneApp3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIV-5e-rxH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-Rb-fse">
-                                <rect key="frame" x="25" y="81" width="364" height="476"/>
+                                <rect key="frame" x="25" y="69" width="364" height="476"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOH-TN-kc9">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="286"/>
@@ -1423,7 +1435,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
-                                <rect key="frame" x="158.5" y="607" width="97.5" height="35"/>
+                                <rect key="frame" x="158.5" y="595" width="97.5" height="67"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Promote!">
@@ -1434,6 +1446,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="createPost:" destination="cwT-oa-FJD" eventType="touchUpInside" id="3Jn-fu-EU3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YQY-gl-yno"/>
@@ -1448,7 +1463,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post Promotion" id="Oqz-eJ-JAr">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="2oJ-Mh-wP0"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="Qaf-Sz-tJH">
                             <connections>
                                 <action selector="cancelNewPost:" destination="cwT-oa-FJD" id="r2V-fB-nUj"/>
@@ -1463,6 +1477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOH-cd-BNC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="5651" y="3121"/>
         </scene>
         <!--Post Promotion-->
@@ -1539,6 +1554,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooj-OF-CYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3975" y="2409"/>
+
         </scene>
     </scenes>
     <designables>
@@ -1546,6 +1562,9 @@
             <size key="intrinsicContentSize" width="-1" height="83"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="b0e-d7-nY2"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="SceneLogo_Full" width="1538" height="600"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

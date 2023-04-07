@@ -44,32 +44,28 @@ class CreateEventViewController: UIViewController {
         }
         
         SearchEventViewController.selectedEvent = eventName
+        
+        var VCType: String = ""
+        
+        switch (NewPostViewController.postType) {
+        case 0:
+            VCType = "PostPromotion"
+            break
+        case 1:
+            VCType = "PostCheckIn"
+            break
+        case 2:
+            VCType = "PostRecap"
+            break
+        default:
+            print("FAIL")
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
+        self.navigationController?.pushViewController(createPostController, animated: true)
     }
     
-    /*@IBAction func SwitchType(_ sender: Any) {
-        // If creating new event
-        if (PromotionType.selectedSegmentIndex == 0) {
-            EventNameEntry.placeholder = "Event name"
-            EventDateEntry.isUserInteractionEnabled = true
-            VenueEntry.isUserInteractionEnabled = true
-            ArtistEntry.isUserInteractionEnabled = true
-            EventDescriptionEntry.isUserInteractionEnabled = true
-            VenueEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            ArtistEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            EventDescriptionEntry.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }
-        // If promoting existing event
-        else {
-            EventNameEntry.placeholder = "Search for event"
-            EventDateEntry.isUserInteractionEnabled = false
-            VenueEntry.isUserInteractionEnabled = false
-            ArtistEntry.isUserInteractionEnabled = false
-            EventDescriptionEntry.isUserInteractionEnabled = false
-            VenueEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
-            ArtistEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
-            EventDescriptionEntry.backgroundColor = #colorLiteral(red: 0.9358691573, green: 0.9358690977, blue: 0.9358690977, alpha: 1)
-        }
-    }*/
     
     
     /*

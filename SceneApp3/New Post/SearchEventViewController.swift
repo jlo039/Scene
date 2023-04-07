@@ -41,10 +41,26 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var VCType: String = ""
+        
+        switch (NewPostViewController.postType) {
+        case 0:
+            VCType = "PostPromotion"
+            break
+        case 1:
+            VCType = "PostCheckIn"
+            break
+        case 2:
+            VCType = "PostRecap"
+            break
+        default:
+            print("FAIL")
+        }
+        
         SearchEventViewController.selectedEvent = filteredData[indexPath.row]
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let createPostController = storyboard.instantiateViewController(withIdentifier: "CreatePost")
+        let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
         self.navigationController?.pushViewController(createPostController, animated: true)
     }
     

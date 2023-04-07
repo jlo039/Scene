@@ -41,10 +41,26 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var VCType: String = ""
+        
+        switch (NewPostViewController.postType) {
+        case 0:
+            VCType = "PostPromotion"
+            break
+        case 1:
+            VCType = "PostCheckIn"
+            break
+        case 2:
+            VCType = "PostRecap"
+            break
+        default:
+            print("FAIL")
+        }
+        
         SearchEventViewController.selectedEvent = filteredData[indexPath.row]
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let createPostController = storyboard.instantiateViewController(withIdentifier: "CreatePost")
+        let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
         self.navigationController?.pushViewController(createPostController, animated: true)
     }
     
@@ -59,7 +75,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         // Use the filter method to iterate over all items in the data array
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
-        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames?.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }

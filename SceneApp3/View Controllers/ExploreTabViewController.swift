@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 

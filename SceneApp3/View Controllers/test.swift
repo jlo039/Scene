@@ -7,11 +7,19 @@
 
 import UIKit
 
-class test: UISearchController {
+class test: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Type something here to search"
+        navigationItem.searchController = search
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +34,11 @@ class test: UISearchController {
     }
     */
 
+}
+
+extension test: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+      guard let text = searchController.searchBar.text else { return }
+      print(text)
+  }
 }

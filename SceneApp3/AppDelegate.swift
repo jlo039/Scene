@@ -55,19 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
-                Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        // Update global var of existing events.
-                        for document in querySnapshot!.documents {
-                            DispatchQueue.main.async {
-                                self.numEvents += 1
-                                self.eventNames.append(document.get("name") as! String)
-                            }
-                        }
-                    }
-                }
+                self.refreshEvents()
                 group.leave()
                 group.notify(queue: .main) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)

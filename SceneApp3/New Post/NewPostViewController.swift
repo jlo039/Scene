@@ -16,48 +16,34 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var CheckInButton: UIButton!
     @IBOutlet weak var RecapButton: UIButton!
     
-    
     static var postType: Int = -1
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //
-        var data: [String]! = []
-        appDelegate.numEvents = 0
-        
         // Access event database
-        Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                // Update global var of existing events.
-                for document in querySnapshot!.documents {
-                    data.append(document.get("name") as! String)
-                    self.appDelegate.numEvents += 1
-                }
-                self.appDelegate.eventNames = data
-            }
-        }
-        
-        self.isModalInPresentation = true
+        appDelegate.refreshEvents()
 
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func setPostType(_ sender: UIButton) {
-        if (sender == PromoteButton) {
+        
+        // Set post type being made
+        switch(sender) {
+        case PromoteButton:
             NewPostViewController.postType = 0
-        }
-        else if (sender == CheckInButton) {
+            break
+        case CheckInButton:
             NewPostViewController.postType = 1
-        }
-        else {
+            break
+        case RecapButton:
             NewPostViewController.postType = 2
+            break
+        default:
+            print("ERROR")
         }
-            
+        
     }
     
     

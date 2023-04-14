@@ -9,11 +9,15 @@ import UIKit
 
 class CheckInPostViewController: UIViewController {
 
+    @IBOutlet weak var eventInfo: UILabel!
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         
-            navigationItem.hidesBackButton = true
-        // Do any additional setup after loading the view.
+        navigationItem.hidesBackButton = true
+        eventInfo.text = SearchEventViewController.selectedEvent + "\n"
+        
     }
     
 

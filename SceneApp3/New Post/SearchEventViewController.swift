@@ -37,12 +37,12 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
  
     }
-
-
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         var VCType: String = ""
         
+        // Segue to the correct post type.
         switch (NewPostViewController.postType) {
         case 0:
             VCType = "PostPromotion"
@@ -70,15 +70,13 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
 
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // When there is no text, filteredData is the same as the original data
-        // When user has entered text into the search box
-        // Use the filter method to iterate over all items in the data array
-        // For each item, return true if the item should be included and false if the
-        // item should NOT be included
-        filteredData = searchText.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
+        var names: [String]
+        names = Array(appDelegate.eventNames.values)
+        
+        filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
+        }   
         tableView.reloadData()
     }
 

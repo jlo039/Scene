@@ -724,25 +724,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5L-my-zn6">
-                                <rect key="frame" x="75" y="384" width="264" height="128"/>
+                                <rect key="frame" x="50" y="384" width="314" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-mk-Gj4">
-                                        <rect key="frame" x="8" y="8" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event info here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-mk-Gj4">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="128"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4R0-mk-Gj4" firstAttribute="top" secondItem="D5L-my-zn6" secondAttribute="top" id="BNg-T5-7mU"/>
+                                    <constraint firstAttribute="bottom" secondItem="4R0-mk-Gj4" secondAttribute="bottom" id="ksb-7c-7cN"/>
+                                    <constraint firstItem="4R0-mk-Gj4" firstAttribute="leading" secondItem="D5L-my-zn6" secondAttribute="leading" id="rCj-rf-1uy"/>
+                                    <constraint firstAttribute="trailing" secondItem="4R0-mk-Gj4" secondAttribute="trailing" id="yOG-jR-vOL"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VRN-C3-QsE"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="VRN-C3-QsE" firstAttribute="trailing" secondItem="D5L-my-zn6" secondAttribute="trailing" constant="75" id="53W-NU-la2"/>
+                            <constraint firstItem="VRN-C3-QsE" firstAttribute="trailing" secondItem="D5L-my-zn6" secondAttribute="trailing" constant="50" id="53W-NU-la2"/>
                             <constraint firstItem="D5L-my-zn6" firstAttribute="top" secondItem="VRN-C3-QsE" secondAttribute="top" constant="340" id="AFl-a1-Fhc"/>
-                            <constraint firstItem="D5L-my-zn6" firstAttribute="leading" secondItem="VRN-C3-QsE" secondAttribute="leading" constant="75" id="IQz-5D-RdH"/>
+                            <constraint firstItem="D5L-my-zn6" firstAttribute="leading" secondItem="VRN-C3-QsE" secondAttribute="leading" constant="50" id="IQz-5D-RdH"/>
                             <constraint firstItem="D5L-my-zn6" firstAttribute="centerY" secondItem="BeN-pu-Tiz" secondAttribute="centerY" id="T0v-uk-Tct"/>
                             <constraint firstItem="D5L-my-zn6" firstAttribute="centerX" secondItem="BeN-pu-Tiz" secondAttribute="centerX" id="VoO-m4-6pA"/>
                         </constraints>

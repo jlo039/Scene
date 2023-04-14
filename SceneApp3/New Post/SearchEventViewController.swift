@@ -17,13 +17,15 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     static var selectedEvent: String = ""
+    static var selectedEventID: String = ""
+    
     var filteredData: [String]!
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        filteredData = appDelegate.eventNames
+        filteredData = Array(appDelegate.eventNames.keys)
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -58,6 +60,8 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         SearchEventViewController.selectedEvent = filteredData[indexPath.row]
+        print(SearchEventViewController.selectedEvent)
+        SearchEventViewController.selectedEventID = appDelegate.eventNames[SearchEventViewController.selectedEvent]!
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
@@ -71,7 +75,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         var names: [String]
-        names = Array(appDelegate.eventNames.values)
+        names = Array(appDelegate.eventNames.keys)
         
         filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it

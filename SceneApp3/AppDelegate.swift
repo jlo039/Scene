@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
                         self.numEvents += 1
-                    self.eventNames.updateValue(document.get("name") as! String, forKey: document.documentID)
+                    self.eventNames.updateValue(document.documentID, forKey: document.get("name") as! String)
                 }
             }
         }

@@ -40,28 +40,7 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
             },
         ])
         accountOptionsB.menu = accountOptionsMenu
-        
-        let promotionsA = UIAction(title: "Promotions", state: self.posts["Promotions"]! ? .on : .off) {_ in
-            self.posts["Promotions"]?.toggle()
-            self.filterB.menu = self.generateMenu()
-        }
-        let checkinsA = UIAction(title: "Checkins", state: self.posts["Checkins"]! ? .on : .off) {_ in
-            self.posts["Checkins"]?.toggle()
-            self.filterB.menu = self.generateMenu()
-        }
-        let recapsA = UIAction(title: "Recaps", state: self.posts["Recaps"]! ? .on : .off) {_ in
-            self.posts["Recaps"]?.toggle()
-            self.filterB.menu = self.generateMenu()
-        }
-        let allA = UIAction(title: "All", state: self.posts["All"]! ? .on : .off) {_ in
-            self.posts["All"]?.toggle()
-            self.posts["Promotions"] = self.posts["All"]!
-            self.posts["Checkins"] = self.posts["All"]!
-            self.posts["Recaps"] = self.posts["All"]!
-            self.filterB.menu = self.generateMenu()
-        }
-        filterB.menu = UIMenu(title: "Filter", children: [allA, promotionsA, checkinsA, recapsA])
-        
+        filterB.menu = generateMenu()
         
         // Define constraint for size of profile picture
         let proPicConstraint = NSLayoutConstraint(item: profilePicIV!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: TopInfo, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 0.25, constant: 0)
@@ -165,6 +144,11 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func generateMenu() -> UIMenu {
+        if (self.posts["Promotions"]! && self.posts["Checkins"]! && self.posts["Recaps"]!) {
+            self.posts["All"] = true
+        } else {
+            self.posts["All"] = false
+        }
         let promotionsA = UIAction(title: "Promotions", state: self.posts["Promotions"]! ? .on : .off) {_ in
             self.posts["Promotions"]?.toggle()
             self.filterB.menu = self.generateMenu()

@@ -37,7 +37,7 @@ class NewPostViewController: UIViewController {
                     data.append(document.get("name") as! String)
                     self.appDelegate.numEvents += 1
                 }
-                self.appDelegate.eventNames = data
+                self.appDelegate.events = data
             }
         }
         

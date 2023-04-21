@@ -26,63 +26,73 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var imageView8: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var filteredEvents: [AppDelegate.Event] = []
+    var events: [AppDelegate.Event] = []
     
-    var filteredData: [String]!
+    
+    let search = UISearchController(searchResultsController: nil)
+
+    var isSearchBarEmpty: Bool {
+      return search.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return search.isActive && !isSearchBarEmpty
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         
-        filteredData = appDelegate.eventNames
-        tableView.dataSource = self
-        tableView.delegate = self
+        appDelegate.refreshEvents()
+        events = appDelegate.events
 
-        let image1:UIImage = UIImage(imageLiteralResourceName: "img-1")
-        let image2:UIImage = UIImage(imageLiteralResourceName: "img-2")
-        let image3:UIImage = UIImage(imageLiteralResourceName: "img-3")
-        let image4:UIImage = UIImage(imageLiteralResourceName: "img-4")
-        let image5:UIImage = UIImage(imageLiteralResourceName: "img-5")
-        let image6:UIImage = UIImage(imageLiteralResourceName: "img-6")
-        let image7:UIImage = UIImage(imageLiteralResourceName: "img-7")
-        let image8:UIImage = UIImage(imageLiteralResourceName: "img-8")
-
-        imageView1.image = image1
-        imageView2.image = image2
-        imageView3.image = image3
-        imageView4.image = image4
-        imageView5.image = image5
-        imageView6.image = image6
-        imageView7.image = image7
-        imageView8.image = image8
-        
-        let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
+        search.searchBar.scopeButtonTitles = ["All", "Events", "Artists". "Venues"]
         navigationItem.searchController = search
-        
+
+        tableView.dataSource = self
+        tableView.delegate = self
+
         // Do any additional setup after loading the view.
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredData[indexPath.row]
-        return cell
-
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let event: AppDelegate.Event
+      if isFiltering {
+        event = filteredEvents[indexPath.row]
+      } else {
+        event = events[indexPath.row]
+      }
+      cell.textLabel?.text = event.name
+      cell.detailTextLabel?.text = event.description
+      return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEvent: String = filteredData[indexPath.row]
-        print(selectedEvent)
-
-        performSegue(withIdentifier: "exploreEventSelect", sender: self)
-
+//        let selectedEvent: String = filteredEvents[indexPath.row]
+//        performSegue(withIdentifier: "exploreEventSelect", sender: self)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+      if isFiltering {
+        return filteredEvents.count
+      }
+        
+      return events.count
+    }
+
+    func filterContentForSearchText(_ searchText: String, type: Int) {
+        filteredEvents = events.filter { (event: AppDelegate.Event) -> Bool in
+        return event.name.lowercased().contains(searchText.lowercased())
+      }
+      
+      tableView.reloadData()
     }
 
     /*
@@ -103,15 +113,15 @@ extension ExploreTabViewController: UISearchResultsUpdating {
           tableView.isHidden = true
           scrollView.isHidden = false
       } else {
-          guard let text = searchController.searchBar.text else { return }
-          scrollView.isHidden = true
-          tableView.isHidden = false
-          filteredData = text.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
-              // If dataItem matches the searchText, return true to include it
-              return item.range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil
-          }
-          tableView.reloadData()
+          let searchBar = searchController.searchBar
+          filterContentForSearchText(searchBar.text!)
       }
+  }
+}
+extension ExploreTabViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar,
+      selectedScopeButtonIndexDidChange selectedScope: Int) {
+    filterContentForSearchText(searchBar.text!, type: selectedScope)
   }
 }
 

@@ -14,7 +14,15 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var profilePic: UIImage?, firstName: String?, displayName: String?, type: Int?, eventNames: [String] = [], numEvents: Int = 0
+    
+    struct Event {
+        var name: String
+        var description: String
+        var time: Timestamp
+        var creator: String
+    }
+    
+    var profilePic: UIImage?, firstName: String?, displayName: String?, type: Int?, events: [Event] = [], numEvents: Int = 0
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -95,8 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
-                        self.numEvents += 1
-                        self.eventNames.append(document.get("name") as! String)
+                    self.numEvents += 1
+                    let name = document.get("name") as! String
+                    let description = document.get("description") as! String
+                    let time = document.get("date-time") as! Timestamp
+                    let creator = document.get("creator") as! String
+                    self.events.append(Event(name: name, description: description, time: time, creator: creator))
                 }
             }
         }

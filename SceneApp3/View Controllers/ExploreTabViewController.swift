@@ -45,6 +45,8 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         appDelegate.refreshEvents()
         events = appDelegate.events
 
@@ -71,7 +73,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         event = events[indexPath.row]
       }
       cell.textLabel?.text = event.name
-      cell.detailTextLabel?.text = event.description
+        cell.detailTextLabel?.text = DateFormatter().string(from: Date(timeIntervalSince1970: TimeInterval(integerLiteral: event.date.seconds)))
       return cell
     }
 
@@ -97,17 +99,6 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
       tableView.reloadData()
     }
 
-    // This method updates filteredData based on the text in the Search Box
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //var names: [String]
-        //names = Array(appDelegate.eventNames.keys)
-        
-        //filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
-            // If dataItem matches the searchText, return true to include it
-            //return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        //}
-        tableView.reloadData()
-    }
     /*
     // MARK: - Navigation
 
@@ -126,6 +117,8 @@ extension ExploreTabViewController: UISearchResultsUpdating {
           tableView.isHidden = true
           scrollView.isHidden = false
       } else {
+          tableView.isHidden = false
+          scrollView.isHidden = true
           let searchBar = searchController.searchBar
           filterContentForSearchText(searchBar.text!, type: 0)
       }

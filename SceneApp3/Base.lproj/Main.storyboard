@@ -653,7 +653,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5U1-bW-WAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="4842" y="3121"/>
+
         </scene>
         <!--Select Event-->
         <scene sceneID="oou-sa-seb">
@@ -713,8 +715,35 @@
                     <view key="view" contentMode="scaleToFill" id="BeN-pu-Tiz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5L-my-zn6">
+                                <rect key="frame" x="50" y="384" width="314" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event info here" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-mk-Gj4">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="128"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4R0-mk-Gj4" firstAttribute="top" secondItem="D5L-my-zn6" secondAttribute="top" id="BNg-T5-7mU"/>
+                                    <constraint firstAttribute="bottom" secondItem="4R0-mk-Gj4" secondAttribute="bottom" id="ksb-7c-7cN"/>
+                                    <constraint firstItem="4R0-mk-Gj4" firstAttribute="leading" secondItem="D5L-my-zn6" secondAttribute="leading" id="rCj-rf-1uy"/>
+                                    <constraint firstAttribute="trailing" secondItem="4R0-mk-Gj4" secondAttribute="trailing" id="yOG-jR-vOL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VRN-C3-QsE"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="VRN-C3-QsE" firstAttribute="trailing" secondItem="D5L-my-zn6" secondAttribute="trailing" constant="50" id="53W-NU-la2"/>
+                            <constraint firstItem="D5L-my-zn6" firstAttribute="top" secondItem="VRN-C3-QsE" secondAttribute="top" constant="340" id="AFl-a1-Fhc"/>
+                            <constraint firstItem="D5L-my-zn6" firstAttribute="leading" secondItem="VRN-C3-QsE" secondAttribute="leading" constant="50" id="IQz-5D-RdH"/>
+                            <constraint firstItem="D5L-my-zn6" firstAttribute="centerY" secondItem="BeN-pu-Tiz" secondAttribute="centerY" id="T0v-uk-Tct"/>
+                            <constraint firstItem="D5L-my-zn6" firstAttribute="centerX" secondItem="BeN-pu-Tiz" secondAttribute="centerX" id="VoO-m4-6pA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Check In" id="PCV-m1-Qfh">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="dWa-qe-4Or">
@@ -723,10 +752,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="eventInfo" destination="4R0-mk-Gj4" id="5Ei-p5-69z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLi-xd-crF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5651" y="3856"/>
+            <point key="canvasLocation" x="5650.7246376811599" y="3136.6071428571427"/>
         </scene>
         <!--Recap-->
         <scene sceneID="UcF-yG-hgM">
@@ -748,7 +780,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0b-to-SeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6464" y="3856"/>
+            <point key="canvasLocation" x="6464" y="3137"/>
         </scene>
         <!--Item-->
         <scene sceneID="RfS-dI-rvm">
@@ -1379,13 +1411,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-Rb-fse">
-                                <rect key="frame" x="25" y="69" width="364" height="290"/>
+
+                                <rect key="frame" x="25" y="69" width="364" height="358"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOH-TN-kc9">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="168"/>
+
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="event info here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-hn-yzL">
-                                                <rect key="frame" x="126" y="133" width="113" height="21"/>
+                                                <rect key="frame" x="126" y="74" width="113" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -1395,7 +1429,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Say something about this event (optional)." minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-It-ijJ">
-                                        <rect key="frame" x="0.0" y="140" width="364" height="150"/>
+
+                                        <rect key="frame" x="0.0" y="208" width="364" height="150"/>
+
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0Ka-ar-uH0"/>
                                         </constraints>
@@ -1408,7 +1444,9 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
-                                <rect key="frame" x="158.5" y="409" width="97.5" height="253"/>
+
+                                <rect key="frame" x="158.5" y="627" width="97.5" height="35"/>
+
                                 <buttonConfiguration key="configuration" style="gray">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Promote!">
@@ -1429,8 +1467,7 @@
                         <constraints>
                             <constraint firstItem="PaH-Ik-0NK" firstAttribute="centerX" secondItem="EIV-5e-rxH" secondAttribute="centerX" id="6dH-PD-me3"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="leading" secondItem="YQY-gl-yno" secondAttribute="leading" constant="25" id="97i-sk-HeF"/>
-                            <constraint firstItem="0H3-Rb-fse" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="top" constant="-50" id="Ig0-ni-c00"/>
-                            <constraint firstItem="YQY-gl-yno" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="bottom" constant="200" id="b9O-de-aB3"/>
+                            <constraint firstItem="0H3-Rb-fse" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="top" constant="-200" id="Ig0-ni-c00"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="trailing" secondItem="YQY-gl-yno" secondAttribute="trailing" constant="-25" id="iK7-VV-7Ue"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="top" secondItem="YQY-gl-yno" secondAttribute="top" constant="25" id="wcz-Zg-ex7"/>
                         </constraints>
@@ -1450,7 +1487,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOH-cd-BNC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5651" y="3121"/>
+
+            <point key="canvasLocation" x="4826" y="3137"/>
+
         </scene>
         <!--Post Promotion-->
         <scene sceneID="Tsy-2Q-7BG">

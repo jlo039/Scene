@@ -14,15 +14,18 @@ import FirebaseStorage
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var profilePic: UIImage?, firstName: String?, displayName: String?, type: Int?, events: [Event] = [], numEvents: Int = 0
     
     struct Event {
-        var name: String
-        var description: String
-        var time: Timestamp
-        var creator: String
+        var docID: String = ""
+        var name: String = ""
+        var artistID: String = ""
+        var venueID: String = ""
+        var description: String = ""
+        var date: Timestamp = Timestamp()
+        var creatorID: String = ""
     }
-    
-    var profilePic: UIImage?, firstName: String?, displayName: String?, type: Int?, events: [Event] = [], numEvents: Int = 0
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -104,11 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
                     self.numEvents += 1
-                    let name = document.get("name") as! String
-                    let description = document.get("description") as! String
-                    let time = document.get("date-time") as! Timestamp
-                    let creator = document.get("creator") as! String
-                    self.events.append(Event(name: name, description: description, time: time, creator: creator))
+                    self.events.append(Event(docID: document.documentID, name: document.get("name") as! String, artistID: document.get("artistID") as! String, venueID: document.get("venueID") as! String, description: document.get("description") as! String, date: document.get("date-time") as! Timestamp, creatorID: document.get("creatorID") as! String))
+
                 }
             }
         }

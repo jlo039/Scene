@@ -21,12 +21,32 @@ class CreateEventViewController: UIViewController {
     var existing: Bool = false
     var data: [String]! = []
     var dataSize: Int = 0
+
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case EventNameEntry:
+            return EventDateEntry.becomeFirstResponder()
+        case EventDateEntry:
+            return VenueEntry.becomeFirstResponder()
+        case VenueEntry:
+            return ArtistEntry.becomeFirstResponder()
+        default:
+            CreateNewEvent(self)
+            return EventDescriptionEntry.resignFirstResponder()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func cancelNewEvent(_ sender: Any) {
         self.dismiss(animated: true)
@@ -34,17 +54,17 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func CreateNewEvent(_ sender: Any) {
         let db = Firestore.firestore()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let eventID = "\(appDelegate.numEvents)"
         let eventName = EventNameEntry.text!
         let eventTime = Timestamp.init(date: EventDateEntry.date)
         let eventDescription = EventDescriptionEntry.text!
 
         if (!existing) {
             // Create new event on server
-            db.collection("events").document("\(appDelegate.numEvents)").setData(["name": eventName, "date-time": eventTime, "description": eventDescription, "creatorID": Auth.auth().currentUser!.uid])
+            db.collection("events").document(eventID).setData(["name": eventName, "artistID": "", "venueID": "", "date-time": eventTime, "description": eventDescription, "creatorID": Auth.auth().currentUser!.uid])
         }
         
-        SearchEventViewController.selectedEvent = AppDelegate.Event(name: eventName, description: eventDescription, date: eventTime, creatorID: Auth.auth().currentUser!.uid)
+        SearchEventViewController.selectedEvent = AppDelegate.Event(docID: eventID, name: eventName, description: eventDescription, date: eventTime, creatorID: Auth.auth().currentUser!.uid)
         
         var VCType: String = ""
         

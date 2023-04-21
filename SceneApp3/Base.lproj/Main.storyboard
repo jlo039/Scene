@@ -528,7 +528,7 @@
                                 <rect key="frame" x="25" y="116" width="364" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-k5-6VQ" userLabel="Date Selection">
                                 <rect key="frame" x="30" y="160" width="359" height="40"/>
@@ -653,7 +653,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5U1-bW-WAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4842" y="3121"/>
+            <point key="canvasLocation" x="6464" y="2409"/>
+
         </scene>
         <!--Select Event-->
         <scene sceneID="oou-sa-seb">

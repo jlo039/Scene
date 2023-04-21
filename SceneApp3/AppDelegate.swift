@@ -100,6 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func refreshEvents() {
+        events = []
+        numEvents = 0
+        
         Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")

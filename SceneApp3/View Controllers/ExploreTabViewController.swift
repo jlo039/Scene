@@ -52,7 +52,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
-        search.searchBar.scopeButtonTitles = ["All", "Events", "Artists". "Venues"]
+        search.searchBar.scopeButtonTitles = ["All", "Events", "Artists", "Venues"]
         navigationItem.searchController = search
 
         tableView.dataSource = self
@@ -127,7 +127,7 @@ extension ExploreTabViewController: UISearchResultsUpdating {
           scrollView.isHidden = false
       } else {
           let searchBar = searchController.searchBar
-          filterContentForSearchText(searchBar.text!)
+          filterContentForSearchText(searchBar.text!, type: 0)
       }
   }
 }

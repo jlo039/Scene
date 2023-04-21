@@ -9,10 +9,11 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
 
-    @IBOutlet weak var searchBar: UISearchBar!
+
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var dateSelection: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView1: UIImageView!
@@ -31,10 +32,11 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         filteredData = []
+
         tableView.dataSource = self
         tableView.delegate = self
-        searchBar.delegate = self
 
         let image1:UIImage = UIImage(imageLiteralResourceName: "img-1")
         let image2:UIImage = UIImage(imageLiteralResourceName: "img-2")
@@ -54,7 +56,11 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         imageView7.image = image7
         imageView8.image = image8
         
-        print(dateSelection.date)
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Type something here to search"
+        navigationItem.searchController = search
         
         // Do any additional setup after loading the view.
     }
@@ -101,3 +107,22 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
 }
+
+extension ExploreTabViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+      if !searchController.isActive {
+          tableView.isHidden = true
+          scrollView.isHidden = false
+      } else {
+          guard let text = searchController.searchBar.text else { return }
+          scrollView.isHidden = true
+          tableView.isHidden = false
+          filteredData = text.isEmpty ? appDelegate.eventNames : appDelegate.eventNames.filter { (item: String) -> Bool in
+              // If dataItem matches the searchText, return true to include it
+              return item.range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil
+          }
+          tableView.reloadData()
+      }
+  }
+}
+

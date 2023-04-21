@@ -33,6 +33,7 @@ class CheckInPostViewController: UIViewController {
                     eventToPost.date = document.get("date-time") as! Timestamp
                     eventToPost.creatorID = document.get("creatorID") as! String
                     print(eventToPost.description)
+                    self.eventInfo.text = "Name: " + eventToPost.name + "\nArtist: " + eventToPost.artistID + "\nVenue: " + eventToPost.venueID + "\nDescription: " + eventToPost.description + "\nDate: " + eventToPost.date.description + "\nCreator: " + eventToPost.creatorID
                 }
             } else {
                 print("Document does not exist")

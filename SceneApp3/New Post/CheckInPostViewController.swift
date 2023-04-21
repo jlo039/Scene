@@ -12,37 +12,33 @@ class CheckInPostViewController: UIViewController {
 
     @IBOutlet weak var eventInfo: UILabel!
     
-    struct Event {
-        var name: String
-        var description: String
-        var date: Date
-        var creator: String
-    }
-    
     override func viewDidLoad() {
     
         super.viewDidLoad()
         
-        var eventToPost: Event
+        let db = Firestore.firestore()
         
-        eventInfo.text = SearchEventViewController.selectedEventID + "\n"
+        var eventToPost = AppDelegate.Event()
         
-        
-        
-        let eventDocRef = Firestore.firestore().collection("events").document(SearchEventViewController.selectedEventID)
+        let eventDocRef = db.collection("events").document(SearchEventViewController.selectedEvent.docID)
         
         eventDocRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 DispatchQueue.main.async {
+                    eventToPost.docID = document.documentID
                     eventToPost.name = document.get("name") as! String
+                    eventToPost.artistID = document.get("artistID") as! String
+                    eventToPost.venueID = document.get("venueID") as! String
                     eventToPost.description = document.get("description") as! String
-                    eventToPost.date = document.get("date-time") as! Date
-                    eventToPost.creator = document.get("creator") as! String
+                    eventToPost.date = document.get("date-time") as! Timestamp
+                    eventToPost.creatorID = document.get("creatorID") as! String
+                    print(eventToPost.description)
                 }
             } else {
                 print("Document does not exist")
             }
         }
+        
         
     }
     

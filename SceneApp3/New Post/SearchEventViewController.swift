@@ -16,16 +16,16 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    static var selectedEvent: String = ""
-    static var selectedEventID: String = ""
+    static var selectedEvent = AppDelegate.Event()
     
-    var filteredData: [String]!
+    var filteredData: [AppDelegate.Event]!
+    var eventNames: [String]!
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        filteredData = Array(appDelegate.eventNames.keys)
+        filteredData = appDelegate.events
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -35,7 +35,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = filteredData[indexPath.row]
+        cell.textLabel?.text = filteredData[indexPath.row].name
         return cell
  
     }
@@ -60,8 +60,8 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         SearchEventViewController.selectedEvent = filteredData[indexPath.row]
+        
         print(SearchEventViewController.selectedEvent)
-        SearchEventViewController.selectedEventID = appDelegate.eventNames[SearchEventViewController.selectedEvent]!
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
@@ -74,12 +74,10 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
 
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var names: [String]
-        names = Array(appDelegate.eventNames.keys)
         
-        filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? appDelegate.events : appDelegate.events.filter { (item: AppDelegate.Event) -> Bool in
             // If dataItem matches the searchText, return true to include it
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }   
         tableView.reloadData()
     }

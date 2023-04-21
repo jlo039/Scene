@@ -31,7 +31,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        filteredData = Array(appDelegate.eventNames.keys)
+        filteredData = []
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -81,13 +81,13 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
 
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var names: [String]
-        names = Array(appDelegate.eventNames.keys)
+        //var names: [String]
+        //names = Array(appDelegate.eventNames.keys)
         
-        filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
+        //filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
             // If dataItem matches the searchText, return true to include it
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
+            //return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        //}
         tableView.reloadData()
     }
     /*

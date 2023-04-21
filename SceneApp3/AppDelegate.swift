@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var date: Timestamp = Timestamp()
         var creatorID: String = ""
     }
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -107,6 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for document in querySnapshot!.documents {
                     self.numEvents += 1
                     self.events.append(Event(docID: document.documentID, name: document.get("name") as! String, artistID: document.get("artistID") as! String, venueID: document.get("venueID") as! String, description: document.get("description") as! String, date: document.get("date-time") as! Timestamp, creatorID: document.get("creatorID") as! String))
+
                 }
             }
         }

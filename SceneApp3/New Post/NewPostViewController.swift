@@ -23,7 +23,9 @@ class NewPostViewController: UIViewController {
         super.viewDidLoad()
         
         // Access event database
+
         appDelegate.refreshEvents()
+
 
     }
     

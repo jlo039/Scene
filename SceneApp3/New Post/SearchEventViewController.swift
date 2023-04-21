@@ -76,6 +76,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredData = searchText.isEmpty ? appDelegate.events : appDelegate.events.filter { (item: AppDelegate.Event) -> Bool in
+
             // If dataItem matches the searchText, return true to include it
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }   

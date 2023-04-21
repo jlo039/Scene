@@ -6,14 +6,40 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class CheckInPostViewController: UIViewController {
 
+    @IBOutlet weak var eventInfo: UILabel!
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         
-            navigationItem.hidesBackButton = true
-        // Do any additional setup after loading the view.
+        let db = Firestore.firestore()
+        
+        var eventToPost = AppDelegate.Event()
+        
+        let eventDocRef = db.collection("events").document(SearchEventViewController.selectedEvent.docID)
+        
+        eventDocRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                DispatchQueue.main.async {
+                    eventToPost.docID = document.documentID
+                    eventToPost.name = document.get("name") as! String
+                    eventToPost.artistID = document.get("artistID") as! String
+                    eventToPost.venueID = document.get("venueID") as! String
+                    eventToPost.description = document.get("description") as! String
+                    eventToPost.date = document.get("date-time") as! Timestamp
+                    eventToPost.creatorID = document.get("creatorID") as! String
+                    print(eventToPost.description)
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        
     }
     
 

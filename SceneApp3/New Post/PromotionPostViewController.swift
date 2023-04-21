@@ -20,7 +20,7 @@ class PromotionPostViewController: UIViewController {
         super.viewDidLoad()
         
             navigationItem.hidesBackButton = true
-        eventname.text = SearchEventViewController.selectedEvent
+        eventname.text = SearchEventViewController.selectedEvent.name
         // Do any additional setup after loading the view.
     }
     

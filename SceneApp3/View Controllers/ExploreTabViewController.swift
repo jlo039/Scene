@@ -33,8 +33,8 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
 
-        
-        filteredData = appDelegate.eventNames
+        filteredData = []
+
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -85,6 +85,17 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         return filteredData.count
     }
 
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //var names: [String]
+        //names = Array(appDelegate.eventNames.keys)
+        
+        //filteredData = searchText.isEmpty ? names : names.filter { (item: String) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            //return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        //}
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

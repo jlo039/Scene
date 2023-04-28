@@ -100,7 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func refreshEvents() {
-        events = []
+        
+        var newEvents: [Event] = []
         numEvents = 0
         
         Firestore.firestore().collection("events").getDocuments() { (querySnapshot, err) in
@@ -110,11 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Update global var of existing events.
                 for document in querySnapshot!.documents {
                     self.numEvents += 1
-                    self.events.append(Event(docID: document.documentID, name: document.get("name") as! String, artistID: document.get("artistID") as! String, venueID: document.get("venueID") as! String, description: document.get("description") as! String, date: document.get("date-time") as! Timestamp, creatorID: document.get("creatorID") as! String))
+                    newEvents.append(Event(docID: document.documentID, name: document.get("name") as! String, artistID: document.get("artistID") as! String, venueID: document.get("venueID") as! String, description: document.get("description") as! String, date: document.get("date-time") as! Timestamp, creatorID: document.get("creatorID") as! String))
 
                 }
+                self.events = newEvents
             }
         }
+        
+
+        
     }
     
 }

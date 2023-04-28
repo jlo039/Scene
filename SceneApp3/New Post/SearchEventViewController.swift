@@ -22,9 +22,7 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
     var eventNames: [String]!
 
     override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
+                
         filteredData = appDelegate.events
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,8 +58,6 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         SearchEventViewController.selectedEvent = filteredData[indexPath.row]
-        
-        print(SearchEventViewController.selectedEvent)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)

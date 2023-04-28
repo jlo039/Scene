@@ -14,14 +14,16 @@ class PromotionPostViewController: UIViewController {
     @IBOutlet weak var PostTextField: UITextField!
     @IBOutlet weak var EventPreview: UIView!
      
-    @IBOutlet weak var eventname: UILabel!
+    @IBOutlet weak var eventInfo: UILabel!
+    
+    var selectedEvent = SearchEventViewController.selectedEvent
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-            navigationItem.hidesBackButton = true
-        eventname.text = SearchEventViewController.selectedEvent.name
-        // Do any additional setup after loading the view.
+        super.viewDidLoad()
+
+        eventInfo.text = selectedEvent.name + "\n" + selectedEvent.description
+        
     }
     
     @IBAction func cancelNewPost(_ sender: Any) {
@@ -29,15 +31,18 @@ class PromotionPostViewController: UIViewController {
     }
 
     @IBAction func createPost(_ sender: Any) {
+        
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let db = Firestore.firestore()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let eventPath = db.document("/events/0")
-        if (true) {
-            // Create new event on server
-            let postTime = Timestamp.init()
-            let postText = PostTextField.text!
-            db.collection("posts").document("\(appDelegate.numEvents)").setData(["text": postText, "event": eventPath, "postTime": postTime, "creator": Auth.auth().currentUser!.uid])
-        }
+        let eventPath = db.document("/events/\(selectedEvent.docID)")
+        let creatorID = Auth.auth().currentUser!.uid
+        let postTime = Timestamp.init()
+        let postID = selectedEvent.docID + "\(postTime.nanoseconds)".prefix(4) + creatorID.prefix(4)
+        let postText = PostTextField.text!
+        
+        db.collection("posts").document(postID).setData(["text": postText, "event": eventPath, "postTime": postTime, "creator": creatorID, "postType": 0])
+        
+        self.dismiss(animated: true)
     }
     
     /*

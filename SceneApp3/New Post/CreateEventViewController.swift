@@ -54,17 +54,26 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func CreateNewEvent(_ sender: Any) {
         let db = Firestore.firestore()
-        let eventID = "\(appDelegate.numEvents)"
-        let eventName = EventNameEntry.text!
-        let eventTime = Timestamp.init(date: EventDateEntry.date)
-        let eventDescription = EventDescriptionEntry.text!
+        let creatorID = Auth.auth().currentUser!.uid
+        let eventID = String("\(Timestamp.init().nanoseconds)".suffix(4) + creatorID.prefix(8))
 
         if (!existing) {
             // Create new event on server
-            db.collection("events").document(eventID).setData(["name": eventName, "artistID": "", "venueID": "", "date-time": eventTime, "description": eventDescription, "creatorID": Auth.auth().currentUser!.uid])
+            db.collection("events").document(eventID).setData([
+                "name": EventNameEntry.text!,
+                "artistID": ArtistEntry.text!,
+                "venueID": VenueEntry.text!,
+                "date-time": Timestamp.init(date: EventDateEntry.date),
+                "description": EventDescriptionEntry.text!,
+                "creatorID": creatorID])
         }
         
-        SearchEventViewController.selectedEvent = AppDelegate.Event(docID: eventID, name: eventName, description: eventDescription, date: eventTime, creatorID: Auth.auth().currentUser!.uid)
+        SearchEventViewController.selectedEvent = AppDelegate.Event(
+            docID: eventID,
+            name: EventNameEntry.text!,
+            description: EventDescriptionEntry.text!,
+            date: Timestamp.init(date: EventDateEntry.date),
+            creatorID: creatorID)
         
         var VCType: String = ""
         

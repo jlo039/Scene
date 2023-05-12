@@ -27,6 +27,7 @@
 		D3149D1E29E0AAB300B57D47 /* RecapPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3149D1D29E0AAB300B57D47 /* RecapPostViewController.swift */; };
 		D321A58229677AFD00AF5E0F /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D321A58129677AFD00AF5E0F /* NewPostViewController.swift */; };
 		D3220BA42996E43E00837229 /* SearchEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3220BA32996E43E00837229 /* SearchEventViewController.swift */; };
+		D3538F612A0EC29D00B00632 /* EventBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3538F602A0EC29D00B00632 /* EventBannerView.swift */; };
 		D38BE8E02984666900790729 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BE8DF2984666900790729 /* CreateEventViewController.swift */; };
 		D38F9D432941342000A8317D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D422941342000A8317D /* TabBarController.swift */; };
 		D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */; };
@@ -68,6 +69,7 @@
 		D3149D1D29E0AAB300B57D47 /* RecapPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecapPostViewController.swift; path = "New Post/RecapPostViewController.swift"; sourceTree = "<group>"; };
 		D321A58129677AFD00AF5E0F /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		D3220BA32996E43E00837229 /* SearchEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventViewController.swift; sourceTree = "<group>"; };
+		D3538F602A0EC29D00B00632 /* EventBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBannerView.swift; sourceTree = "<group>"; };
 		D38BE8DF2984666900790729 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		D38F9D422941342000A8317D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D38F9D44294134A500A8317D /* CustomDesignTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTabBar.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				DEDACF2C2900824D00F33354 /* TextField.swift */,
+				D3538F602A0EC29D00B00632 /* EventBannerView.swift */,
 				DE2B93D729008AD600875591 /* Button.swift */,
 			);
 			path = "Visual Classes";
@@ -282,6 +285,7 @@
 				D38F9D45294134A500A8317D /* CustomDesignTabBar.swift in Sources */,
 				8855B0C128AD85270069795F /* SignInViewController.swift in Sources */,
 				8855B0B128AD7AD00069795F /* ViewController.swift in Sources */,
+				D3538F612A0EC29D00B00632 /* EventBannerView.swift in Sources */,
 				DEDACF2D2900824D00F33354 /* TextField.swift in Sources */,
 				D3A4536E2939347A0039E640 /* ExploreTabViewController.swift in Sources */,
 				8855B0AD28AD7AD00069795F /* AppDelegate.swift in Sources */,

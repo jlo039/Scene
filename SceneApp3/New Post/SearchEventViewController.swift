@@ -29,6 +29,11 @@ class SearchEventViewController: UIViewController, UITableViewDelegate, UITableV
         searchBar.delegate = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        filteredData = appDelegate.events
+        tableView.reloadData()
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 

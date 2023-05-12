@@ -68,6 +68,8 @@ class CreateEventViewController: UIViewController {
                 "creatorID": creatorID])
         }
         
+        appDelegate.refreshEvents()
+        
         SearchEventViewController.selectedEvent = AppDelegate.Event(
             docID: eventID,
             name: EventNameEntry.text!,
@@ -93,7 +95,12 @@ class CreateEventViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createPostController = storyboard.instantiateViewController(withIdentifier: VCType)
-        self.navigationController?.pushViewController(createPostController, animated: true)
+        
+        var controllers = self.navigationController?.viewControllers
+        controllers?.removeAll(where: { $0 is CreateEventViewController })
+        controllers?.append(createPostController)
+        
+        self.navigationController?.setViewControllers(controllers!, animated: true)
     }
     
     

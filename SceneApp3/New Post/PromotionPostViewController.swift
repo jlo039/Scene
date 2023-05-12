@@ -12,18 +12,17 @@ import FirebaseAuth
 class PromotionPostViewController: UIViewController {
 
     @IBOutlet weak var PostTextField: UITextField!
-    @IBOutlet weak var EventPreview: UIView!
      
     @IBOutlet weak var eventInfo: UILabel!
     
     var selectedEvent = SearchEventViewController.selectedEvent
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
         eventInfo.text = selectedEvent.name + "\n" + selectedEvent.description
-        
+
     }
     
     @IBAction func cancelNewPost(_ sender: Any) {

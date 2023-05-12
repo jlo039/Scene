@@ -525,13 +525,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hf-iR-vpx">
-                                <rect key="frame" x="25" y="104" width="364" height="34"/>
+                                <rect key="frame" x="25" y="116" width="364" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-k5-6VQ" userLabel="Date Selection">
-                                <rect key="frame" x="30" y="148" width="359" height="40"/>
+                                <rect key="frame" x="30" y="160" width="359" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azl-cL-xpm">
                                         <rect key="frame" x="0.0" y="0.0" width="179.5" height="40"/>
@@ -548,18 +548,18 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Venue name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-va-kbu">
-                                <rect key="frame" x="25" y="198" width="364" height="34"/>
+                                <rect key="frame" x="25" y="210" width="364" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-lT-1Ew">
-                                <rect key="frame" x="25" y="242" width="364" height="34"/>
+                                <rect key="frame" x="25" y="254" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Event description" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="hvs-ZY-4Ol">
-                                <rect key="frame" x="25" y="286" width="364" height="60"/>
+                                <rect key="frame" x="25" y="298" width="364" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="OUt-0d-6xu"/>
                                 </constraints>
@@ -567,7 +567,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-m9-wlx">
-                                <rect key="frame" x="168" y="391" width="78.5" height="35"/>
+                                <rect key="frame" x="168" y="403" width="78.5" height="35"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Create">
@@ -1366,7 +1366,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-Rb-fse">
-                                <rect key="frame" x="25" y="69" width="364" height="281.5"/>
+                                <rect key="frame" x="25" y="69" width="364" height="210.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event info here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-hn-yzL" userLabel="eventInfo">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
@@ -1374,16 +1374,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gf-JD-wVI">
-                                        <rect key="frame" x="0.0" y="60.5" width="364" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Switch Event"/>
-                                        <connections>
-                                            <segue destination="oqu-Cc-44n" kind="show" id="6Bd-Hy-kpq"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Say something about this event (optional)." minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-It-ijJ">
-                                        <rect key="frame" x="0.0" y="131.5" width="364" height="150"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="364" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0Ka-ar-uH0"/>
                                         </constraints>
@@ -1393,7 +1385,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
-                                <rect key="frame" x="161" y="550.5" width="92.5" height="35"/>
+                                <rect key="frame" x="161" y="479.5" width="92.5" height="35"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Promote">
@@ -1517,7 +1509,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="6Bd-Hy-kpq"/>
+        <segue reference="RIG-Ku-dok"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SceneLogo_Full" width="1538" height="600"/>

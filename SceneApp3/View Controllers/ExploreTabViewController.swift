@@ -63,41 +63,43 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let event: AppDelegate.Event
-      if isFiltering {
+func tableView(_ tableView: UITableView,
+           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    let event: AppDelegate.Event
+    if isFiltering {
         event = filteredEvents[indexPath.row]
-      } else {
+    } else {
         event = events[indexPath.row]
-      }
-      cell.textLabel?.text = event.name
-        cell.detailTextLabel?.text = DateFormatter().string(from: Date(timeIntervalSince1970: TimeInterval(integerLiteral: event.date.seconds)))
-      return cell
     }
+    var config = cell.defaultContentConfiguration()
+    config.text = event.name
+    config.secondaryText = event.description
+    cell.contentConfiguration = config
+    return cell
+}
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let selectedEvent: String = filteredEvents[indexPath.row]
 //        performSegue(withIdentifier: "exploreEventSelect", sender: self)
     }
 
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-      if isFiltering {
+func tableView(_ tableView: UITableView,
+           numberOfRowsInSection section: Int) -> Int {
+    if isFiltering {
         return filteredEvents.count
-      }
-        
-      return events.count
     }
 
-    func filterContentForSearchText(_ searchText: String, type: Int) {
-        filteredEvents = events.filter { (event: AppDelegate.Event) -> Bool in
+    return events.count
+}
+
+func filterContentForSearchText(_ searchText: String, type: Int) {
+    filteredEvents = events.filter { (event: AppDelegate.Event) -> Bool in
         return event.name.lowercased().contains(searchText.lowercased())
-      }
-      
-      tableView.reloadData()
     }
+
+    tableView.reloadData()
+}
 
     /*
     // MARK: - Navigation

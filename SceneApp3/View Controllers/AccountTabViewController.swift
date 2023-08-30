@@ -64,7 +64,7 @@ class AccountTabViewController: UIViewController, UIImagePickerControllerDelegat
         // update view
         self.profilePicIV.image = appDelegate.profilePic
         self.realNameLabel.text = appDelegate.firstName
-        self.navigationItem.title = appDelegate.displayName
+        self.navigationItem.title = "@" + appDelegate.displayName!
         switch appDelegate.type {
         case 2:
             self.accountTypeLabel.text = "Venue"

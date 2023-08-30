@@ -53,7 +53,7 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
 
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Type something here to search"
+        search.searchBar.placeholder = "Search"
         search.searchBar.scopeButtonTitles = ["All", "Events", "Artists", "Venues"]
         navigationItem.searchController = search
 
@@ -61,6 +61,10 @@ class ExploreTabViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 func tableView(_ tableView: UITableView,
@@ -95,7 +99,10 @@ func tableView(_ tableView: UITableView,
 
 func filterContentForSearchText(_ searchText: String, type: Int) {
     filteredEvents = events.filter { (event: AppDelegate.Event) -> Bool in
-        return event.name.lowercased().contains(searchText.lowercased())
+        if type == 0 || type == 1 {
+            return event.name.lowercased().contains(searchText.lowercased())
+        }
+        return false;
     }
 
     tableView.reloadData()

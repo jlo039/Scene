@@ -9,6 +9,29 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
 
+    let grayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        return view
+    }()
+    
+    let containerView0: UIView = {
+        let view = UIView()
+        view.backgroundColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        return view
+    }()
+    
+    let containerView1: UIView = {
+        let view = UIView()
+        view.backgroundColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        return view
+    }()
+    
+    let containerView2: UIView = {
+        let view = UIView()
+        view.backgroundColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        return view
+    }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -19,6 +42,11 @@ class CustomTabBarController: UITabBarController {
         tabBar.barTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         delegate = self
+        
+        grayView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        containerView0.frame = CGRect(x: view.frame.width/2 - 25, y: 650, width: 50, height: 50)
+        containerView1.frame = CGRect(x: view.frame.width/2 - 100, y: 700, width: 50, height: 50)
+        containerView2.frame = CGRect(x: view.frame.width/2 + 50, y: 700, width: 50, height: 50)
         
         // Instantiate view controllers
         let exploreNav = self.storyboard?.instantiateViewController(withIdentifier: "ExploreNav") as! UINavigationController
@@ -52,15 +80,35 @@ class CustomTabBarController: UITabBarController {
         guard let tabBar = self.tabBar as? CustomDesignTabBar else { return }
         
         tabBar.didTapButton = { [unowned self] in
-            self.routeToCreateNewAd()
+            view.insertSubview(grayView, at: 1)
+            view.insertSubview(containerView0, at: 2)
+            view.insertSubview(containerView1, at: 2)
+            view.insertSubview(containerView2, at: 2)
+            // self.drawOval()
+            // self.routeToCreateNewAd()
         }
     }
+   /*
+    private func drawOval() {
+            
+            let path = UIBezierPath(ovalIn: containerView.bounds)
+            
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = path.cgPath
+            shapeLayer.fillColor = UIColor.orange.cgColor
+            shapeLayer.lineWidth = 3
+            shapeLayer.strokeColor = UIColor.black.cgColor
+            
+            containerView.layer.addSublayer(shapeLayer)
+    }*/
     
     func routeToCreateNewAd() {
         let createAdNavController = self.storyboard?.instantiateViewController(withIdentifier: "NewPostNav") as! UINavigationController
         createAdNavController.modalPresentationCapturesStatusBarAppearance = true
         self.present(createAdNavController, animated: true, completion: nil)
     }
+    
+    
 }
 
 // MARK: - UITabBarController Delegate

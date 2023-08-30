@@ -156,7 +156,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             //create the user's document in the database
             let db = Firestore.firestore()
             if (CreateAccountViewController.type == 2) {
-                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName, "address": address]    ) { error in
+                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName, "address": address, "displayName" : self.displayName]    ) { error in
                     if error != nil {
                         //show error messsage
                         let errorMsg = error?.localizedDescription
@@ -164,7 +164,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             } else {
-                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName]    ) { error in
+                db.collection("users").document(user!.uid).setData(["type": CreateAccountViewController.type, "firstName" : CreateAccountViewController.firstName, "displayName" : self.displayName]    ) { error in
                     if error != nil {
                         //show error messsage
                         let errorMsg = error?.localizedDescription

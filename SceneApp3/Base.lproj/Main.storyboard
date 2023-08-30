@@ -921,7 +921,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUd-fi-UhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="1716"/>
+            <point key="canvasLocation" x="625" y="1716"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="rZL-sG-5BB">
@@ -1367,7 +1367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-Rb-fse">
-                                <rect key="frame" x="25" y="73" width="364" height="210.5"/>
+                                <rect key="frame" x="25" y="73" width="364" height="285.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event info here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-hn-yzL" userLabel="eventInfo">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
@@ -1375,39 +1375,40 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Say something about this event (optional)." minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-It-ijJ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ykR-nU-bc9">
                                         <rect key="frame" x="0.0" y="60.5" width="364" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="0Ka-ar-uH0"/>
+                                            <constraint firstAttribute="height" constant="150" id="Cek-Ez-LJ3"/>
                                         </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
+                                        <rect key="frame" x="0.0" y="250.5" width="364" height="35"/>
+                                        <buttonConfiguration key="configuration" style="gray">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Promote">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="createPost:" destination="cwT-oa-FJD" eventType="touchUpInside" id="3Jn-fu-EU3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Ik-0NK">
-                                <rect key="frame" x="161" y="483.5" width="92.5" height="35"/>
-                                <buttonConfiguration key="configuration" style="gray">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Promote">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="createPost:" destination="cwT-oa-FJD" eventType="touchUpInside" id="3Jn-fu-EU3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YQY-gl-yno"/>
                         <color key="backgroundColor" red="0.92549026010000002" green="0.92549026010000002" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="PaH-Ik-0NK" firstAttribute="centerX" secondItem="EIV-5e-rxH" secondAttribute="centerX" id="6dH-PD-me3"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="leading" secondItem="YQY-gl-yno" secondAttribute="leading" constant="25" id="97i-sk-HeF"/>
-                            <constraint firstItem="0H3-Rb-fse" firstAttribute="bottom" secondItem="PaH-Ik-0NK" secondAttribute="top" constant="-200" id="Ig0-ni-c00"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="trailing" secondItem="YQY-gl-yno" secondAttribute="trailing" constant="-25" id="iK7-VV-7Ue"/>
                             <constraint firstItem="0H3-Rb-fse" firstAttribute="top" secondItem="YQY-gl-yno" secondAttribute="top" constant="25" id="wcz-Zg-ex7"/>
                         </constraints>
@@ -1420,7 +1421,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="PostTextField" destination="f1W-It-ijJ" id="BQ9-iG-fOE"/>
+                        <outlet property="PostTextView" destination="ykR-nU-bc9" id="E7c-pf-Sck"/>
                         <outlet property="eventInfo" destination="iBe-hn-yzL" id="D2x-Hm-FKm"/>
                     </connections>
                 </viewController>
